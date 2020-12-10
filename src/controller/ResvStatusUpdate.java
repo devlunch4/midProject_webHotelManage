@@ -17,39 +17,34 @@ import vo.ResvlogVO;
 @WebServlet("/resvStatusUpdate.do")
 public class ResvStatusUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ResvStatusUpdate() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	System.out.println("자바 진입 ResvStatusUpdate");
 	request.setCharacterEncoding("UTF-8");
 	
 	//0 가져올 객체 가져오기
-	String resevNo =  request.getParameter("resev_no");
-	String resevState =  request.getParameter("resev_state");
+	int resev_no =  Integer.parseInt(request.getParameter("resev_no"));
+	String resev_state =  request.getParameter("resev_state");
+	
+	
+	System.out.println(resev_no + ":"+ resev_state);
 	
 	ResvlogVO vo = new ResvlogVO();
 	
-	vo.setRESEV_NO(resevNo);
-	vo.setRESEV_STATE(resevState);
+	vo.setResev_no(resev_no);
+	vo.setResev_state(resev_state);
 	
-	//1 서피스 호출
+	//1 서비스 호출
 	IHotelService service = HotelServiceImpl.getService();
 	
 	//2 수행 건수 확인
-	//int cnt = service.
+	int cnt = service.resvStatusUpdate(vo);
 	
+	// 3. 결과값 저장
+	request.setAttribute("res", cnt);
 	
-	
+	// 4.jsp로 보내기
+			request.getRequestDispatcher("hotel/result.jsp").forward(request, response);
 		
 		
 	}

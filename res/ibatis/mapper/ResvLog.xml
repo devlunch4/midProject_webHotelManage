@@ -6,12 +6,11 @@
 <sqlMap namespace="resvlog">
 <!-- 예약로그 모두 가져오기 -->
 	<select id="resvLogAllList" resultClass="resvlogVo">
-		SELECT * FROM resvlog WHERE resev_state='예약'
+		SELECT * FROM resvlog WHERE resev_state='예약' ORDER BY resev_no
 	</select>
 
-	<update id="resvStatusUpdate" resultClass="resvlogVo">
-		UPDATE resvlog 
-		SET resev_state=#resev_state#, resev_date=sysdate
-		WHERE resev_no=#resev_no#
-	</update> 
+ <update id="resvLogUpdate" parameterClass="resvlogVo">
+UPDATE resvlog SET resev_state=#resev_state#, resev_date=sysdate
+WHERE resev_no=#resev_no#</update>
+
 </sqlMap>

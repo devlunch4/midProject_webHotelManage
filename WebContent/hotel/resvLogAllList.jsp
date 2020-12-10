@@ -16,16 +16,16 @@
 			}%>
 	
 	{
-		"resev_no" : "<%=vo.getRESEV_NO()%>",
-		"room_in" : "<%=vo.getROOM_IN()%>",
-		 "room_out" : "<%=vo.getROOM_OUT()%>",
-		  "mem_id" : "<%=vo.getMEM_ID()%>",
-		"room_no" : "<%=vo.getROOM_NO()%>",
-		"room_pl" : "<%=vo.getROOM_PL()%>",
-		"room_type" : "<%=vo.getROOM_TYPE()%>",
-		 "room_num" : "<%=vo.getROOM_NUM()%>",
-		"resev_state" : "<%=vo.getRESEV_STATE()%>",
-		 "resev_date" : "<%=vo.getRESEV_DATE()%>"
+		"resev_no" : "<%=vo.getResev_no()%>",
+		"room_in" : "<%=vo.getRoom_in()%>",
+		 "room_out" : "<%=vo.getRoom_out()%>",
+		  "mem_id" : "<%=vo.getMem_id()%>",
+		"room_no" : "<%=vo.getRoom_no()%>",
+		"room_pl" : "<%=vo.getRoom_pl()%>",
+		"room_type" : "<%=vo.getRoom_type()%>",
+		 "room_num" : "<%=vo.getRoom_num()%>",
+		"resev_state" : "<%=vo.getResev_state()%>",
+		 "resev_date" : "<%=vo.getResev_date()%>"
 	}
 	<%} %>
 ]

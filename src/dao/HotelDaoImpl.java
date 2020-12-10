@@ -31,7 +31,7 @@ public class HotelDaoImpl implements IHotelDao {
 
 	@Override
 	public int resvStatusUpdate(ResvlogVO vo) throws SQLException {
-		return client.update("resvlog.resvStatusUpdate", vo);
+		return client.update("resvlog.resvLogUpdate", vo);
 	}
 
 }

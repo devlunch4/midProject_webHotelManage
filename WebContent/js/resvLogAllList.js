@@ -1,20 +1,21 @@
 var resvStatusUpdateServer = function() {
-	alert("JS 진입 /// 해당 번호글" + vidx + ", 결재/취소환불 이름값확인 " + vname);
+	//alert("JS 진입 /// 해당 번호글" + vidx + ", 결재/취소환불 이름값확인 " + vname);
 	$.ajax({
-		url : "/board/resvStatusUpdate.do",
+		url : "/hotel/resvStatusUpdate.do",
 		type : "post",
 		data : {
 			"resev_no" : vidx,
 			"resev_state" : vname
 		},
-		dataType : "json",
 		success : function() {
 			alert("resvStatusUpdateServer() >> 결제상태 수정 성공");
 		},
 		error : function(xhr) {
 			alert("resvStatusUpdateServer 실패 : " + xhr.status);
-		}
-	})
+		},
+		dataType : "json"
+	})	
+	document.location.reload(true);
 }
 
 var resvViewAll = function() {
@@ -24,7 +25,7 @@ var resvViewAll = function() {
 				type : "post",
 				dataType : "json",
 				success : function(res) {
-					alert("성공");
+					alert("예약로그 테이블 중 예약 상태 목록 로딩 성공");
 					code = "<div class='resvAllListTable' id='resvAllListTable>'";
 					code += "<h1>예약 테이블</h1>";
 					code += "<table border='1'>";
