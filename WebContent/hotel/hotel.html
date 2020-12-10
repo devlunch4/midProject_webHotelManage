@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="http://localhost/board/js/board.js"></script> -->
+<script src="../js/jquery.serializejson.min.js"></script>
+<script src="../js/resvLogAllList.js"></script>
+<script>
+	$(function() {
+
+		$("#resvloglist").on("click", function() {
+			resvViewAll();
+		}) // $("#resvloglist") 함수 마감	
+
+		
+		//상태가 예약건만 조회
+		$(".resvBox").on("click", ".action", function() {
+			//alert("해당 행의 클릭 확인 진입")
+			vidx = $(this).attr("idx");
+			vname = $(this).attr("name");
+			alert("해당 번호글" +  vidx + ", 결재/취소환불 이름값확인 " + vname);
+			
+			resvStatusUpdateServer();
+		}) //$(".paychk") 마감
+	})// 도큐멘트 마감
+</script>
+
+
+</head>
+<body>
+
+
+
+	<input type="button" id="resvloglist" value="resvloglist">
+	<br>
+
+	<div class="resvBox"></div>
+</body>
+</html>

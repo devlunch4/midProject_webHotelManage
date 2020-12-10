@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
+
+<sqlMap namespace="resvlog">
+<!-- 예약로그 모두 가져오기 -->
+	<select id="resvLogAllList" resultClass="resvlogVo">
+		SELECT * FROM resvlog WHERE resev_state='예약'
+	</select>
+
+	<update id="resvStatusUpdate" resultClass="resvlogVo">
+		UPDATE resvlog 
+		SET resev_state=#resev_state#, resev_date=sysdate
+		WHERE resev_no=#resev_no#
+	</update> 
+</sqlMap>
