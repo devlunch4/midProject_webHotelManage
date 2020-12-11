@@ -29,5 +29,5 @@ public interface IHotelDao {
 	public String selectById(String id) throws SQLException;
 	
 	//b1 회원가입 인서트
-	public int insertMember(MemberInfoVO vo) throws SQLException;
+	public String insertMember(MemberInfoVO vo) throws SQLException;
 }

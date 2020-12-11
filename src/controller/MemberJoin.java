@@ -33,7 +33,9 @@ public class MemberJoin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// b1 회원가입 인서트
-
+		System.out.println();
+		System.out.println("000");
+		System.out.println();
 		request.setCharacterEncoding("UTF-8");
 
 		String id = request.getParameter("mem_id");
@@ -46,7 +48,9 @@ public class MemberJoin extends HttpServlet {
 		String add1 = request.getParameter("mem_add1");
 		String add2 = request.getParameter("mem_add2");
 		String add3 = add1 + " " + add2;
-
+		String power = "0";
+		
+		
 		MemberInfoVO vo = new MemberInfoVO();
 
 		vo.setMem_pass(pass);
@@ -56,27 +60,24 @@ public class MemberJoin extends HttpServlet {
 		vo.setMem_bir(bir);
 		vo.setMem_tel(hp);
 		vo.setMem_addr(add3);
-		vo.setPower("0");
+		vo.setPower(power);
 
+		System.out.println("111");
 		// 1 서비스 객체 얻기
 		IHotelService service = HotelServiceImpl.getService();
-		
-		System.out.println("확인1");
-		
+
 		// 2 service 메소드 호출. 결과 받기
-		int res = service.insertMember(vo);
+		String resId = service.insertMember(vo);
 
 		// 컨트롤러>서비스>다오>서비스>컨드롤러
 
 		// 3 결과값 저장.
-		request.setAttribute("res", res);
-
-		
+		request.setAttribute("resId", resId);
+		System.out.println(resId);
 
 		// 결과 출력 또는 json 생성
-		request.getRequestDispatcher("hotel/result.jsp").forward(request, response);
-		
-		System.out.println("확인2");
+		request.getRequestDispatcher("hotel/joinres.jsp").forward(request, response);
+
 	}
 
 	/**

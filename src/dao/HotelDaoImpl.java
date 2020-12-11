@@ -65,9 +65,9 @@ public class HotelDaoImpl implements IHotelDao {
 	}
 
 	@Override
-	public int insertMember(MemberInfoVO vo) throws SQLException {
+	public String insertMember(MemberInfoVO vo) throws SQLException {
 		// TODO Auto-generated method stub
-		return (Integer) client.insert("memberinfo.insertMember", vo);
+		return (String) client.insert("memberinfo.insertMember", vo);
 	}
 
 }

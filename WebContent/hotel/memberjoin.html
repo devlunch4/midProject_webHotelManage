@@ -301,8 +301,8 @@ infox = {};
 								data : infox,
 								type : "post",
 								success : function(res) {
-									alert("가입버튼 후 INSERT 성공");
-									$("#joinspan").html(res.sw + " : " + idvalue +" 님 환영합니다.").css("color", "red");
+									//alert("가입버튼 후 INSERT 성공");
+									$("#joinspan").html(idvalue + " 님 "+ res.sw).css("color", "red");
 								},
 								error : function(xhr) {
 									alert("상태 : " + xhr.status);

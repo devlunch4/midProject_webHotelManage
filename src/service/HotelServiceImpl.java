@@ -115,17 +115,18 @@ public class HotelServiceImpl implements IHotelService {
 		}
 		return resId;
 	}
-
+	
+	//b1 회원가입 인서트
 	@Override
-	public int insertMember(MemberInfoVO vo) {
-		int id = 0;
+	public String insertMember(MemberInfoVO vo) {
+		String cnt = null;
 		try {
-			id = dao.insertMember(vo);
+			cnt = dao.insertMember(vo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return id;
+		return cnt;
 	}
 
 }

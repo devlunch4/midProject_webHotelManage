@@ -28,7 +28,7 @@ public interface IHotelService {
 	public String selectById(String id);
 	
 	//b1 회원가입 인서트
-	public int insertMember(MemberInfoVO vo);
+	public String insertMember(MemberInfoVO vo);
 	
 
 }
