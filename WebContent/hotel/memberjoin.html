@@ -47,8 +47,11 @@
 </style>
 
 <script>
+infox = {};
+
 	$(
 			function() {
+							
 				$("#resetbtn").on("click", function() {
 					document.location.reload(true);
 				})
@@ -164,7 +167,7 @@
 							//---------
 
 							$.ajax({
-								url : "/member/IdCheck",
+								url : "/hotel/idCheck.do",
 								type : "post",
 								data : {
 									"id" : idvalue
@@ -181,7 +184,7 @@
 
 						})
 
-				// 우편번호 검색 -window
+				/* // 우편번호 검색 -window
 				$("#zipw").on(
 						"click",
 						function() {
@@ -256,7 +259,7 @@
 
 					$("#myModal").modal("hide");
 
-				})
+				}) */
 
 				$("#joinbtn").on(
 						"click",
@@ -277,16 +280,29 @@
 							if (!regcheck()) {
 								return false;
 							}
+							
 							idvalue = $("#id").val().trim();
+							
+							
+							infox.mem_id = $("#id").val().trim();
+							infox.mem_name  = $("#name").val().trim();
+							infox.mem_pass  = $("#pwd").val().trim();
+							infox.mem_email  = $("#email").val().trim();
+							infox.mem_bir  = $("#bir").val().trim();
+							infox.mem_hp  = $("#tel").val().trim();
+							infox.mem_zip  = $("#zip").val().trim();
+							infox.mem_add1  = $("#addr1").val().trim();
+							infox.mem_add2  = $("#addr2").val().trim();
+							
+							console.log(infox);
+							
 							$.ajax({
-								url : "/member/join.do",
-								data : $("#joinform").serializeJSON(),
+								url : "/hotel/memberJoin.do",
+								data : infox,
 								type : "post",
 								success : function(res) {
-									$("#joinspan").html(
-											res.sw + " : " + idvalue
-													+ " 님 환영합니다.").css("color",
-											"red");
+									alert("가입버튼 후 INSERT 성공");
+									$("#joinspan").html(res.sw + " : " + idvalue +" 님 환영합니다.").css("color", "red");
 								},
 								error : function(xhr) {
 									alert("상태 : " + xhr.status);
@@ -353,8 +369,8 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="bir">생년월일 :</label>
 					<div class="col-sm-4">
-						<input type="date" class="form-control" id="bir"
-							placeholder="Enter 생년월일" name="mem_bir">
+					<input type="date" class="form-control" id="bir"
+							placeholder="2020-01-01" name="mem_bir" value="">
 					</div>
 					<span id="birspan"></span>
 				</div>

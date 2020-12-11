@@ -2,10 +2,14 @@
 	pageEncoding="UTF-8"%>
 
 <%
-int res = (Integer)request.getAttribute("res");
-if(res > 0){
+	int res = (Integer) request.getAttribute("res");
+	if (res > 0) {
 %>
 {"sw" : " 성공"}
-<%}else { %>
+<%
+	} else {
+%>
 {"sw" : " 실패"}
-<% }%>
+<%
+	}
+%>

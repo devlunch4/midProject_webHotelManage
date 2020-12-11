@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import vo.MemberInfoVO;
 import vo.ResvlogVO;
 import vo.RoomVO;
 
@@ -26,4 +27,7 @@ public interface IHotelDao {
 
 	// b1 아이디 중복 검사
 	public String selectById(String id) throws SQLException;
+	
+	//b1 회원가입 인서트
+	public int insertMember(MemberInfoVO vo) throws SQLException;
 }
