@@ -5,10 +5,10 @@ public class ResvlogVO {
 	private String room_in;
 	private String room_out;
 	private String mem_id;
-	private String room_no;
+	private int  room_no;
 	private String room_pl;
 	private String room_type;
-	private String room_num;
+	private int room_num;
 	private String resev_state;
 	private String resev_date;
 	
@@ -37,10 +37,10 @@ public class ResvlogVO {
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
-	public String getRoom_no() {
+	public int getRoom_no() {
 		return room_no;
 	}
-	public void setRoom_no(String room_no) {
+	public void setRoom_no(int room_no) {
 		this.room_no = room_no;
 	}
 	public String getRoom_pl() {
@@ -55,10 +55,10 @@ public class ResvlogVO {
 	public void setRoom_type(String room_type) {
 		this.room_type = room_type;
 	}
-	public String getRoom_num() {
+	public int getRoom_num() {
 		return room_num;
 	}
-	public void setRoom_num(String room_num) {
+	public void setRoom_num(int room_num) {
 		this.room_num = room_num;
 	}
 	public String getResev_state() {
@@ -73,12 +73,6 @@ public class ResvlogVO {
 	public void setResev_date(String resev_date) {
 		this.resev_date = resev_date;
 	}
-	
-	
-	public ResvlogVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	
+
 }

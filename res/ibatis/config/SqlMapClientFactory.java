@@ -10,46 +10,39 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 public class SqlMapClientFactory {
 
-	static Reader rd = null;
 	static SqlMapClient smc = null;
+	static Reader rd = null;
+
 	static {
 
 		try {
-			// 1. iBatisÀÇ È¯°æ ¼³Á¤ ÆÄÀÏ ()sqlMapConfig.xml)À» ÀĞ¾î¿Í¼­ ½ÇÇàÇÑ´Ù.
-			// Class LprodIbatisTest º¹ºÙ //È¯°æ¼³Á¤
-			// 1-1. ¹®ÀÚ ÀÎÄÚµù Ä³¸¯ÅÍ ¼Â ¼³Á¤ÇÏ±â
+
+			// 1-1. ë¬¸ì ì¸ì½”ë”© ìºë¦­í„°ì…‹ ì„¤ì •í•˜ê¸°
 			Charset charset = Charset.forName("UTF-8");
 			Resources.setCharset(charset);
 
-			// 1-2. È¯°æ ¼³Á¤ ÆÄÀÏÀ» ÀĞ¾î¿Â´Ù.
+			// 1-2. í™˜ê²½ ì„¤ì • íŒŒì¼ì„ ì½ì–´ì˜¨ë‹¤.
 			rd = Resources.getResourceAsReader("ibatis/config/sqlMapConfig.xml");
 
-			// 1-3. À§¿¡¼­ ÀĞ¾î¿Â reader °´Ã¼¸¦ ÀÌ¿ëÇÏ¿© ½ÇÁ¦ È¯°æ ¼³Á¤À» ¿Ï¼ºÇÑÈÄ
-			/////// SQL¹®À» È£ÃâÇØ¼­ ½ÇÇàÇÒ ¼ö ÀÖ´Â °´Ã¼¸¦ »ı¼ºÇÑ´Ù.
+			// 1-3. ìœ„ì—ì„œ ì½ì–´ì˜¨ Readerê°ì²´ë¥¼ ì´ìš©í•˜ì—¬ ì‹¤ì œ í™˜ê²½ì„¤ì •ì„ ì™„ì„±í•œ í›„
+			// SQLë¬¸ì„ í˜¸ì¶œí•´ì„œ ì‹¤í–‰í•  ìˆ˜ ìˆëŠ” ê°ì²´ë¥¼ ìƒì„±í•œë‹¤.
 			smc = SqlMapClientBuilder.buildSqlMapClient(rd);
-
-			// È¯°æ¼³Á¤ ³¡.~~~~~~~~~~
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-
-		// factory¿¡¼­ Áö¿ì´Â°¡ ¸¶´Â°¡. == close or not close????
-		finally {
-			if (rd != null) {
+		} finally {
+			// ìì› ë°˜ë‚©
+			if (rd != null)
 				try {
-					rd.close(); // °´Ã¼ ´İ±â
+					rd.close();
 				} catch (IOException e2) {
-					// TODO: handle exception
 				}
-			} // if
-		} // finally
-	}// static
+		}
+	}
 
-	// static (À§ÀÇ ¸Ş¼Òµå)ÀÌ ³¡³­ÈÄ ¸®ÅÏÇØÁØ´Ù.
-	// dao¿¡¼­ ¹Ş¾ÒÀ» °æ¿ì¿¡ µû¶ó¼­ ¼³Á¤µÈ È¯°æ¼³Á¤°ªÀ» È£Ãâ
 	public static SqlMapClient getSqlMapClient() {
+
 		return smc;
 	}
 
-}// class
+}

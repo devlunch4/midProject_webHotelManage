@@ -18,11 +18,13 @@
 	<!-- 그래서 전체 이름 대신 사용할 alias를 설정할수 있다 -->
 	<!-- 형식:<typeAlias alias="alias명" type="클래스의 전체이름"> -->
 	<!-- <typeAlias alias="memVo" type="apple2.member.vo.MemberVO" /> -->
-	
-	
-	<typeAlias alias="resvlogVo" type="vo.ResvlogVO" />
-	
-			
+
+
+	<typeAlias type="vo.RoomVO" alias="roomVO" />
+	<typeAlias type="vo.ResvlogVO" alias="resvlogVO" />
+	<typeAlias type="vo.MemberInfoVO" alias="memberinfoVO" />
+
+
 	<!-- <typeAlias alias="jdbcBoardVo" type="board.vo.JdbcBoardVO" /> -->
 
 
@@ -42,7 +44,10 @@
 	<!-- 실행할 SQL문을 xml문서로 따로 작성한후 그 xml문서를 아래와 같이 등록하면 된다. -->
 	<!-- 형식) <sqlMap resource="경로명/파일명.xml"/> -->
 
-	<sqlMap resource="ibatis/mapper/ResvLog.xml" />
+
+	<sqlMap resource="ibatis/mapper/room.xml" />
+	<sqlMap resource="ibatis/mapper/resvlog.xml" />
+	<sqlMap resource="ibatis/mapper/memberinfo.xml" />
 	<!-- <sqlMap resource="board/ibatis/board.xml" /> -->
 
 </sqlMapConfig>

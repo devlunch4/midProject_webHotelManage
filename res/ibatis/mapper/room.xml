@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+ 	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ 	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
+
+<sqlMap namespace="room">
+
+	<select id="getRoomPl" resultClass="roomVO">
+		SELECT room_pl
+		FROM hawaiiroominfo
+		WHERE room_status = '빈방'
+		UNION
+		SELECT room_pl
+		FROM headroominfo
+		WHERE room_status = '빈방'
+	</select>
+	
+	<select id="getRoomType" parameterClass="String" resultClass="roomVO">
+		SELECT room_type
+		FROM hawaiiroominfo
+		WHERE room_status = '빈방'
+		AND room_pl = #room_pl#
+		GROUP BY room_type
+		UNION
+		SELECT room_type
+		FROM headroominfo
+		WHERE room_status = '빈방'
+		AND room_pl = #room_pl#
+		GROUP BY room_type
+	</select>
+	
+	<select id="getRoomNo" parameterClass="map" resultClass="roomVO">
+		SELECT room_no
+		FROM hawaiiroominfo
+		WHERE room_status = '빈방'
+		AND room_pl = #room_pl#
+		AND room_type = #room_type#
+		GROUP BY room_no
+		UNION
+		SELECT room_no
+		FROM headroominfo
+		WHERE room_status = '빈방'
+		AND room_pl = #room_pl#
+		AND room_type = #room_type#
+		GROUP BY room_no
+	</select>
+
+</sqlMap>
+
+
+
+
+ 	
+ 	

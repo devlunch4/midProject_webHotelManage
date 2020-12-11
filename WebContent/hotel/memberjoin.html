@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+
+<style></style>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>회원가입</h1>
+<div id="result1">
+<div class="container"><h1>회원가입</h1>
+
+<form id="joinform" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="id">아이디 :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="id"
+							placeholder="Enter 아이디" name="mem_id">
+					</div>
+					<input id="idbtn" class="btn btn-warning" type="button"
+						value="중복검사"> <span id="idspan"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">비밀번호 :</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" id="pwd"
+							placeholder="Enter 패스워드" name="mem_pass">
+					</div>
+					<span id="pwdspan"></span>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">비밀번호확인 :</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" id="pwd2"
+							placeholder="Enter 패스워드확인" name="mem_pass2">
+					</div>
+					<span id="pwdspan2"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">이름 :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="name"
+							placeholder="Enter 이름" name="mem_name">
+					</div>
+					<span id="namespan"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="bir">생년월일 :</label>
+					<div class="col-sm-4">
+						<input type="date" class="form-control" id="bir"
+							placeholder="Enter 생년월일" name="mem_bir">
+					</div>
+					<span id="birspan"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="gend">성별:</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="gend" name="gend">
+							<option value="male">남자</option>
+							<option value="female">여자</option>
+						</select>
+					</div>
+					<span id="gendspan"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="email">이메일 :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="email"
+							placeholder="Enter 이메일" name="mem_email">
+					</div>
+					<span id="emailspan"></span>
+				</div>
+
+
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="tel">전화번호 :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="tel"
+							placeholder="Enter 전화번호" name="mem_hp">
+					</div>
+					<span id="telspan"></span>
+				</div>
+
+
+</div>
+</div>
+
+</body>
+</html>
