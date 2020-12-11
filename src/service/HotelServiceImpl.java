@@ -24,9 +24,7 @@ public class HotelServiceImpl implements IHotelService {
 	}
 	
 	
-	////////////////////////////////////////////////
-	
-	//b1 시작----------------------------------------
+
 	//b1 예약로그테이블 리스트 가져오는 메소드
 	@Override
 	public List<ResvlogVO> resvLogAllList() {
@@ -91,7 +89,7 @@ public class HotelServiceImpl implements IHotelService {
 			return list;
 		}
 		
-		// 방 번호 가져오는 메서드
+		// b2 방 번호 가져오는 메서드
 		@Override
 		public List<RoomVO> getRoomNo(Map<String, String> map) {
 			
@@ -107,7 +105,21 @@ public class HotelServiceImpl implements IHotelService {
 			
 			return list;
 		}
+
+		//b1 회원 아이디 중복검사 > 입력값이 아이디 존재유무 확인
+		@Override
+		public String selectById(String id) {
+			String resId = null;
+			
+			try {
+				resId = dao.selectById(id);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return resId;
+		}
 		
-		//b2 끝----------------------------------------
+		
 
 }

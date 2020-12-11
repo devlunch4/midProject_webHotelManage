@@ -13,6 +13,11 @@
 		and mem_pass = #mem_pass#
 	</select>
 	
+		<select id="selectById" parameterClass="string"
+		resultClass="string">
+		SELECT mem_id FROM memberinfo WHERE mem_id = #data#
+	</select>
+	
 
 </sqlMap>
 

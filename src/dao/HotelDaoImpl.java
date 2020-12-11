@@ -56,4 +56,11 @@ public class HotelDaoImpl implements IHotelDao {
 			return (List<RoomVO>) client.queryForList("room.getRoomNo", map);
 		}
 
+		// b1 아이디 중복 검사
+		@Override
+		public String selectById(String id) throws SQLException {
+			// TODO Auto-generated method stub
+			return (String) client.queryForObject("memberinfo.selectById",id);
+		}
+
 }
