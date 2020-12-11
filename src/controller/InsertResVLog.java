@@ -31,6 +31,9 @@ public class InsertResVLog extends HttpServlet {
 		String roomType = request.getParameter("room_type");
 		int roomNum = Integer.parseInt(request.getParameter("room_num"));
 
+		//확인용
+		System.out.println("예약테이블에 로그생성 진입 ");
+		
 		ResvlogVO vo = new ResvlogVO();
 		vo.setRoom_in(roomIn);
 		vo.setRoom_out(roomOut);
@@ -44,7 +47,7 @@ public class InsertResVLog extends HttpServlet {
 
 		int res = service.insertResVLog(vo);
 
-		request.setAttribute("result", res);
+		request.setAttribute("res", res);
 
 		request.getRequestDispatcher("hotel/result.jsp").forward(request, response);
 

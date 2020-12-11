@@ -5,7 +5,7 @@
 int res = (Integer)request.getAttribute("res");
 if(res > 0){
 %>
-{"sw" : "댓글 수정 성공"}
+{"sw" : " 성공"}
 <%}else { %>
-{"sw" : "댓글 수정 실패"}
+{"sw" : " 실패"}
 <% }%>

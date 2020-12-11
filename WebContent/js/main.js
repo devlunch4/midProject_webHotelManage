@@ -41,8 +41,7 @@ var insertResVLog = function() {
 				, "room_num" : vroomPeople
 				},
 			success : function(res) {
-				alert(res.sw);
-				alert(test + "님 예약 하셨습니다.");					
+				alert(test + " 님 예약 " + res.sw +" 하셨습니다.");					
 			},
 			error : function(xhr) {
 				alert("상태 : " + xhr.status);
