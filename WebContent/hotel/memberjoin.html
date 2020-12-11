@@ -302,6 +302,7 @@ infox = {};
 								type : "post",
 								success : function(res) {
 									//alert("가입버튼 후 INSERT 성공");
+									
 									$("#joinspan").html(idvalue + " 님 "+ res.sw).css("color", "red");
 								},
 								error : function(xhr) {
