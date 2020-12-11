@@ -7,6 +7,7 @@ import java.util.Map;
 import vo.MemberInfoVO;
 import vo.ResvlogVO;
 import vo.RoomVO;
+import vo.VoteVO;
 
 public interface IHotelDao {
 
@@ -27,7 +28,13 @@ public interface IHotelDao {
 
 	// b1 아이디 중복 검사
 	public String selectById(String id) throws SQLException;
-	
-	//b1 회원가입 인서트
+
+	// b1 회원가입 인서트
 	public String insertMember(MemberInfoVO vo) throws SQLException;
+
+	// b3 직원 투표수 가져오기
+	public int updateMemberVote(VoteVO vo) throws SQLException;
+
+	// b3 직원 전체 정보 가져오기
+	public List<VoteVO> votelistAll() throws SQLException;
 }

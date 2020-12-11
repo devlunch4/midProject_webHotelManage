@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+<%@page import="vo.MemberInfoVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Web Shop</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,26 +44,42 @@
 </style>
 
 <script>
+	<%
+		MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+	
+		String userId = vo.getMem_id();
+		String userName = vo.getMem_name();
+		String userEmail = vo.getMem_email();
+	%>
 
-	userId= null;
-	userPassword = null;
+		userId = "<%= userId %>";
+		userName = "<%= userName %>";
+		userEmail = "<%= userEmail %>";
 
 	$(function() {
 		
+		console.log("userId : " + userId);
+		console.log("userName : " + userName);
+		console.log("userEmail : " + userEmail);
+				
 		
-		//호텔 목록들 불러오기
+		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
+		userNameStr = userName + "님";
+		userEmailStr = " 이메일 : " + userEmail;
+		$('#userName').append(userNameStr);
+		$('#userEmail').append(userEmailStr);
+		
 		getRoomPlList();
 		
 		getRoomTypeList();
 		
 		getRoomNumList(); 
 		
-		$('#reservationBtn').on('click', function() {
-			alert("로그인 하셔야합니다.");
-		})
+		// 예약 부분
+		insertResVLog();
 		
-		// 로그인 함수
-		login();
+		// 로그아웃 부분
+		logout();
 		
 		 
 		/* 
@@ -95,6 +114,9 @@
 			
 		})
 		 */
+		 
+		 
+		
 	})
 </script>
 
@@ -102,15 +124,12 @@
 <body>
 
 	<div id="login" style="float : right;">
-		<form id="loginForm" action="main.jsp" method="post">
-			<div id="loginBefore">
-				<label>아이디 : </label><input id="id" type="text" name="id">
-				<label>비밀번호 : </label><input id="password" type="password" name="pass">
-	
-				<input id="loginBtn" type="submit" value="로그인">
-				<!-- <input class="input" type="reset" value="초기화"> -->
-				<a href="main.html">회원가입</a> 
-				<a href="main.html">ID/비밀번호찾기</a>
+		<form id="loginForm" action="main.html" method="post">
+			<div id="loginAfter">
+				<label id="userName"></label>
+				<label id="userEmail"></label>
+				<input id="loginOutBtn" type="submit" value="로그아웃">
+				<input type="button" value="내정보">
 			</div>
 		</form>
 	</div>
@@ -176,6 +195,7 @@
     				</select>
     			</td>
     			<td id="roomPeople" idx="roomPeople" name="roomPeople">
+    				<!-- <p id="roomPeopleList"></p> -->
     			</td>
     			<td id="room_no" idx="room_no" name="room_no">
     				<select id="roomNoList">
@@ -188,7 +208,7 @@
 
 	<br>
 	
-	<input type="button" id="updateMemberInfoBtn" value="내정보 수정">
+	<!-- <input type="button" id="updateMemberInfoBtn" value="내정보 수정"> -->
 	
 	<section id="section_result">
 		<article id="article_result">
@@ -203,7 +223,6 @@
 	<footer id="footer">
 		<p id="WebShop" style="color:white;">호텔 달고나</p>
 	</footer>
-   
 
 
 </body>

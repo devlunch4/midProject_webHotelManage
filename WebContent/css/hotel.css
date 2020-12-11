@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.star{
+  background: url('../images/star.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-indent: -9999px; 
+}
+.star.on{background-position:0 0;}
+
+.event{
+	width: 200px;
+	height: 150px; 
+	float: left;
+}
+
+
+

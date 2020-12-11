@@ -9,6 +9,7 @@ import dao.IHotelDao;
 import vo.MemberInfoVO;
 import vo.ResvlogVO;
 import vo.RoomVO;
+import vo.VoteVO;
 
 public class HotelServiceImpl implements IHotelService {
 	private IHotelDao dao;
@@ -127,6 +128,37 @@ public class HotelServiceImpl implements IHotelService {
 			e.printStackTrace();
 		}
 		return cnt;
+	}
+
+	
+	// b3 직원 투표 업데이트
+	@Override
+	public int updateMemberVote(VoteVO vo) {
+int cnt = 0;
+		
+		try {
+			cnt = dao.updateMemberVote(vo);
+		}catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
+	// b3 직원 가져오기
+	@Override
+	public List<VoteVO> votelistAll() {
+List<VoteVO> list = null;
+		
+		try {
+			list=dao.votelistAll();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 }

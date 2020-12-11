@@ -4,8 +4,21 @@
     pageEncoding="UTF-8"%>
 
 <%
-	List<MemberInfoVO> list = (List<MemberInfoVO>) request.getAttribute("list");
+	//List<MemberInfoVO> list = (List<MemberInfoVO>) request.getAttribute("list");
+	MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 %>
+
+	{
+				"mem_id" : "<%= vo.getMem_id() %>",
+				"mem_name" : "<%= vo.getMem_name() %>",
+				"mem_email" : "<%= vo.getMem_email() %>"
+	}
+<%-- 	<%
+		session.setAttribute("mem_id", vo.getMem_id());
+		session.setAttribute("mem_name", vo.getMem_name());
+		session.setAttribute("mem_email", vo.getMem_email());
+	%> --%>
+	<%-- 
 [
 	<%
 	for(int i=0; i < list.size(); i++) {
@@ -16,12 +29,14 @@
 			{
 				"mem_id" : "<%= vo.getMem_id() %>",
 				"mem_pass" : "<%= vo.getMem_pass() %>",
-				"mem_name" : "<%= vo.getMem_name() %>"
+				"mem_name" : "<%= vo.getMem_name() %>",
+				"mem_email" : "<%= vo.getMem_email() %>"
 			}
 	<%		
 		}
-	%>
+	%> 
 ]
+	--%>
 
     
     

@@ -10,6 +10,7 @@ import ibatis.config.SqlMapClientFactory;
 import vo.MemberInfoVO;
 import vo.ResvlogVO;
 import vo.RoomVO;
+import vo.VoteVO;
 
 public class HotelDaoImpl implements IHotelDao {
 
@@ -64,10 +65,25 @@ public class HotelDaoImpl implements IHotelDao {
 		return (String) client.queryForObject("memberinfo.selectById", id);
 	}
 
+	//b1 회원가입 넣기
 	@Override
 	public String insertMember(MemberInfoVO vo) throws SQLException {
 		// TODO Auto-generated method stub
 		return (String) client.insert("memberinfo.insertMember", vo);
+	}
+
+	// b3 직원 투표 업
+	@Override
+	public int updateMemberVote(VoteVO vo) throws SQLException {
+		// TODO Auto-generated method stub
+		return (Integer)client.update("memberVote.updateMemberVote",vo);
+	}
+
+	// b3 직원 리스트 불러오기
+	@Override
+	public List<VoteVO> votelistAll() throws SQLException {
+
+		return client.queryForList("memberVote.votelistAll");
 	}
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
+	
+<sqlMap namespace="memberVote"> 
+	<update id="updateMemberVote" parameterClass="VoteVO">
+		update staffinfo set
+				staff_score=#staff_score#
+				where staff_code = #staff_code#
+</update>
+	
+	<select id="votelistAll" resultClass="VoteVO">
+		select * from staffinfo order by staff_code desc
+	</select>
+
+
+</sqlMap>
