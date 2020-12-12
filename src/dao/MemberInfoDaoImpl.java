@@ -25,8 +25,8 @@ public class MemberInfoDaoImpl implements IMemberInfoDao{
 	
 	// 로그인을 위해 memberinfo테이블에서 id와 password가져오는 메서드 dao부분
 	@Override
-	public List<MemberInfoVO> getMemberInfo(MemberInfoVO vo) throws SQLException {
-		return client.queryForList("memberinfo.getMemberInfo", vo);
+	public MemberInfoVO getMemberInfo(MemberInfoVO vo) throws SQLException {
+		return (MemberInfoVO) client.queryForObject("memberinfo.getMemberInfo", vo);
 	}
 	
 	

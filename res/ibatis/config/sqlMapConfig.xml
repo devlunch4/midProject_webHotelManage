@@ -23,7 +23,10 @@
 	<typeAlias type="vo.RoomVO" alias="roomVO" />
 	<typeAlias type="vo.ResvlogVO" alias="resvlogVO" />
 	<typeAlias type="vo.MemberInfoVO" alias="memberinfoVO" />
-	<typeAlias type="vo.VoteVO" alias="VoteVO"/>
+	<typeAlias type="vo.VoteVO" alias="VoteVO" />
+	<typeAlias type="vo.NoticeVO" alias="notiVo" />
+	<typeAlias type="vo.ReviewVO" alias="revVo" />
+	<typeAlias type="vo.RevReplyVO" alias="revrepVo" />
 
 
 	<!-- <typeAlias alias="jdbcBoardVo" type="board.vo.JdbcBoardVO" /> -->
@@ -49,7 +52,10 @@
 	<sqlMap resource="ibatis/mapper/room.xml" />
 	<sqlMap resource="ibatis/mapper/resvlog.xml" />
 	<sqlMap resource="ibatis/mapper/memberinfo.xml" />
-	<sqlMap resource="ibatis/mapper/membervote.xml"/>
-	<!-- <sqlMap resource="board/ibatis/board.xml" /> -->
+	<sqlMap resource="ibatis/mapper/membervote.xml" />
+	<sqlMap resource="ibatis/mapper/notice.xml" />
+	<sqlMap resource="ibatis/mapper/review.xml" />
+	<sqlMap resource="ibatis/mapper/revReply.xml" />
+
 
 </sqlMapConfig>

@@ -44,24 +44,42 @@
 </style>
 
 <script>
+	$(function() {
 	<%
 		MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+		
+		String userId;
+		String userName;
+		String userEmail;
+		
+		if(vo!=null) {
+			%>
+			createLoginAfterPart();
+			<%
 	
-		String userId = vo.getMem_id();
-		String userName = vo.getMem_name();
-		String userEmail = vo.getMem_email();
+		userId = vo.getMem_id();
+		userName = vo.getMem_name();
+		userEmail = vo.getMem_email();
+		
+		} else {
+			
+			%>
+			createLoginPart();
+			<%
+			
+			userId = null;
+			userName = null;
+			userEmail = null;
+		}
 	%>
 
-		userId = "<%= userId %>";
+ 		userId = "<%= userId %>";
 		userName = "<%= userName %>";
 		userEmail = "<%= userEmail %>";
-
-	$(function() {
 		
 		console.log("userId : " + userId);
 		console.log("userName : " + userName);
 		console.log("userEmail : " + userEmail);
-				
 		
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = userName + "님";
@@ -71,16 +89,43 @@
 		
 		getRoomPlList();
 		
+		// 방 종류 선택
 		getRoomTypeList();
 		
-		getRoomNumList(); 
+		// 방번호 처리
+		getRoomNumList();
 		
-		// 예약 부분
-		insertResVLog();
+		// 예약 처리
+		$('#reservationBtn').on('click', function() {
+			<%
+			if(userId!=null) {
+			%>	
+				// 예약 처리 부분
+				insertResVLog();
+			<%	
+			} else {
+				%>
+				alert("로그인 하시기 바랍니다.");
+				console.log("로그인 하시기 바랍니다.");
+				<%
+			}
+			%>
+		})
 		
-		// 로그아웃 부분
-		logout();
 		
+		// 로그인 버튼 누르면 로그인 실행하는 부분
+		$('#loginBtn').on('click', function() {
+			
+			// 로그인 실행부분
+			login();
+		});
+		
+		// 로그아웃 버튼 누르면 로그아웃하는 부분
+		$('#loginOutBtn').on('click', function() {
+			
+			// 로그아웃 실행 부분
+			logout();
+		})
 		 
 		/* 
 		// 내정보 가져오는걸 처리
@@ -122,16 +167,8 @@
 
 </head>
 <body>
-
+<!-- 공통 부분 시작 -->
 	<div id="login" style="float : right;">
-		<form id="loginForm" action="main.html" method="post">
-			<div id="loginAfter">
-				<label id="userName"></label>
-				<label id="userEmail"></label>
-				<input id="loginOutBtn" type="submit" value="로그아웃">
-				<input type="button" value="내정보">
-			</div>
-		</form>
 	</div>
 	
     <br>
@@ -169,6 +206,8 @@
 	    </div>
 	  </div>
 	</div>
+	
+	<!-- 공통 공통부분 끝  -->
     
     <br>
     
@@ -181,7 +220,9 @@
     			<td>객실타입</td>
     			<td>객실 인원</td>
     			<td>방번호</td>
-    			<td rowspan="2"><input id="reservationBtn" type="button" value="예약"></td>
+    			<td rowspan="2">
+    				<input id="reservationBtn" type="button" value="예약">
+    			</td>
     		</tr>
     		<tr>
     			<td id="room_pl" idx="room_pl" name="room_pl">

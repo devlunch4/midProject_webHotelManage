@@ -2,60 +2,150 @@
  * 
  */
 
-var insertResVLog = function() {
+// 로그인하면 생기는 부분
+var createLoginAfterPart = function() {
 	
-	 
-	 // 예약 처리
-	$('#reservationBtn').on('click', function() {
-		
-		// 방번호
-		vroomNo = $('#roomNoList').val();
-		console.log("방번호 : " + vroomNo);
-		
-		// 방 인원수 값
-		vroomPeople = $('#roomPeople').text();
-		console.log("방 인원수 : " + vroomPeople);
-		
-		// 시작날짜 가져오기
-		dateStartVal = $('#dateStart').val().trim();
-		console.log("시작 날짜 : " + dateStartVal);
+	code='<form id="loginForm" action="#" method="post">';
+	code+='<div id="loginAfter">';
+	code+='<label id="userName"></label>';
+	code+='<label id="userEmail"></label>';
+	code+='<input id="loginOutBtn" type="button" value="로그아웃">';
+	code+='<input type="button" value="내정보">';
+	code+='</div>';
+	code+='</form>';
 	
-		// 끝날짜 가져오기
-		dateEndVal = $('#dateEnd').val().trim();
-		console.log("끝 날짜 : " + dateEndVal);
-		
-		test = "2";
-		
-		// 예약 등록
-		$.ajax({
-			
-			url : '/hotel/InsertResVLog.do',
-			type : 'post',
-			data : {
-				"room_in" : dateStartVal
-				,"room_out" : dateEndVal
-				, "mem_id" : test
-				, "room_no" : vroomNo
-				,"room_pl" : vroomPl
-				, "room_type" : vroomType
-				, "room_num" : vroomPeople
-				},
-			success : function(res) {
-				alert(test + " 님 예약 " + res.sw +" 하셨습니다.");					
-			},
-			error : function(xhr) {
-				alert("상태 : " + xhr.status);
-			},
-			dataType : 'json'
-			
-			
-		});
-		
-	})
-	 
+	$('#login').append(code);
 	
 }
 
+// 로그인 하기 위해 입력하는 부분 만드는 부분
+var createLoginPart = function() {
+	
+	code='<form id="loginForm" action="#" method="post">';
+	code='<div id="loginBefore">';
+	code+='<label>아이디 : </label><input id="id" type="text" name="id">';
+	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
+	code+='<input id="loginBtn" type="button" value="로그인">';
+	code+='<a href="main.html">회원가입</a>';
+	code+='<a href="main.html">ID/비밀번호찾기</a>';
+	code+='</div>';
+	code+='</form>';
+	
+	$('#login').append(code);
+	
+	
+}
+
+// 로그아웃 부분
+var logout = function() {
+	
+
+	// 로그아웃
+	// 로그아웃 및 세션 정보 지우기
+	$.ajax({
+			
+		url : '/hotel/LogOut.do',
+		type : 'get',
+		success : function(res) {
+				
+			alert("로그아웃 " + res.sw + "하셨습니다.");
+				
+			$('#userName').empty();
+			$('#userEmail').empty();
+				
+			// 로그인 성공하면 페이지 새로고침
+			location.reload();
+				
+				
+		},
+		error : function(xhr) {
+			alert("상태 : " + xhr.stauts)
+		},
+		dataType : 'json'
+			
+	})
+	
+} 
+
+// 로그인 부분
+var login = function() {
+		
+		idval = $('#id').val().trim();
+		passval = $('#password').val().trim();
+		userId = idval;
+		userPassword = passval;
+		
+		// 로그인
+		$.ajax({
+	
+			url : '/hotel/LoginIn.do',
+			type : 'post',
+			data : {"MEM_ID" : userId, "MEM_PASS" : userPassword},	
+			success : function(res) {
+				
+				alert("로그인 성공!!\n" + res.mem_name + "님 환영합니다.");
+				
+				$('#userName').empty();
+				location.reload();
+				
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+				$('#id').empty();
+				$('#password').empty();
+				return false;
+			},
+			dataType : 'json'
+		})
+}
+
+// 예약 부분
+var insertResVLog = function() {
+	
+	 
+	// 예약 처리
+	// 방번호
+	vroomNo = $('#roomNoList').val();
+			
+	// 방 인원수 값
+	vroomPeople = $('#roomPeople').text();
+			
+	// 시작날짜 가져오기
+	dateStartVal = $('#dateStart').val().trim();
+	
+	// 끝날짜 가져오기
+	dateEndVal = $('#dateEnd').val().trim();
+			
+	// 예약 등록
+	$.ajax({
+					
+		url : '/hotel/InsertResVLog.do',
+		type : 'post',
+		data : {
+			"room_in" : dateStartVal
+			,"room_out" : dateEndVal
+			, "mem_id" : userId
+			, "room_no" : vroomNo
+			,"room_pl" : vroomPl
+			, "room_type" : vroomType
+			, "room_num" : vroomPeople
+			},
+		success : function(res) {
+			alert(userId + " 님 예약 " + res.sw +" 하셨습니다.");
+						
+			// 페이지 새로고침
+			location.reload();
+		},
+		error : function(xhr) {
+				alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+					
+		});
+	
+}
+
+// 방번호 처리 부분
 var getRoomNumList = function() {
 	
 	 
@@ -64,7 +154,6 @@ var getRoomNumList = function() {
 		
 		// 방타입값
 		vroomType = $('#roomTypeList').val();
-		console.log("방정류 : " + vroomType);
 		
 		// 방번호 가져오기
 		$.ajax({
@@ -108,6 +197,7 @@ var getRoomNumList = function() {
 	
 }
 
+// 방종류 가져오는 부분
 var getRoomTypeList = function() {
 	
 
@@ -115,7 +205,6 @@ var getRoomTypeList = function() {
 	$('#roomPlList').on('click', function() {
 		
 		vroomPl = $(this).val();
-		console.log("지점 : " + vroomPl);
 		
 		// 방 타입 가져오기
 		$.ajax({
@@ -149,6 +238,7 @@ var getRoomTypeList = function() {
 	
 }
 
+// 지점 가져오는 부분
 var getRoomPlList = function() {
 	
 		// 지점 가져오기

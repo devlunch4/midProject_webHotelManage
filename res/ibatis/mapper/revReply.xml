@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
+
+<sqlMap namespace="reviewreply">
+	
+	<select id="listRevReply" parameterClass="int" resultClass="revrepVo">
+		select * from reviewreply where rev_no = #data#
+	</select>
+	
+	 
+	<insert id="insertRevReply" parameterClass="revrepVo">
+		insert into reviewreply values (reviewreply_seq.nextval, #revrep_cont#, sysdate, #mem_id#, #rev_no# )
+	<selectKey keyProperty="revrep_no" resultClass="int">
+		select reviewreply_seq.currval from dual
+	</selectKey>
+	</insert>
+	
+	
+	<update id="updateRevReply" parameterClass="revrepVo">
+		update reviewreply set revrep_cont=#revrep_cont#, revrep_date = sysdate where revrep_no=#revrep_no#
+	</update>
+	
+	<delete id="deleteRevReply" parameterClass="int">
+		delete reviewreply where revrep_no=#data#
+	</delete>
+		
+	
+	
+	
+</sqlMap>
