@@ -168,45 +168,51 @@
 </head>
 <body>
 <!-- 공통 부분 시작 -->
-	<div id="login" style="float : right;">
+	<div id="login" style="float: right;"></div>
+
+	<br>
+
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="main.jsp">Home</a></li>
+			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
+			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
+			<li><a data-toggle="tab" href="#menu3">안내</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active"></div>
+			<div id="menu1" class="tab-pane fade">
+				<h3>마이페이지</h3>
+				<a href="해당주소입력" style="text-decoration: none">내 정보 확인/수정</a><br>
+        <a href="해당주소입력" style="text-decoration: none">예약 확인</a>
+        
+			<!--	<p>테스트로 집어넣음</p>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="">Home</a></li>
+					<li><a data-toggle="tab" href="">메뉴 1</a></li>
+					<li><a data-toggle="tab" href="">메뉴 2</a></li>
+					<li><a data-toggle="tab" href="">메뉴 3</a></li>
+				</ul>-->
+				<hr>
+			</div>
+			<div id="menu2" class="tab-pane fade">
+				<h3>게시판</h3>
+				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
+        	<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+       <hr>       
+			</div>
+			<div id="menu3" class="tab-pane fade">
+				<h3>안내</h3>
+				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
+        <a href="해당주소입력" style="text-decoration: none">시설 안내</a><br>
+        <a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+        
+        <hr>
+			</div>
+		</div>
 	</div>
-	
-    <br>
-    
-    <div class="container">
-	  <ul class="nav nav-tabs">
-	    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-	    <li><a data-toggle="tab" href="#menu1">메뉴 1</a></li>
-	    <li><a data-toggle="tab" href="#menu2">메뉴 2</a></li>
-	    <li><a data-toggle="tab" href="#menu3">메뉴 3</a></li>
-	  </ul>
-	
-	  <div class="tab-content">
-	    <div id="home" class="tab-pane fade in active">
-	    </div>
-	    <div id="menu1" class="tab-pane fade">
-	      <h3>메뉴 1</h3>
-	      <p>메뉴 1 넣으삼</p>
-	      <p>테스트로 집어넣음</p>
-	      <ul class="nav nav-tabs">
-		    <li class="active"><a data-toggle="tab" href="">Home</a></li>
-		    <li><a data-toggle="tab" href="">메뉴 1</a></li>
-		    <li><a data-toggle="tab" href="">메뉴 2</a></li>
-		    <li><a data-toggle="tab" href="">메뉴 3</a></li>
-		  </ul>
-		  <hr>
-	    </div>
-	    <div id="menu2" class="tab-pane fade">
-	      <h3>메뉴 2</h3>
-	      <p>메뉴2 넣으삼</p>
-	    </div>
-	    <div id="menu3" class="tab-pane fade">
-	      <h3>메뉴 3</h3>
-	      <p>메뉴3 넣으삼</p>
-	    </div>
-	  </div>
-	</div>
-	
+
 	<!-- 공통 공통부분 끝  -->
     
     <br>

@@ -26,7 +26,7 @@ var createLoginPart = function() {
 	code+='<label>아이디 : </label><input id="id" type="text" name="id">';
 	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
 	code+='<input id="loginBtn" type="button" value="로그인">';
-	code+='<a href="main.html">회원가입</a>';
+	code+='<a href="memberjoin2.jsp">회원가입</a>';
 	code+='<a href="main.html">ID/비밀번호찾기</a>';
 	code+='</div>';
 	code+='</form>';
