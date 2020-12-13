@@ -13,13 +13,6 @@
 	<!-- 실행할 쿼리문을 선택한다. -->
 	<settings useStatementNamespaces="true" />
 
-	<!-- 쿼리문에서 사용할 VO객체는 패키지 이름을 포함한 전체 이름을 사용해야하는데 -->
-	<!--그렇게 되면 문장이 너무 길어 질수있다. -->
-	<!-- 그래서 전체 이름 대신 사용할 alias를 설정할수 있다 -->
-	<!-- 형식:<typeAlias alias="alias명" type="클래스의 전체이름"> -->
-	<!-- <typeAlias alias="memVo" type="apple2.member.vo.MemberVO" /> -->
-
-
 	<typeAlias type="vo.RoomVO" alias="roomVO" />
 	<typeAlias type="vo.ResvlogVO" alias="resvlogVO" />
 	<typeAlias type="vo.MemberInfoVO" alias="memberinfoVO" />

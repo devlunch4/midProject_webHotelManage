@@ -184,7 +184,7 @@
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="해당주소입력" style="text-decoration: none">내 정보 확인/수정</a><br>
+				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보 확인/수정</a><br>
         <a href="해당주소입력" style="text-decoration: none">예약 확인</a>
         
 			<!--	<p>테스트로 집어넣음</p>

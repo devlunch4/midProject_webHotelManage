@@ -31,7 +31,7 @@
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
-	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+		<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
 String userId;
 String userName;
@@ -109,6 +109,11 @@ if (vo != null) {%>
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
+		// 해당 페이지 특별 추가 코드 내정보 보기 
+		$('#div_result *').remove();
+		//console.log(pageCount);
+		getMemberInfoVal();
+		
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->

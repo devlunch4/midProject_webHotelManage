@@ -18,7 +18,7 @@
 </style>
 <!-- 공통 스타일 끝 -->
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -78,6 +78,37 @@ if (vo != null) {%>
 			logout();
 		})
 
+// 내정보 가져오는걸 처리
+		$('#updateMemberInfoBtn').on('click', function() {
+			<%-- <%
+				if(pageCount > 0) {
+			%> --%>
+			$('#div_result *').remove();
+			//console.log(pageCount);
+			getMemberInfoVal();
+			<%-- <%}%> --%>
+		})
+		
+		//내정보수정 버튼 클릭하면 이 작업 수행
+		//$('#myinfoUpdateBtn').on('click', function(){
+		$(document).on('click', '#myinfoUpdateBtn', function(){
+			MemberInfoVal();
+			
+		})
+		
+		// 내정보 수정 완료하면 업데이트 부분
+		//$('#myinfoUpdateSubmit').on('click', function() {
+		$(document).on('click', '#myinfoUpdateSubmit', function() {
+			
+			MemberInfoValUpdateSubmit();
+			updateSessionDate();
+			
+		})
+		
+		// 유저가 예약한 정보 확인
+		$('#getMyResvlogBtn').on('click', function() {
+			getMyResvlogList();
+		})
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->
@@ -132,7 +163,7 @@ if (vo != null) {%>
 			
 			
 			
-			var num1 = $(this).parents('.member').find('.numRes101').text();
+			var num1 = $(this).parents('.votemember').find('.numRes101').text();
 			num1 = parseInt(num1) + 1;
 			$.ajax({
 				url : "/hotel/voteUpdate.do",
@@ -154,8 +185,8 @@ if (vo != null) {%>
 			
 			
 			
-			$(this).parents('.member').find('.numRes101').empty();
-			$(this).parents('.member').find('.numRes101').text(num1);
+			$(this).parents('.votemember').find('.numRes101').empty();
+			$(this).parents('.votemember').find('.numRes101').text(num1);
 		})
 		
 		// 두번째 직원의 투표수 가져오기
@@ -163,7 +194,7 @@ if (vo != null) {%>
 			
 			var name= "102";
 				
-			var num2 = $(this).parents('.member').find('.numRes102').text();
+			var num2 = $(this).parents('.votemember').find('.numRes102').text();
 			num2 = parseInt(num2) + 1;
 			
 		 	$.ajax({
@@ -186,8 +217,8 @@ if (vo != null) {%>
 				
 			})
 			
-			$(this).parents('.member').find('.numRes102').empty();
-			$(this).parents('.member').find('.numRes102').text(num2);
+			$(this).parents('.votemember').find('.numRes102').empty();
+			$(this).parents('.votemember').find('.numRes102').text(num2);
 			
 			$.ajax({
 				url : "/hotel/voteUpdate.do",
@@ -209,7 +240,7 @@ if (vo != null) {%>
 			})
 
 		})
-		memberVote();
+		//memberVote();
 	})
 </script>
 <body>
@@ -230,8 +261,9 @@ if (vo != null) {%>
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="해당주소입력" style="text-decoration: none">내 정보 확인/수정</a><br>
-				<a href="해당주소입력" style="text-decoration: none">예약 확인</a>
+				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
@@ -250,14 +282,20 @@ if (vo != null) {%>
 			</div>
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
-					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="해당주소입력" style="text-decoration: none">시설 안내</a><br> 
+				<a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
 
 				<hr>
 			</div>
 		</div>
 	</div>
+
+	<section id="section_result">
+		<article id="article_result">
+			<div id="div_result"></div>
+		</article>
+	</section>
 
 	<!-- 바디 공통 공통부분 끝  -->
 
@@ -267,13 +305,13 @@ if (vo != null) {%>
 	칭찬 투표 공간을 마련했습니다.
 	</pre>
 	<br>
-	<div class="member">
+	<div class="votemember">
 		<img src="../images/직원1.png" width="150" height="150"> <input
 			type="button" value='투표하기' id="101" class="btn1">
 		<div id="test1" class="numRes101"></div>
 	</div>
 
-	<div class="member">
+	<div class="votemember">
 		<img src="../images/직원2.png" width="150" height="150"> <input
 			type="button" value='투표하기' id="102" class="btn2">
 		<div id="test2" class="numRes102"></div>

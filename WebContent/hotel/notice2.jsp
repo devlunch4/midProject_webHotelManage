@@ -18,9 +18,8 @@
 </style>
 <!-- 공통 스타일 끝 -->
 
-
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- 공통부분 타이틀부분  시작 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -28,6 +27,15 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="../js/jquery.serializejson.min.js"></script>
+<script src="../js/xlogon.js"></script>
+<!-- 공통부분 타이틀부분  시작 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
@@ -79,6 +87,37 @@ if (vo != null) {%>
 			logout();
 		})
 
+// 내정보 가져오는걸 처리
+		$('#updateMemberInfoBtn').on('click', function() {
+			<%-- <%
+				if(pageCount > 0) {
+			%> --%>
+			$('#div_result *').remove();
+			//console.log(pageCount);
+			getMemberInfoVal();
+			<%-- <%}%> --%>
+		})
+		
+		//내정보수정 버튼 클릭하면 이 작업 수행
+		//$('#myinfoUpdateBtn').on('click', function(){
+		$(document).on('click', '#myinfoUpdateBtn', function(){
+			MemberInfoVal();
+			
+		})
+		
+		// 내정보 수정 완료하면 업데이트 부분
+		//$('#myinfoUpdateSubmit').on('click', function() {
+		$(document).on('click', '#myinfoUpdateSubmit', function() {
+			
+			MemberInfoValUpdateSubmit();
+			updateSessionDate();
+			
+		})
+		
+		// 유저가 예약한 정보 확인
+		$('#getMyResvlogBtn').on('click', function() {
+			getMyResvlogList();
+		})
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->
@@ -235,6 +274,7 @@ if (vo != null) {%>
 	 })
 })
 </script>
+
 </head>
 <body>
 
@@ -255,10 +295,11 @@ if (vo != null) {%>
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="해당주소입력" style="text-decoration: none">내 정보 확인/수정</a><br>
-        <a href="해당주소입력" style="text-decoration: none">예약 확인</a>
-        
-			<!--	<p>테스트로 집어넣음</p>
+				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인</a>
+
+				<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="">Home</a></li>
 					<li><a data-toggle="tab" href="">메뉴 1</a></li>
@@ -270,19 +311,25 @@ if (vo != null) {%>
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-        	<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
-       <hr>       
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<hr>
 			</div>
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
-        <a href="해당주소입력" style="text-decoration: none">시설 안내</a><br>
-        <a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-        
-        <hr>
+				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
+					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
+					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+
+				<hr>
 			</div>
 		</div>
 	</div>
+
+	<section id="section_result">
+		<article id="article_result">
+			<div id="div_result"></div>
+		</article>
+	</section>
 
 	<!-- 바디 공통 공통부분 끝  -->
 

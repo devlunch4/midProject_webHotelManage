@@ -1,6 +1,7 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dao.IResVLogDao;
 import dao.ResVLogDaoImpl;
@@ -35,6 +36,22 @@ public class ResVLogServiceImpl implements IResVLogService{
 		}
 		
 		return res;
+	}
+	
+	// b2 20201213 추가 확인 유저가 예약한 정보 가져오기
+	@Override
+	public List<ResvlogVO> getresvLogAllList(String mem_id) {
+		
+		List<ResvlogVO> list = null;
+		
+		try {
+			list = dao.getresvLogAllList(mem_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 

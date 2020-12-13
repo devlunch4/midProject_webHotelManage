@@ -4,10 +4,13 @@
 	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
 
 <sqlMap namespace="resvlog">
-	<!-- 예약로그 모두 가져오기 -->
-	<select id="resvLogAllList" resultClass="resvlogVO">
-		SELECT * FROM resvlog
-		WHERE resev_state='예약' ORDER BY resev_no
+	<!-- 개인이 예약한 예약로그 모두 가져오기 -->
+	<select id="getresvLogAllList" parameterClass="String" resultClass="resvlogVO">
+		SELECT * 
+		FROM resvlog
+		WHERE resev_state='예약'
+		AND mem_id = #mem_id#
+		ORDER BY resev_no
 	</select>
 
 	<update id="resvLogUpdate" parameterClass="resvlogVO">

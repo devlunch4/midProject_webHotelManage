@@ -13,6 +13,18 @@
 		and mem_pass = #mem_pass#
 	</select>
 	
+	<select id="getMemberInfoVal" parameterClass="String" resultClass="memberinfoVO">
+		select *
+		from memberinfo
+		where mem_id = #mem_id#
+	</select>
+	
+	<update id="updateMemberInfo" parameterClass="memberinfoVO">
+		update memberinfo set 
+			mem_name = #mem_name#, mem_tel = #mem_tel#, 
+    	    mem_addr = #mem_addr#, mem_email = #mem_email#
+		where mem_id = #mem_id#
+	</update>	
 
 </sqlMap>
 

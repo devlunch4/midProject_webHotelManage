@@ -9,4 +9,10 @@ public interface IMemberInfoService {
 	// b2 로그인할때 회원이 맞는지 체크하기 위해 값 조회하는 메서드 서비스 부분
 	public MemberInfoVO getMemberInfo(MemberInfoVO vo);
 	
+	// 20201213 b2 내정보 수정을 위해 값 가져오기
+	public MemberInfoVO getMemberInfoVal(String mem_id);
+	
+	// 20201213 b2 내정보 수정
+	public int updateMemberInfo(MemberInfoVO vo);
+	
 }
