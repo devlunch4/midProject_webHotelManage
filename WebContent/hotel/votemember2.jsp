@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>호텔 달고나 홈페이지 직원 안내</title>
+<title>호텔 달고나 - 직원 안내</title>
 
 
 <!-- 공통 스타일 시작 -->
@@ -76,52 +76,49 @@ span{
 	$(function() {
 	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
-String userId;
-String userName;
-String userEmail;
+			String userId;
+			String userName;
+			String userEmail;
 
-if (vo != null) {%>
+			if (vo != null) {%>
 			createLoginAfterPart();
 			<%userId = vo.getMem_id();
-	userName = vo.getMem_name();
-	userEmail = vo.getMem_email();
-
-} else {%>
+				userName = vo.getMem_name();
+				userEmail = vo.getMem_email();
+			} else {%>
 			createLoginPart();
 			<%userId = null;
-	userName = null;
-	userEmail = null;
-}%>
+				userName = null;
+				userEmail = null;
+			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
 
-		console.log("userId : " + userId);
-		console.log("userName : " + userName);
-		console.log("userEmail : " + userEmail);
+		//console.log("userId : " + userId);
+		//console.log("userName : " + userName);
+		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님";
-		userEmailStr = " 이메일 : " + userEmail;
+		userNameStr = userName + "님 ";
+		userEmailStr = "이메일 : " + userEmail;
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
-
-		// 로그인 실행부분
+			// 로그인 실행부분
 			login();
 		});
 
 		// 로그아웃 버튼 누르면 로그아웃하는 부분
 		$('#loginOutBtn').on('click', function() {
-
 			// 로그아웃 실행 부분
 			logout();
 		})
 
-// 내정보 가져오는걸 처리
+		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
 			<%-- <%
 				if(pageCount > 0) {
@@ -142,19 +139,16 @@ if (vo != null) {%>
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
-			
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
-			
 		})
-		
+					
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
-		
-		
 	})
+		
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
@@ -292,9 +286,7 @@ if (vo != null) {%>
 <body>
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
-
 	<br>
-
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="main.jsp">Home</a></li>
@@ -308,7 +300,7 @@ if (vo != null) {%>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
 				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
 					확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
@@ -320,30 +312,36 @@ if (vo != null) {%>
 				</ul>-->
 				<hr>
 			</div>
+			
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
+				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
+			
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
-				<a href="해당주소입력" style="text-decoration: none">시설 안내</a><br> 
+				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="<%=request.getContextPath()%>/amenity.me"
+					style="text-decoration: none">시설 안내</a><br>
 				<a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
 				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
-
 				<hr>
 			</div>
+			
 		</div>
 	</div>
+	
 	<section id="section_result">
 		<article id="article_result">
 			<div id="div_result"></div>
 		</article>
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
-	<h1>직원 칭찬 릴레이</h1>
+	
+	<h1>직원 안내 및 칭찬</h1>
 	<pre>
 	칭찬 릴레이에 참여하시려면 하트 버튼을
 	클릭해 기억에 남는 친절한 직원에게 투표해주세요.
@@ -367,8 +365,6 @@ if (vo != null) {%>
 		<div id="test2" class="numRes102"></div>
 		</div>
 	</div>
-
-
 
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>

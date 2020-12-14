@@ -112,7 +112,12 @@ if (vo != null) {%>
 		// 해당 페이지 특별 추가 코드 내정보 보기 
 		$('#div_result *').remove();
 		//console.log(pageCount);
-		getMyResvlogList();
+		
+		<% if(userId!=null){ %>
+		getMyResvlogList(); <%}
+		else{%>
+			alert("로그인이 필요합니다.");
+		<%}%>
 		
 	})
 </script>
@@ -179,8 +184,8 @@ if (vo != null) {%>
 	<!-- 바디 공통 공통부분 끝  -->
 
 
-	test page
-	<br> sample
+	예약확인
+	<br>
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>
 	</footer>

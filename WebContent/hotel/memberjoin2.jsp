@@ -1,13 +1,11 @@
 <%@page import="vo.MemberInfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -27,67 +25,93 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script src="../js/jquery.serializejson.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
 	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
-String userId;
-String userName;
-String userEmail;
+			String userId;
+			String userName;
+			String userEmail;
 
-if (vo != null) {%>
+			if (vo != null) {%>
 			createLoginAfterPart();
 			<%userId = vo.getMem_id();
-	userName = vo.getMem_name();
-	userEmail = vo.getMem_email();
-
-} else {%>
+				userName = vo.getMem_name();
+				userEmail = vo.getMem_email();
+			} else {%>
 			createLoginPart();
 			<%userId = null;
-	userName = null;
-	userEmail = null;
-}%>
+				userName = null;
+				userEmail = null;
+			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
 
-		console.log("userId : " + userId);
-		console.log("userName : " + userName);
-		console.log("userEmail : " + userEmail);
+		//console.log("userId : " + userId);
+		//console.log("userName : " + userName);
+		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님";
-		userEmailStr = " 이메일 : " + userEmail;
+		userNameStr = userName + "님 ";
+		userEmailStr = "이메일 : " + userEmail;
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
-
-		// 로그인 실행부분
+			// 로그인 실행부분
 			login();
 		});
 
 		// 로그아웃 버튼 누르면 로그아웃하는 부분
 		$('#loginOutBtn').on('click', function() {
-
 			// 로그아웃 실행 부분
 			logout();
 		})
 
+		// 내정보 가져오는걸 처리
+		$('#updateMemberInfoBtn').on('click', function() {
+			<%-- <%
+				if(pageCount > 0) {
+			%> --%>
+			$('#div_result *').remove();
+			//console.log(pageCount);
+			getMemberInfoVal();
+			<%-- <%}%> --%>
+		})
+		
+		//내정보수정 버튼 클릭하면 이 작업 수행
+		//$('#myinfoUpdateBtn').on('click', function(){
+		$(document).on('click', '#myinfoUpdateBtn', function(){
+			MemberInfoVal();
+			
+		})
+		
+		// 내정보 수정 완료하면 업데이트 부분
+		//$('#myinfoUpdateSubmit').on('click', function() {
+		$(document).on('click', '#myinfoUpdateSubmit', function() {
+			MemberInfoValUpdateSubmit();
+			updateSessionDate();
+		})
+					
+		// 유저가 예약한 정보 확인
+		$('#getMyResvlogBtn').on('click', function() {
+			getMyResvlogList();
+		})
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
 
-
+<!-- 주소 API 스크립트 부분 -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="../js/memberreg.js"></script>
+<script src="../js/memberreg.js"></script>
 <script>
 	function openDaumZipAddress() {
 		new daum.Postcode({
@@ -102,9 +126,6 @@ if (vo != null) {%>
 		}).open();
 	}
 </script>
-
-<link rel="stylesheet" href="../css/public.css">
-
 
 <style>
 .ziptr:hover {
@@ -126,7 +147,7 @@ infox = {};
 					document.location.reload(true);
 				})
 
-				$('#id').keyup(function() {
+				$('#joinid').keyup(function() {
 					if (!regcheck()) {
 						return false;
 					}
@@ -219,9 +240,9 @@ infox = {};
 				$("#idbtn").on(
 						"click",
 						function() {
-							idvalue = $("#id").val().trim();
-
-							if (idvalue.length < 1) {
+							idvaluex = $("#joinid").val().trim();
+							alert("아이디입력 : " + idvaluex);
+							if (idvaluex.length < 1) {
 								alert("아이디입력");
 								return false;
 							}
@@ -240,10 +261,10 @@ infox = {};
 								url : "/hotel/idCheck.do",
 								type : "post",
 								data : {
-									"id" : idvalue
+									"joinid" : idvaluex
 								},
 								success : function(res) {
-									$("#idspan").html(res.sw + " : " + idvalue)
+									$("#joinidspan").html(res.sw + " : " + idvaluex)
 											.css("color", "red");
 								},
 								error : function(xhr) {
@@ -351,10 +372,10 @@ infox = {};
 								return false;
 							}
 							
-							idvalue = $("#id").val().trim();
+							idvaluex = $("#joinid").val().trim();
 							
 							
-							infox.mem_id = $("#id").val().trim();
+							infox.mem_idx = $("#joinid").val().trim();
 							infox.mem_name  = $("#name").val().trim();
 							infox.mem_pass  = $("#pwd").val().trim();
 							infox.mem_email  = $("#email").val().trim();
@@ -365,15 +386,19 @@ infox = {};
 							infox.mem_add2  = $("#addr2").val().trim();
 							
 							console.log(infox);
-							
+
 							$.ajax({
 								url : "/hotel/memberJoin.do",
 								data : infox,
 								type : "post",
 								success : function(res) {
 									//alert("가입버튼 후 INSERT 성공");
+									$("#joinspan").html(idvaluex + " 님 "+ res.sw).css("color", "red");
+									alert("가입을 축하합니다. ");
+									location.href="main.jsp";
 									
-									$("#joinspan").html(idvalue + " 님 "+ res.sw).css("color", "red");
+									
+									
 								},
 								error : function(xhr) {
 									alert("상태 : " + xhr.status);
@@ -387,12 +412,9 @@ infox = {};
 
 </head>
 <body>
-
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
-
 	<br>
-
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="main.jsp">Home</a></li>
@@ -406,7 +428,7 @@ infox = {};
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
 				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
 					확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
@@ -418,21 +440,25 @@ infox = {};
 				</ul>-->
 				<hr>
 			</div>
+
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
+				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
+
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
+				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="<%=request.getContextPath()%>/amenity.me"
+					style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
-
+				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
+
 		</div>
 	</div>
 
@@ -441,10 +467,9 @@ infox = {};
 			<div id="div_result"></div>
 		</article>
 	</section>
-
 	<!-- 바디 공통 공통부분 끝  -->
-	
-	
+
+
 	<!-- 	<div class="box">
 		<h3>회원가입</h3>
 		아이디 중복검사 <br>우편번호 검색 - window.open / modal <br>회원가입 <br>
@@ -456,13 +481,13 @@ infox = {};
 			<h2>회원 가입</h2>
 			<form id="joinform" class="form-horizontal">
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="id">아이디 :</label>
+					<label class="control-label col-sm-2" for="joinid">아이디 :</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="id"
-							placeholder="Enter 아이디" name="mem_id">
+						<input type="text" class="form-control" id="joinid"
+							placeholder="Enter 아이디" name="mem_idx">
 					</div>
 					<input id="idbtn" class="btn btn-warning" type="button"
-						value="중복검사"> <span id="idspan"></span>
+						value="중복검사"> <span id="joinidspan"></span>
 				</div>
 
 
@@ -498,7 +523,7 @@ infox = {};
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="bir">생년월일 :</label>
 					<div class="col-sm-4">
-					<input type="date" class="form-control" id="bir"
+						<input type="date" class="form-control" id="bir"
 							placeholder="2020-01-01" name="mem_bir" value="">
 					</div>
 					<span id="birspan"></span>
@@ -629,9 +654,10 @@ infox = {};
 
 		</div>
 	</div>
+	<br>
 
-<footer id="footer">
-		<p id="WebShop" style="color:white;">호텔 달고나</p>
+	<footer id="footer">
+		<p id="WebShop" style="color: white;">호텔 달고나</p>
 	</footer>
 
 </body>

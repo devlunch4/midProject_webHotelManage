@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
-<!-- 공통 스타일 시작 -->
+<!-- 공통 스타일 시작 + 위치 전용 추가완료 -->
 <style type="text/css">
 #footer {
 	height: 80px;
@@ -16,35 +15,33 @@
 	clear: both;
 }
 
-
-h1.title span { 
-display:block; 
-padding-bottom:13px; 
-font-size:16px; 
-text-align:center;
-/* padding-right:400px; */
-margin-left:50px;
-color:#9c836a; 
-font-weight:450;
+h1.title span {
+	display: block;
+	padding-bottom: 13px;
+	font-size: 16px;
+	text-align: center;
+	/* padding-right:400px; */
+	margin-left: 50px;
+	color: #9c836a;
+	font-weight: 450;
 }
 
-h1.title { 
-padding:59px 0 58px; 
-font-weight:100; 
-font-size:30px; 
-line-height:40px; 
-text-align:center;
-/* padding-right:400px; */
+h1.title {
+	padding: 59px 0 58px;
+	font-weight: 100;
+	font-size: 30px;
+	line-height: 40px;
+	text-align: center;
+	/* padding-right:400px; */
 }
 
-h3{
-font-weight:100; 
-text-align: center;
-padding : 30px;
-font-size:30px; 
-line-height:40px; 
+h3 {
+	font-weight: 100;
+	text-align: center;
+	padding: 30px;
+	font-size: 30px;
+	line-height: 40px;
 }
-
 </style>
 <!-- 공통 스타일 끝 -->
 
@@ -63,52 +60,49 @@ line-height:40px;
 	$(function() {
 	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
-String userId;
-String userName;
-String userEmail;
+			String userId;
+			String userName;
+			String userEmail;
 
-if (vo != null) {%>
+			if (vo != null) {%>
 			createLoginAfterPart();
 			<%userId = vo.getMem_id();
-	userName = vo.getMem_name();
-	userEmail = vo.getMem_email();
-
-} else {%>
+				userName = vo.getMem_name();
+				userEmail = vo.getMem_email();
+			} else {%>
 			createLoginPart();
 			<%userId = null;
-	userName = null;
-	userEmail = null;
-}%>
+				userName = null;
+				userEmail = null;
+			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
 
-		console.log("userId : " + userId);
-		console.log("userName : " + userName);
-		console.log("userEmail : " + userEmail);
+		//console.log("userId : " + userId);
+		//console.log("userName : " + userName);
+		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님";
-		userEmailStr = " 이메일 : " + userEmail;
+		userNameStr = userName + "님 ";
+		userEmailStr = "이메일 : " + userEmail;
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
-
-		// 로그인 실행부분
+			// 로그인 실행부분
 			login();
 		});
 
 		// 로그아웃 버튼 누르면 로그아웃하는 부분
 		$('#loginOutBtn').on('click', function() {
-
 			// 로그아웃 실행 부분
 			logout();
 		})
 
-// 내정보 가져오는걸 처리
+		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
 			<%-- <%
 				if(pageCount > 0) {
@@ -129,12 +123,10 @@ if (vo != null) {%>
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
-			
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
-			
 		})
-		
+					
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
@@ -144,14 +136,11 @@ if (vo != null) {%>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
 
-
 </head>
 <body>
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
-
 	<br>
-
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="main.jsp">Home</a></li>
@@ -165,7 +154,7 @@ if (vo != null) {%>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
 				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
 					확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
@@ -177,21 +166,25 @@ if (vo != null) {%>
 				</ul>-->
 				<hr>
 			</div>
+
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
+				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
+
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
+				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="<%=request.getContextPath()%>/amenity.me"
+					style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
-
+				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
+
 		</div>
 	</div>
 
@@ -200,17 +193,18 @@ if (vo != null) {%>
 			<div id="div_result"></div>
 		</article>
 	</section>
-
 	<!-- 바디 공통 공통부분 끝  -->
 
-<div class="conttitle">
-<h1 class="title"><span>오시는 길</span>달고나호텔 방문을<br>환영합니다.</h1>
+	<div class="conttitle">
+		<h1 class="title">
+			<span>오시는 길</span>달고나호텔 방문을<br>환영합니다.
+		</h1>
 
-<div Align=center  class="location">
-		<div  id="map" style="width: 500px; height: 400px;"></div>
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5571f6f63935faa5254783ef52726e8c"></script>
-	<script>
+		<div Align=center class="location">
+			<div id="map" style="width: 500px; height: 400px;"></div>
+			<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5571f6f63935faa5254783ef52726e8c"></script>
+			<script>
 		var mapContainer = document.getElementById('map');
 		var mapOption = {
 				/* 36.32498501617164, 127.42016219617635 */
@@ -230,10 +224,10 @@ if (vo != null) {%>
 		
 		
 	</script>
-</div>
-</div>
-<h3>대전광역시 중구 대흥동 500-5</h3>
-
+		</div>
+	</div>
+	<h3>대전광역시 중구 대흥동 500-5</h3>
+	<br>
 
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>

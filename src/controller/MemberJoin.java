@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +39,7 @@ public class MemberJoin extends HttpServlet {
 		System.out.println();
 		request.setCharacterEncoding("UTF-8");
 
-		String id = request.getParameter("mem_id");
+		String id = request.getParameter("mem_idx");
 		String name = request.getParameter("mem_name");
 		String pass = request.getParameter("mem_pass");
 		String email = request.getParameter("mem_email");
@@ -73,13 +74,17 @@ public class MemberJoin extends HttpServlet {
 
 		// 3 결과값 저장.
 		request.setAttribute("resId", resId);
-		System.out.println(resId);
+		System.out.println(resId + "멤버 조인");
 
 		// 결과 출력 또는 json 생성
 		request.getRequestDispatcher("hotel/joinres.jsp").forward(request, response);
 
-SendMailTest sendmail = new SendMailTest();
-
+		//주소 이메일 api로 보내기
+		new SendMailTest(email);
+		 
+		System.out.println();
+		System.out.println("회원가입 정보 인서트 완료~");
+		System.out.println();
 	}
 
 	/**

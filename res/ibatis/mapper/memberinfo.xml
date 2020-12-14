@@ -24,7 +24,36 @@
 			mem_name = #mem_name#, mem_tel = #mem_tel#, 
     	    mem_addr = #mem_addr#, mem_email = #mem_email#
 		where mem_id = #mem_id#
-	</update>	
+	</update>
+	
+	<select id="selectById" parameterClass="string"
+		resultClass="string">
+		SELECT mem_id FROM memberinfo WHERE mem_id = #data#
+	</select>
+
+
+	<insert id="insertMember" parameterClass="memberinfoVO">
+		INSERT INTO memberinfo ( 
+		mem_id,
+		mem_pass,
+		mem_name,
+		mem_bir,
+		mem_tel,
+		mem_addr,
+		mem_email,
+		power
+		)
+		VALUES(
+		#mem_id#,
+		#mem_pass#,
+		#mem_name#,
+		TO_DATE(#mem_bir#, 'YYYY-MM-DD'),
+		#mem_tel#,
+		#mem_addr#,
+		#mem_email#,
+		#power#
+		)
+	</insert>
 
 </sqlMap>
 

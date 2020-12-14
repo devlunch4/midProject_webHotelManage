@@ -33,7 +33,7 @@ public class IdCheck extends HttpServlet {
 
 		
 		//0. 클라이언트 전송시 데이터 받기 - 입력한 id
-		String inputId = request.getParameter("id");
+		String inputId = request.getParameter("joinid");
 		
 		
 		//1. service 객체 얻기

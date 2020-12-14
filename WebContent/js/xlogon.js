@@ -205,7 +205,7 @@ var createLoginAfterPart = function() {
 var createLoginPart = function() {
 	
 	code='<form id="loginForm" action="#" method="post">';
-	code='<div id="loginBefore">';
+	code+='<div id="loginBefore">';
 	code+='<label>아이디 : </label><input id="id" type="text" name="id">';
 	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
 	code+='<input id="loginBtn" type="button" value="로그인">';

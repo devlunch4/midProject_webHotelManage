@@ -4,29 +4,29 @@
 function idcheck() {
 	// id 정규식 검사
 
-	idvalue = $("#id").val().trim();
+	idvaluex = $("#joinid").val().trim();
 
-	if (idvalue.length < 1) {
+	if (idvaluex.length < 1) {
 		// alert("아이디입력");
-		$("#idspan").html("아이디입력").css("color", "red");
+		$("#joinidspan").html("아이디입력").css("color", "red");
 		return false;
 	}
 
 	// 아이디 길이4~8
-	if (idvalue.length < 4 || idvalue.length > 12) {
+	if (idvaluex.length < 4 || idvaluex.length > 12) {
 		// alert("아이디 4~12 사이의 자리로 입력해주세요");
-		$("#idspan").html("아이디 4~12 사이의 자리로 입력해주세요").css("color", "red");
+		$("#joinidspan").html("아이디 4~12 사이의 자리로 입력해주세요").css("color", "red");
 		return false;
 	}
 
 	// 아이디 정규식 -소문자로 시작하고 대문자와 소문자로 조합가능하다.
 	idreg = /^[a-z][a-zA-z0-9]{3,7}$/;
-	if (!(idreg.test(idvalue))) {
+	if (!(idreg.test(idvaluex))) {
 		// alert("아이디는 소문자로 시작 또는 4~7자리 입니다");
-		$("#idspan").html("아이디는 소문자로 시작 또는 4~7자리 입니다").css("color", "red");
+		$("#joinidspan").html("아이디는 소문자로 시작 또는 4~7자리 입니다").css("color", "red");
 		return false;
 	} else {
-		$('#idspan').html("올바른 아이디 입력").css('color', 'green');
+		$('#joinidspan').html("올바른 아이디 입력").css('color', 'green');
 	}
 	return true;
 }
@@ -34,29 +34,29 @@ function idcheck() {
 // 함수 사용을 통해 체크를 한다.
 function regcheck() {
 
-	idvalue = $("#id").val().trim();
+	idvaluex = $("#joinid").val().trim();
 
-	if (idvalue.length < 1) {
+	if (idvaluex.length < 1) {
 		// alert("아이디입력");
-		$("#idspan").html("아이디입력").css("color", "red");
+		$("#joinidspan").html("아이디입력").css("color", "red");
 		return false;
 	}
 
 	// 아이디 길이4~8
-	if (idvalue.length < 4 || idvalue.length > 12) {
+	if (idvaluex.length < 4 || idvaluex.length > 12) {
 		// alert("아이디 4~12 사이의 자리로 입력해주세요");
-		$("#idspan").html("아이디 4~12 사이의 자리로 입력해주세요").css("color", "red");
+		$("#joinidspan").html("아이디 4~12 사이의 자리로 입력해주세요").css("color", "red");
 		return false;
 	}
 
 	// 아이디 정규식 -소문자로 시작하고 대문자와 소문자로 조합가능하다.
 	idreg = /^[a-z][a-zA-z0-9]{3,7}$/;
-	if (!(idreg.test(idvalue))) {
+	if (!(idreg.test(idvaluex))) {
 		// alert("아이디는 소문자로 시작 또는 4~7자리 입니다");
-		$("#idspan").html("아이디는 소문자로 시작 또는 4~7자리 입니다").css("color", "red");
+		$("#joinidspan").html("아이디는 소문자로 시작 또는 4~7자리 입니다").css("color", "red");
 		return false;
 	} else {
-		$('#idspan').html("올바른 아이디 입력").css('color', 'green');
+		$('#joinidspan').html("올바른 아이디 입력").css('color', 'green');
 	}
 	return true;
 }

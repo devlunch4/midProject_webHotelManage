@@ -1,47 +1,56 @@
 <%@page import="vo.MemberInfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Web Shop</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>호텔 달고나 메인</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/main.js"></script>
 
 <style>
-	body {
-		overflow: auto;
-		min-width: 800px;
-	}
-	.ul, .li {
-		float : left;
-		list-style:none;
-		margin : 5px;
-		text-align: center;
-	}
-	.ul {
-		width : 100%;
-		padding-left: 30%;
-		border : 1px solid red;
-		border-left: none;
-		border-right: none;
-	}
-	#footer {
-		height : 80px;
-		background : #722f37;
-		clear : both;
-	}
-	#reservation {
-		text-align: center;
-	}
-	table {
-		text-align: center;
-		border-collapse : collapse;
-	}
+body {
+	overflow: auto;
+	min-width: 800px;
+}
+
+.ul, .li {
+	float: left;
+	list-style: none;
+	margin: 5px;
+	text-align: center;
+}
+
+.ul {
+	width: 100%;
+	padding-left: 30%;
+	border: 1px solid red;
+	border-left: none;
+	border-right: none;
+}
+
+#footer {
+	height: 80px;
+	background: #722f37;
+	clear: both;
+}
+
+#reservation {
+	text-align: center;
+}
+
+table {
+	text-align: center;
+	border-collapse: collapse;
+}
 </style>
+
 
 <script>
 	$(function() {
@@ -187,11 +196,9 @@
 
 </head>
 <body>
-<!-- 바디 공통 부분 시작 -->
+	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
-
 	<br>
-
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="main.jsp">Home</a></li>
@@ -217,22 +224,25 @@
 				</ul>-->
 				<hr>
 			</div>
+
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
 				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
+
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="<%= request.getContextPath() %>/amenity.me" style="text-decoration: none">시설 안내</a><br> <a
+				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="<%=request.getContextPath()%>/amenity.me"
+					style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
-
+				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
+
 		</div>
 	</div>
 
@@ -241,63 +251,56 @@
 			<div id="div_result"></div>
 		</article>
 	</section>
-
 	<!-- 바디 공통 공통부분 끝  -->
-    
-    <br>
-    
-    <div id="reservation">
-    	<table border="1" align="center">
-    		<tr>
-    			<td>지점 선택</td>
-    			<td>시작일</td>
-    			<td>마지막일</td>
-    			<td>객실타입</td>
-    			<td>객실 인원</td>
-    			<td>방번호</td>
-    			<td rowspan="2">
-    				<input id="reservationBtn" type="button" value="예약">
-    			</td>
-    		</tr>
-    		<tr>
-    			<td id="room_pl" idx="room_pl" name="room_pl">
-    				<select id="roomPlList">
-    				</select>
-    			</td>
-    			<td><input type="date" id="dateStart" name="dateStart"></td>
-    			<td><input type="date" id="dateEnd" name="dateEnd"></td>
-    			<td id="room_type" idx="room_type" name="room_type">
-    				<select id="roomTypeList">
-    				</select>
-    			</td>
-    			<td id="roomPeople" idx="roomPeople" name="roomPeople">
-    				<!-- <p id="roomPeopleList"></p> -->
-    			</td>
-    			<td id="room_no" idx="room_no" name="room_no">
-    				<select id="roomNoList">
-    				</select>
-    			</td>
-    		</tr>
- 			   		
-    	</table>
-    </div>
 
 	<br>
-	
+
+	<div id="reservation">
+		<table border="1" align="center">
+			<tr>
+				<td>지점 선택</td>
+				<td>시작일</td>
+				<td>마지막일</td>
+				<td>객실타입</td>
+				<td>객실 인원</td>
+				<td>방번호</td>
+				<td rowspan="2"><input id="reservationBtn" type="button"
+					value="예약"></td>
+			</tr>
+			<tr>
+				<td id="room_pl" idx="room_pl" name="room_pl"><select
+					id="roomPlList">
+				</select></td>
+				<td><input type="date" id="dateStart" name="dateStart"></td>
+				<td><input type="date" id="dateEnd" name="dateEnd"></td>
+				<td id="room_type" idx="room_type" name="room_type"><select
+					id="roomTypeList">
+				</select></td>
+				<td id="roomPeople" idx="roomPeople" name="roomPeople">
+					<!-- <p id="roomPeopleList"></p> -->
+				</td>
+				<td id="room_no" idx="room_no" name="room_no"><select
+					id="roomNoList">
+				</select></td>
+			</tr>
+
+		</table>
+	</div>
+
+	<br>
+
 	<!-- <input type="button" id="updateMemberInfoBtn" value="내정보 수정"> -->
-	
+
 	<section id="section_result">
 		<article id="article_result">
-			<div id="div_result">
-			</div>
+			<div id="div_result"></div>
 		</article>
 	</section>
 
 	<br>
 
-	
 	<footer id="footer">
-		<p id="WebShop" style="color:white;">호텔 달고나</p>
+		<p id="WebShop" style="color: white;">호텔 달고나</p>
 	</footer>
 
 

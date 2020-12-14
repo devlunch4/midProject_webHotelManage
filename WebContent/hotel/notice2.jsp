@@ -1,12 +1,11 @@
 <%@page import="vo.MemberInfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -18,16 +17,7 @@
 </style>
 <!-- 공통 스타일 끝 -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 공통부분 타이틀부분  시작 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script src="../js/jquery.serializejson.min.js"></script>
-<script src="../js/xlogon.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -42,52 +32,49 @@
 	$(function() {
 	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
-String userId;
-String userName;
-String userEmail;
+			String userId;
+			String userName;
+			String userEmail;
 
-if (vo != null) {%>
+			if (vo != null) {%>
 			createLoginAfterPart();
 			<%userId = vo.getMem_id();
-	userName = vo.getMem_name();
-	userEmail = vo.getMem_email();
-
-} else {%>
+				userName = vo.getMem_name();
+				userEmail = vo.getMem_email();
+			} else {%>
 			createLoginPart();
 			<%userId = null;
-	userName = null;
-	userEmail = null;
-}%>
+				userName = null;
+				userEmail = null;
+			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
 
-		console.log("userId : " + userId);
-		console.log("userName : " + userName);
-		console.log("userEmail : " + userEmail);
+		//console.log("userId : " + userId);
+		//console.log("userName : " + userName);
+		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님";
-		userEmailStr = " 이메일 : " + userEmail;
+		userNameStr = userName + "님 ";
+		userEmailStr = "이메일 : " + userEmail;
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
-
-		// 로그인 실행부분
+			// 로그인 실행부분
 			login();
 		});
 
 		// 로그아웃 버튼 누르면 로그아웃하는 부분
 		$('#loginOutBtn').on('click', function() {
-
 			// 로그아웃 실행 부분
 			logout();
 		})
 
-// 내정보 가져오는걸 처리
+		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
 			<%-- <%
 				if(pageCount > 0) {
@@ -108,12 +95,10 @@ if (vo != null) {%>
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
-			
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
-			
 		})
-		
+					
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
@@ -125,44 +110,54 @@ if (vo != null) {%>
 
 
 
-  <script src="../js/notice.js"></script>
+<script src="../js/notice.js"></script>
 
 <style>
-  h1, #write, .panel{
-	margin : 10px;
-  }
-  .panel-heading:hover{
-    background : #28a0ff;
-  }
-  .pager {
-	float : left;
-	width : 120px;
-	margin : 5px;
-	margin-left : 5%;
-  }
-  .p1{
- 	float:left; width: 80%;
-  }
-  .p2{
- 	float:right; width: 20%;
-  }
-  hr{
- 	clear : both;
-  }
-  .repb{
- 	height : 45px;
- 	vertical-align: top;
-  }
-  .rep{
-  	margin : 2px;
-  	padding : 3px;
-  	background : pink;
-  }
-   label{
-   	display : inline-block;
-   	width : 100px;
-   	height : 30px;
-  }
+h1, #write, .panel {
+	margin: 10px;
+}
+
+.panel-heading:hover {
+	background: #28a0ff;
+}
+
+.pager {
+	float: left;
+	width: 120px;
+	margin: 5px;
+	margin-left: 5%;
+}
+
+.p1 {
+	float: left;
+	width: 80%;
+}
+
+.p2 {
+	float: right;
+	width: 20%;
+}
+
+hr {
+	clear: both;
+}
+
+.repb {
+	height: 45px;
+	vertical-align: top;
+}
+
+.rep {
+	margin: 2px;
+	padding: 3px;
+	background: pink;
+}
+
+label {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+}
 </style>
 <script>
  notice= {};	//객체선언
@@ -277,12 +272,9 @@ if (vo != null) {%>
 
 </head>
 <body>
-
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
-
 	<br>
-
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="main.jsp">Home</a></li>
@@ -296,7 +288,7 @@ if (vo != null) {%>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
 				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
 					확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
@@ -308,21 +300,25 @@ if (vo != null) {%>
 				</ul>-->
 				<hr>
 			</div>
+
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
+				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
+
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
+				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="<%=request.getContextPath()%>/amenity.me"
+					style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
-
+				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
+
 		</div>
 	</div>
 
@@ -331,82 +327,86 @@ if (vo != null) {%>
 			<div id="div_result"></div>
 		</article>
 	</section>
-
 	<!-- 바디 공통 공통부분 끝  -->
 
-	<h1>공지게시판</h1>
-	<br>
-	<input data-toggle="modal" data-target="#wModal" type="button" value="글쓰기" id="write">
-	<br><br><br>
-<div class = "box">
-</div>
-<br>
-<br>
-<div id="pagelist"></div>
+	<div class="noticeboardbody" id="noticeboardbody">
+		<h1>공지게시판</h1>
+		<br> <input data-toggle="modal" data-target="#wModal"
+			type="button" value="글쓰기" id="write"> <br> <br> <br>
+		<div class="box"></div>
+		<br> <br>
+		<div id="pagelist"></div>
 
-<!-- Modal -->
-<div id="wModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+		<!-- Modal -->
+		<div id="wModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-          <form id="wform">​		​
-<!-- 			<label>이름:</label> <input type='text' class='txt' id='name' name="writer"><br>​ -->
-			<label>제목:</label> <input type='text' class='txt' id='subject' name="noti_title" ><br>​
-<!-- 			<label>메일:</label> <input type='text' class='txt' id='mail' name="mail" ><br>​ -->
-			
-<!-- 			<label>비밀번호:</label> <input type='password' class='txt' id='pass' name="password"><br>​ -->
-			<label>내용:</label> <br>
-			<textarea rows="10" cols="50" name="noti_cont" class='txt'></textarea><br>
-			<input type='button' value='확인' id="wsend"><br>​
-		 </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					<div class="modal-body">
+						<form id="wform">
+							​ ​
+							<!-- 			<label>이름:</label> <input type='text' class='txt' id='name' name="writer"><br>​ -->
+							<label>제목:</label> <input type='text' class='txt' id='subject'
+								name="noti_title"><br>​
+							<!-- 			<label>메일:</label> <input type='text' class='txt' id='mail' name="mail" ><br>​ -->
 
-  </div>
-</div>
+							<!-- 			<label>비밀번호:</label> <input type='password' class='txt' id='pass' name="password"><br>​ -->
+							<label>내용:</label> <br>
+							<textarea rows="10" cols="50" name="noti_cont" class='txt'></textarea>
+							<br> <input type='button' value='확인' id="wsend"><br>​
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 
-<!-- Modal --> 
-<div id="uModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+		<!-- Modal -->
+		<div id="uModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
-<!--   Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-          <form id="uform">​		​
-<!-- 			<label>이름:</label> <input type='text' class='txt' id='name' name="writer"><br>​ -->
-			<label>제목:</label> <input type='text' class='txt' id='noti_title' name="noti_title"><br>​
-<!-- 			<label>메일:</label> <input type='text' class='txt' id='mail' name="mail"><br>​ -->
-			
-<!-- 			<label>비밀번호:</label> <input type='password' class='txt' id='pass' name="password"><br>​ -->
-			<label>내용:</label> <br>
-			<textarea rows="10" cols="50" name="noti_cont" id="cont" class='txt'></textarea><br>
-			<input type='button' value='확인' id="usend"><br>​
-		 </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+				<!--   Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					<div class="modal-body">
+						<form id="uform">
+							​ ​
+							<!-- 			<label>이름:</label> <input type='text' class='txt' id='name' name="writer"><br>​ -->
+							<label>제목:</label> <input type='text' class='txt' id='noti_title'
+								name="noti_title"><br>​
+							<!-- 			<label>메일:</label> <input type='text' class='txt' id='mail' name="mail"><br>​ -->
 
-  </div>
-</div>
+							<!-- 			<label>비밀번호:</label> <input type='password' class='txt' id='pass' name="password"><br>​ -->
+							<label>내용:</label> <br>
+							<textarea rows="10" cols="50" name="noti_cont" id="cont"
+								class='txt'></textarea>
+							<br> <input type='button' value='확인' id="usend"><br>​
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
 
-<footer id="footer">
-		<p id="WebShop" style="color:white;">호텔 달고나</p>
+			</div>
+		</div>
+
+	</div>
+
+	<footer id="footer">
+		<p id="WebShop" style="color: white;">호텔 달고나</p>
 	</footer>
 </body>
 </html>

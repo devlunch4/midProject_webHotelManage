@@ -12,11 +12,9 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class SendMailTest {
-
-	SendMailTest thismail = new SendMailTest();
+public class SendMailTest  {
 	
-	public static void main(String[] args) {
+	public SendMailTest(String email) {
 		System.out.println();
 		System.out.println("메일보내기테스트 진입");
 		System.out.println();
@@ -35,8 +33,6 @@ public class SendMailTest {
 		Session session = Session.getDefaultInstance(p, auth);
 		MimeMessage msg = new MimeMessage(session);
 		
-	//	
-//		String email = 
 		
 
 		try {
@@ -49,11 +45,14 @@ public class SendMailTest {
 
 			// 이메일 발신자
 			msg.setFrom(from);
+			System.out.println();
+			System.out.println("메일  수신자 " + email);
+			System.out.println();
+			
 
 			
-			
 			// 이메일 수신자
-			InternetAddress to = new InternetAddress("devlunch4test@gmail.com");
+			InternetAddress to = new InternetAddress(email);
 			msg.setRecipient(Message.RecipientType.TO, to);
 
 			// 이메일 제목
@@ -77,10 +76,8 @@ public class SendMailTest {
 			msg_e.printStackTrace();
 		}
 	}
+
 	
-	public void rqmailaddr(String email) {
-		
-	};
 
 }
 
