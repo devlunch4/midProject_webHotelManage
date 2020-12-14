@@ -20,6 +20,7 @@
 	<typeAlias type="vo.NoticeVO" alias="notiVo" />
 	<typeAlias type="vo.ReviewVO" alias="revVo" />
 	<typeAlias type="vo.RevReplyVO" alias="revrepVo" />
+	<typeAlias alias="facVO" type="vo.FacVO"/>
 
 
 	<!-- <typeAlias alias="jdbcBoardVo" type="board.vo.JdbcBoardVO" /> -->
@@ -49,6 +50,7 @@
 	<sqlMap resource="ibatis/mapper/notice.xml" />
 	<sqlMap resource="ibatis/mapper/review.xml" />
 	<sqlMap resource="ibatis/mapper/revReply.xml" />
+	<sqlMap resource="ibatis/mapper/fac.xml"/>
 
 
 </sqlMapConfig>

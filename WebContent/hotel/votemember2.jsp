@@ -15,6 +15,49 @@
 	background: #722f37;
 	clear: both;
 }
+
+h1 {
+	display: block;
+	padding-bottom: 13px;
+	font-size: 30px;
+	color: #9c836a;
+	font-weight: 450;
+	padding-top: 10px;
+	margin-left: 100px;
+}
+
+.numRes101{
+
+	position : absolute;
+	top: 650px;
+	left : 513px;
+	font-size: 20px;
+}
+.numRes102{
+	position : absolute;
+	top: 52px;
+	left : 15px;
+	font-size: 20px;
+	
+}
+pre{
+	font-size: 25px;
+}
+span{
+	font-size: 20px;
+}
+.like{
+	position : absolute;
+	left : 500px;
+	top:600px;
+	
+}
+.like2{
+	position : absolute;
+	left : 500px;
+	top: 900px;
+	
+}
 </style>
 <!-- 공통 스타일 끝 -->
 
@@ -285,36 +328,41 @@ if (vo != null) {%>
 				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
 				<a href="해당주소입력" style="text-decoration: none">시설 안내</a><br> 
 				<a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 
 				<hr>
 			</div>
 		</div>
 	</div>
-
 	<section id="section_result">
 		<article id="article_result">
 			<div id="div_result"></div>
 		</article>
 	</section>
-
 	<!-- 바디 공통 공통부분 끝  -->
-
-	<h1>구성원</h1>
+	<h1>직원 칭찬 릴레이</h1>
 	<pre>
-	호텔을 구성하고 있는 직원들을 소개하며 
-	칭찬 투표 공간을 마련했습니다.
+	칭찬 릴레이에 참여하시려면 하트 버튼을
+	클릭해 기억에 남는 친절한 직원에게 투표해주세요.
 	</pre>
 	<br>
-	<div class="votemember">
-		<img src="../images/직원1.png" width="150" height="150"> <input
-			type="button" value='투표하기' id="101" class="btn1">
-		<div id="test1" class="numRes101"></div>
+	<div class="member" style="width: 600px; height: 300px; margin-left: 100px;">
+		<img src="../images/직원1.png" width="250" height="250">
+		<!-- <span>Like</span> -->
+		<div class="like" style="width: 50px; height: 50px;">
+		<input type="image" src="../images/투표.png" style="width:50px; height: 50px;" id="101" class="btn1">
+		</div>
+		<div id="test1" class="numRes101" ></div>
 	</div>
-
-	<div class="votemember">
-		<img src="../images/직원2.png" width="150" height="150"> <input
-			type="button" value='투표하기' id="102" class="btn2">
+	<hr>
+	
+	<div class="member" style="width: 600px; height: 300px; margin-left: 100px;">
+		<img src="../images/직원2.png" width="250" height="250"> 
+		<!-- <span>Like</span> -->
+		<div class="like2" style="width: 50px; height: 50px;">
+		<input type="image" src="../images/투표.png" style="width:50px; height: 50px;"  id="102" class="btn2">
 		<div id="test2" class="numRes102"></div>
+		</div>
 	</div>
 
 

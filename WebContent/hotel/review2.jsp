@@ -409,6 +409,7 @@ if (vo != null) {%>
 				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
 					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 
 				<hr>
 			</div>

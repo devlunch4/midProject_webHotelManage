@@ -15,6 +15,36 @@
 	background: #722f37;
 	clear: both;
 }
+
+
+h1.title span { 
+display:block; 
+padding-bottom:13px; 
+font-size:16px; 
+text-align:center;
+/* padding-right:400px; */
+margin-left:50px;
+color:#9c836a; 
+font-weight:450;
+}
+
+h1.title { 
+padding:59px 0 58px; 
+font-weight:100; 
+font-size:30px; 
+line-height:40px; 
+text-align:center;
+/* padding-right:400px; */
+}
+
+h3{
+font-weight:100; 
+text-align: center;
+padding : 30px;
+font-size:30px; 
+line-height:40px; 
+}
+
 </style>
 <!-- 공통 스타일 끝 -->
 
@@ -31,7 +61,7 @@
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
-		<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
 String userId;
 String userName;
@@ -109,11 +139,6 @@ if (vo != null) {%>
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
-		// 해당 페이지 특별 추가 코드 내정보 보기 
-		$('#div_result *').remove();
-		//console.log(pageCount);
-		getMemberInfoVal();
-		
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->
@@ -178,9 +203,38 @@ if (vo != null) {%>
 
 	<!-- 바디 공통 공통부분 끝  -->
 
+<div class="conttitle">
+<h1 class="title"><span>오시는 길</span>달고나호텔 방문을<br>환영합니다.</h1>
 
-	test page
-	<br> sample
+<div Align=center  class="location">
+		<div  id="map" style="width: 500px; height: 400px;"></div>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5571f6f63935faa5254783ef52726e8c"></script>
+	<script>
+		var mapContainer = document.getElementById('map');
+		var mapOption = {
+				/* 36.32498501617164, 127.42016219617635 */
+			center : new kakao.maps.LatLng(36.324985, 127.420162),
+			level : 3
+		};
+
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+		// 지도를 클릭한 위치에 표출할 마커입니다
+		var marker = new kakao.maps.Marker({ 
+		    // 지도 중심좌표에 마커를 생성합니다 
+		    position: map.getCenter() 
+		}); 
+		// 지도에 마커를 표시합니다
+		marker.setMap(map);
+		
+		
+	</script>
+</div>
+</div>
+<h3>대전광역시 중구 대흥동 500-5</h3>
+
+
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>
 	</footer>

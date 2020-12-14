@@ -14,6 +14,8 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMailTest {
 
+	SendMailTest thismail = new SendMailTest();
+	
 	public static void main(String[] args) {
 		System.out.println();
 		System.out.println("메일보내기테스트 진입");
@@ -32,6 +34,10 @@ public class SendMailTest {
 		// session 생성 및 MimeMessage생성
 		Session session = Session.getDefaultInstance(p, auth);
 		MimeMessage msg = new MimeMessage(session);
+		
+	//	
+//		String email = 
+		
 
 		try {
 			// 편지보낸시간
@@ -44,6 +50,8 @@ public class SendMailTest {
 			// 이메일 발신자
 			msg.setFrom(from);
 
+			
+			
 			// 이메일 수신자
 			InternetAddress to = new InternetAddress("devlunch4test@gmail.com");
 			msg.setRecipient(Message.RecipientType.TO, to);
@@ -69,6 +77,10 @@ public class SendMailTest {
 			msg_e.printStackTrace();
 		}
 	}
+	
+	public void rqmailaddr(String email) {
+		
+	};
 
 }
 

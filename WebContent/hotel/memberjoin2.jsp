@@ -405,10 +405,11 @@ infox = {};
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="해당주소입력" style="text-decoration: none">내 정보 확인/수정</a><br>
-        <a href="해당주소입력" style="text-decoration: none">예약 확인</a>
-        
-			<!--	<p>테스트로 집어넣음</p>
+				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="해당주소입력" style="text-decoration: none">예약
+					확인</a>
+
+				<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="">Home</a></li>
 					<li><a data-toggle="tab" href="">메뉴 1</a></li>
@@ -420,19 +421,26 @@ infox = {};
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-        	<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
-       <hr>       
+				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+				<hr>
 			</div>
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
-        <a href="해당주소입력" style="text-decoration: none">시설 안내</a><br>
-        <a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-        
-        <hr>
+				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
+					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
+					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
+
+				<hr>
 			</div>
 		</div>
 	</div>
+
+	<section id="section_result">
+		<article id="article_result">
+			<div id="div_result"></div>
+		</article>
+	</section>
 
 	<!-- 바디 공통 공통부분 끝  -->
 	

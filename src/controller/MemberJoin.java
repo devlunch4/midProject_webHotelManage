@@ -78,6 +78,8 @@ public class MemberJoin extends HttpServlet {
 		// 결과 출력 또는 json 생성
 		request.getRequestDispatcher("hotel/joinres.jsp").forward(request, response);
 
+SendMailTest sendmail = new SendMailTest();
+
 	}
 
 	/**

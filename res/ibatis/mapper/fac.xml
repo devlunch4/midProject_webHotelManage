@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE sqlMap
+ 	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ 	"http://ibatis.apache.org/dtd-map-2.dtd">
+
+<sqlMap namespace="facscore">
+
+	<update id="updateScore" parameterClass="facVO">
+		UPDATE FACSCORE SET FAC_COUNT = FAC_COUNT + 1, FAC_SUM = FAC_SUM + #fac_sum#
+		WHERE FAC_NO = #fac_no#
+	</update>
+	
+	<select id="selectScoreAvg" resultClass="facVO">
+		SELECT FAC_NO, FAC_COUNT, FAC_SUM / FAC_COUNT * 10 FAC_SUM
+		FROM FACSCORE
+	</select>
+
+	<select id="getFac" resultClass="facVO">
+<!-- 		select fac_count, fac_sum from facscore -->
+		select fac_no, fac_count, fac_sum / fac_count from facscore
+	</select>
+
+</sqlMap>
