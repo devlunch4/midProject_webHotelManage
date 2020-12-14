@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
+
+<sqlMap namespace="qreply">
+	
+	<select id="listQReply" parameterClass="int" resultClass="qreVo">
+		select * from qreply where q_no = #data#
+	</select>
+	
+	 
+	<insert id="insertQReply" parameterClass="qreVo">
+		insert into qreply values (qreply_seq.nextval, #q_no#, #qre_cont#, sysdate, #admin_id#)
+	<selectKey keyProperty="qre_no" resultClass="int">
+		select qreply_seq.currval from dual
+	</selectKey>
+	</insert>
+	
+	
+	<update id="updateQReply" parameterClass="qreVo">
+		update qreply set qre_cont=#qre_cont#, qre_date = sysdate where qre_no=#qre_no#
+	</update>
+	
+	<delete id="deleteQReply" parameterClass="int">
+		delete qreply where qre_no=#data#
+	</delete>
+		
+	
+	
+	
+</sqlMap>

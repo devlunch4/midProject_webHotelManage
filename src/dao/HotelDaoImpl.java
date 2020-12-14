@@ -31,7 +31,7 @@ public class HotelDaoImpl implements IHotelDao {
 	@Override
 	public List<ResvlogVO> resvLogAllList() throws SQLException {
 		// TODO Auto-generated method stub
-		return client.queryForList("resvlog.resvLogAllList");
+		return client.queryForList("resvlog.getresvLogAllList2");
 	}
 
 	// b1 예약로그테이블 상태 업데이트 메서드
@@ -65,7 +65,7 @@ public class HotelDaoImpl implements IHotelDao {
 		return (String) client.queryForObject("memberinfo.selectById", id);
 	}
 
-	//b1 회원가입 넣기
+	// b1 회원가입 넣기
 	@Override
 	public String insertMember(MemberInfoVO vo) throws SQLException {
 		// TODO Auto-generated method stub
@@ -76,7 +76,7 @@ public class HotelDaoImpl implements IHotelDao {
 	@Override
 	public int updateMemberVote(VoteVO vo) throws SQLException {
 		// TODO Auto-generated method stub
-		return (Integer)client.update("memberVote.updateMemberVote",vo);
+		return (Integer) client.update("memberVote.updateMemberVote", vo);
 	}
 
 	// b3 직원 리스트 불러오기
@@ -84,6 +84,18 @@ public class HotelDaoImpl implements IHotelDao {
 	public List<VoteVO> votelistAll() throws SQLException {
 
 		return client.queryForList("memberVote.votelistAll");
+	}
+
+	// 20201214 b2 관리자가 쓸 호텔 정보 가져오기
+	@Override
+	public List<RoomVO> getRoomInfoList() throws SQLException {
+		return client.queryForList("room.getRoomInfoList");
+	}
+
+	// 20201214 b2 관리자가 변경한 방 상태 업데이트
+	@Override
+	public int updateRoomStatus(Map<String, Object> map) throws SQLException {
+		return client.update("room.updateRoomStatus", map);
 	}
 
 }

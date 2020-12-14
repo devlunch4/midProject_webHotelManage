@@ -100,61 +100,8 @@
 			<%
 			if(userId!=null) {
 			%>	
-				
-			// 예약 처리
-			// 방번호
-			vroomNo = $('#roomNoList').val();
-					
-			// 방 인원수 값
-			vroomPeople = $('#roomPeople').text();
-					
-			// 시작날짜 가져오기
-			dateStartVal = $('#dateStart').val().trim();
-			console.log("dateStartVal : " + dateStartVal);
-			
-			// 끝날짜 가져오기
-			dateEndVal = $('#dateEnd').val().trim();
-			console.log("dateEndVal : " + dateEndVal);
-			
-			// 날짜 변환
-			dateStartVal = dateStartVal.split('-');
-			dateEndVal = dateEndVal.split('-');
-			console.log("dateStartVal : " + dateStartVal);
-			console.log("dateEndVal : " + dateEndVal);
-			
-			dateStartValArr = new Date(dateStartVal[0], dateStartVal[1], dateStartVal[2]);
-			dateEndValArr = new Date(dateEndVal[0], dateEndVal[1], dateEndVal[2]);
-			console.log("dateStartVal : " + dateStartValArr);
-			console.log("dateEndVal : " + dateEndValArr);
-			
-			console.log("dateStartValArr 값 : " + dateStartValArr);
-			console.log("dateEndValArr 값 : " + dateEndValArr);
-			
-			
-			// 현재 시간 구하기
-			NowDate = new Date();
-			NowTime = NowDate.getFullYear();
-			NowTime += '-' + (NowDate.getMonth()+1);
-			NowTime += '-' + NowDate.getDate();
-			console.log("NowTime 값 : " + NowTime);
-			
-			NowTime = NowTime.split('-');
-			console.log("NowTime 값 변환 : " + NowTime);
-			
-			NowTimeArr = new Date(NowTime[0], NowTime[1], NowTime[2]);
-			console.log("NowTimeArr 현재시간값 : " + NowTimeArr);
-			
-			if( NowTimeArr <= dateStartValArr
-					&& dateStartValArr < dateEndValArr) {
-				console.log("예약 가능");
 				// 예약 처리 부분
 				insertResVLog();
-			} else {
-				console.log("예약 불가능");
-				alert("예약이 불가능합니다 다시 예약설정을 해주십시오.");
-			}
-			
-			
 			<%	
 			} else {
 				%>
@@ -180,6 +127,39 @@
 			logout();
 		})
 		 
+		/* 
+		// 내정보 가져오는걸 처리
+		$('#updateMemberInfoBtn').on('click', function() {
+			
+			// 내정보 가져오기
+			$.ajax({
+				
+				url : '/hotel/MyMemberInfoList.do',
+				type : 'get',
+				dataType : 'json',
+				success : function(res) {
+					
+					$('#roomPlList').empty();
+					$('#roomPeople').empty();
+					
+					code = "";
+					
+					$.each(res, function(i, v) {
+						code += '<option value="'+v.room_pl+'">'+ v.room_pl +'</option>';
+					})
+					
+					$('#roomPlList').append(code);
+				},
+				error : function(xhr) {
+					
+					alert("상태 : " + xhr.stauts)
+				}
+				
+			})
+			
+		})
+		 */
+		 
 		 
 		
 	})
@@ -187,7 +167,7 @@
 
 </head>
 <body>
-<!-- 바디 공통 부분 시작 -->
+<!-- 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
 
 	<br>
@@ -204,11 +184,10 @@
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
-					확인</a>
-
-				<!--	<p>테스트로 집어넣음</p>
+				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보 확인/수정</a><br>
+        <a href="해당주소입력" style="text-decoration: none">예약 확인</a>
+        
+			<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="">Home</a></li>
 					<li><a data-toggle="tab" href="">메뉴 1</a></li>
@@ -220,29 +199,22 @@
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
-				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
-				<hr>
+        	<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
+       <hr>       
 			</div>
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
-				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="<%= request.getContextPath() %>/amenity.me" style="text-decoration: none">시설 안내</a><br> <a
-					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
-
-				<hr>
+				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br>
+        <a href="해당주소입력" style="text-decoration: none">시설 안내</a><br>
+        <a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+        <a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
+        
+        <hr>
 			</div>
 		</div>
 	</div>
 
-	<section id="section_result">
-		<article id="article_result">
-			<div id="div_result"></div>
-		</article>
-	</section>
-
-	<!-- 바디 공통 공통부분 끝  -->
+	<!-- 공통 공통부분 끝  -->
     
     <br>
     

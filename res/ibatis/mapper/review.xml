@@ -9,7 +9,7 @@
 <!-- 		select * from reviewboard order by rev_no desc -->
 <!--  	</select> -->
 	
-	<select id="revlistPage" resultClass="revVO" parameterClass="map">
+	<select id="revlistPage" resultClass="revVo" parameterClass="map">
 	 	select A.* from (
 	 		select rownum as rnum, B.* from (
 	 			select * from reviewboard

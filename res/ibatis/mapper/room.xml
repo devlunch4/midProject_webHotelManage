@@ -8,18 +8,22 @@
 
 	<select id="getRoomPl" resultClass="roomVO">
 		SELECT room_pl
-		FROM hawaiiroominfo
+		FROM
+		hawaiiroominfo
 		WHERE room_status = '빈방'
 		UNION
 		SELECT room_pl
-		FROM headroominfo
+		FROM
+		headroominfo
 		WHERE room_status = '빈방'
 	</select>
-	
-	<select id="getRoomType" parameterClass="String" resultClass="roomVO">
+
+	<select id="getRoomType" parameterClass="String"
+		resultClass="roomVO">
 		SELECT room_type
 		FROM hawaiiroominfo
-		WHERE room_status = '빈방'
+		WHERE room_status =
+		'빈방'
 		AND room_pl = #room_pl#
 		GROUP BY room_type
 		UNION
@@ -27,24 +31,46 @@
 		FROM headroominfo
 		WHERE room_status = '빈방'
 		AND room_pl = #room_pl#
-		GROUP BY room_type
+		GROUP
+		BY room_type
 	</select>
-	
+
 	<select id="getRoomNo" parameterClass="map" resultClass="roomVO">
-		SELECT room_no
+		SELECT
+		room_no
 		FROM hawaiiroominfo
 		WHERE room_status = '빈방'
-		AND room_pl = #room_pl#
+		AND room_pl =
+		#room_pl#
 		AND room_type = #room_type#
 		GROUP BY room_no
 		UNION
-		SELECT room_no
+		SELECT
+		room_no
 		FROM headroominfo
 		WHERE room_status = '빈방'
-		AND room_pl = #room_pl#
+		AND room_pl =
+		#room_pl#
 		AND room_type = #room_type#
 		GROUP BY room_no
 	</select>
+
+	<select id="getRoomInfoList" resultClass="roomVO">
+		SELECT *
+		FROM
+		hawaiiroominfo
+		UNION
+		SELECT *
+		FROM headroominfo
+	</select>
+
+	<update id="updateRoomStatus" parameterClass="map">
+		UPDATE $room_pl$
+		set room_status = #room_status#
+		where room_no = #room_no#
+	</update>
+
+
 
 </sqlMap>
 

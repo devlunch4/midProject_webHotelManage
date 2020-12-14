@@ -31,7 +31,7 @@
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
-	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+		<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
 String userId;
 String userName;
@@ -109,6 +109,11 @@ if (vo != null) {%>
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
+		// 해당 페이지 특별 추가 코드 내정보 보기 
+		$('#div_result *').remove();
+		//console.log(pageCount);
+		getMyResvlogList();
+		
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->
@@ -151,13 +156,12 @@ if (vo != null) {%>
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
 				<a href="review2.jsp" style="text-decoration: none">후기게시판</a>
-				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
 				<a href="해당주소입력" style="text-decoration: none">이벤트 안내</a><br> <a
-					href="<%= request.getContextPath() %>/amenity.me" style="text-decoration: none">시설 안내</a><br> <a
+					href="해당주소입력" style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
 					<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 

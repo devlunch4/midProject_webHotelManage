@@ -19,7 +19,7 @@ var noticeUpdateServer = function() {
 			content = notice.noti_cont;
 			content = content.replace(/\n/g, "<br>");
 			
-			$(pbody).find('.cspan').html(noti_cont);
+			$(pbody).find('.cspan').html(content);
 			$(pbody).find('a').text(notice.noti_title);
 			
 			today = new Date();

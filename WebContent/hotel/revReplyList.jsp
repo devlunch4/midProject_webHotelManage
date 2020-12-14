@@ -17,7 +17,7 @@
 	%>
 		{
 			"revrep_no" : "<%= vo.getRevrep_no() %>",		
-			"revrep_cont" : "<%= vo.getRevrep_cont() %>",		
+			"revrep_cont" : "<%= vo.getRevrep_cont().replaceAll("\r","").replaceAll("\n", "<br>") %>",
 			"revrep_date" : "<%= vo.getRevrep_date() %>",		
 			"mem_id" : "<%= vo.getMem_id() %>",
 			"rev_no" : "<%= vo.getRev_no() %>"

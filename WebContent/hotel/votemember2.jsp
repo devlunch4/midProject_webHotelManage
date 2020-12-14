@@ -152,6 +152,8 @@ if (vo != null) {%>
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
+		
+		
 	})
 </script>
 <!-- 공통 타이틀부분 끝 -->
@@ -189,7 +191,7 @@ if (vo != null) {%>
 				}
 			}, 
 			error : function (xhr) {
-				
+				alert("업데이트한 정보 가져오기 오류 : " + xhr)
 			}
 			
 		})
@@ -223,6 +225,7 @@ if (vo != null) {%>
 				},
 				error : function (xhr) {
 					//alert("실패" + xhr.status);
+					alert("직원1 투표수 정보 가져오기 오류 : " + xhr)
 				}
 			})
 			
@@ -255,7 +258,7 @@ if (vo != null) {%>
 				
 				}, 
 				error : function (xhr) {
-					
+					alert("직원2 투표수 정보 가져오기 오류 : " + xhr)
 				}
 				
 			})
@@ -346,7 +349,7 @@ if (vo != null) {%>
 	클릭해 기억에 남는 친절한 직원에게 투표해주세요.
 	</pre>
 	<br>
-	<div class="member" style="width: 600px; height: 300px; margin-left: 100px;">
+	<div class="votemember" style="width: 600px; height: 300px; margin-left: 100px;">
 		<img src="../images/직원1.png" width="250" height="250">
 		<!-- <span>Like</span> -->
 		<div class="like" style="width: 50px; height: 50px;">
@@ -356,7 +359,7 @@ if (vo != null) {%>
 	</div>
 	<hr>
 	
-	<div class="member" style="width: 600px; height: 300px; margin-left: 100px;">
+	<div class="votemember" style="width: 600px; height: 300px; margin-left: 100px;">
 		<img src="../images/직원2.png" width="250" height="250"> 
 		<!-- <span>Like</span> -->
 		<div class="like2" style="width: 50px; height: 50px;">

@@ -161,4 +161,34 @@ List<VoteVO> list = null;
 		return list;
 	}
 
+	// 20201214 b2 관리자가 쓸 호텔 정보 가져오기
+	@Override
+	public List<RoomVO> getRoomInfoList() {
+List<RoomVO> list = null;
+		
+		try {
+			list = dao.getRoomInfoList();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	// 20201214 b2 관리자가 변경한 방 상태 업데이트
+	@Override
+	public int updateRoomStatus(Map<String, Object> map) {
+int res = 0;
+		
+		try {
+			res = dao.updateRoomStatus(map);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
 }
