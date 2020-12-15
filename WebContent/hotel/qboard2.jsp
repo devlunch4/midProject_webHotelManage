@@ -42,6 +42,7 @@
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
+				userId = vo.getMem_id();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
@@ -78,13 +79,9 @@
 
 		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
-			<%-- <%
-				if(pageCount > 0) {
-			%> --%>
 			$('#div_result *').remove();
 			//console.log(pageCount);
 			getMemberInfoVal();
-			<%-- <%}%> --%>
 		})
 		
 		//내정보수정 버튼 클릭하면 이 작업 수행
@@ -387,7 +384,7 @@
 		<input type="button" value="확인" id="btnok"> <input
 			type="button" value="취소" id="btnreset">
 	</div>
-	<div id ="boardintro">
+	<div id="boardintro">
 		<h1 class=btxt1>문의게시판</h1>
 		<h4 class=btxt2>이것은 관리자 문의게시판 입니다</h4>
 	</div>
@@ -452,10 +449,10 @@
 
 		</div>
 	</div>
-<br>
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>

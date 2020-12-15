@@ -1,0 +1,290 @@
+@media (min-width:1920px) {
+    @font-face {
+        font-family: 'NotoSans Light';
+        font-style: normal;
+        font-weight: 800;
+        src: local('Noto Sans KR Black'), local('NotoSansKR-Black'), url(NotoSansKR-Black.woff) format('woff'), url(NotoSansKR-Black.woff2) format('woff2')
+    }
+    #kakaoHead.head_type3 {
+        background-color: #fff!important;
+        transition: none!important
+    }
+    .service_info .img_thumb {
+        border-radius: 1.25rem
+    }
+    .main_visual.r202007 {
+        color: #000
+    }
+    .main_visual.r202007 .kv {
+        position: relative;
+       
+        box-sizing: border-box;
+        color: #fff;
+        background-position: center
+    }
+    .main_visual.r202007 .kv .video {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%
+    }
+    .main_visual.r202007 .kv .video video {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%)
+    }
+    .main_visual.r202007 .kv .video:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        right: auto;
+        bottom: auto;
+        background: rgba(0, 0, 0, .25)
+    }
+    .main_visual.r202007 .kv .cont {
+        position: absolute;
+        left: 10.83333333rem;
+        top: 11.16666667rem;
+        right: auto;
+        bottom: auto;
+        max-width: 1920px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        z-index: 2
+    }
+    .main_visual.r202007 .kv .cont p {
+        font-size: 3.5rem;
+        line-height: 4.33333333rem;
+        letter-spacing: -.125rem;
+        font-weight: 700
+    }
+    html[lang=en] .main_visual.r202007 .kv .cont p {
+        font-size: 3.5rem;
+        line-height: 4.33333333rem;
+        letter-spacing: 0;
+        font-weight: 800
+    }
+    .main_visual.r202007 .kv .cont a {
+        display: block;
+        margin-top: 2.08333333rem;
+        padding-left: 3rem;
+        height: 2.16666667rem;
+        background-image: url(../img/mov-play.svg);
+        background-repeat: no-repeat;
+        font-size: 1.33333333rem;
+        line-height: 2.5rem;
+        letter-spacing: -.04166667rem;
+        color: #fff;
+        font-weight: 700;
+        background-size: contain;
+        cursor: pointer
+    }
+    html[lang=en] .main_visual.r202007 .kv .cont a {
+        letter-spacing: 0
+    }
+    .main_visual.r202007 a.arr {
+        display: inline-block;
+        font-size: 1.33333333rem;
+        line-height: 2.33333333rem;
+        letter-spacing: -.04166667rem;
+        font-weight: 700;
+        margin-top: 2.08333333rem;
+        padding-left: 3rem;
+        background-image: url(../img/arr-r.svg);
+        background-repeat: no-repeat;
+        background-size: contain
+    }
+    html[lang=en] .main_visual.r202007 a.arr {
+        letter-spacing: 0
+    }
+    .main_visual.r202007 a.arr.color-w {
+        color: #fff;
+        background-image: url(../img/arr-r-w.svg)
+    }
+    .main_visual.r202007 a.arr.rt {
+        background-image: url(../img/arr-rt.svg)
+    }
+    .main_visual.r202007 .card-list {
+        position: relative;
+        padding-top: 85px;
+        padding-right: 80px;
+        padding-bottom: 85px;
+        padding-left: 80px;
+        max-width: 1920px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box
+    }
+    .main_visual.r202007 .card-list .dots-sticky {
+        display: none
+    }
+    .main_visual.r202007 .card-list .dots-sticky .dots {
+        position: absolute;
+        right: -3.75rem
+    }
+    .main_visual.r202007 .card-list .dots-sticky .dots {
+        top: calc(50vh - 30px - 2.08333333rem)
+    }
+    .main_visual.r202007 .card-list .dots-sticky i {
+        display: block;
+        width: .83333333rem;
+        height: .83333333rem;
+        border-radius: .41666667rem;
+        background: #B7B7B7;
+        cursor: pointer
+    }
+    .main_visual.r202007 .card-list .dots-sticky i+i {
+        margin-top: .83333333rem
+    }
+    .main_visual.r202007 .card-list .dots-sticky[data-on="1"] i:nth-child(1) {
+        background: #000
+    }
+    .main_visual.r202007 .card-list .dots-sticky[data-on="2"] i:nth-child(2) {
+        background: #000
+    }
+    .main_visual.r202007 .card-list li {
+        position: relative
+    }
+    .main_visual.r202007 .card-list li.color-w {
+        color: #fff
+    }
+    .main_visual.r202007 .card-list li .subject {
+        font-size: 3.5rem;
+        line-height: 4.33333333rem;
+        letter-spacing: -.125rem;
+        font-weight: 700
+    }
+    html[lang=en] .main_visual.r202007 .card-list li .subject {
+        font-size: 3.5rem;
+        line-height: 4.33333333rem;
+        letter-spacing: 0;
+        font-weight: 800
+    }
+    .main_visual.r202007 .card-list li .card-body {
+        position: relative;
+        border-radius: 1.66666667rem;
+        overflow: hidden;
+        padding-top: 4.16666667rem;
+        padding-right: 4.16666667rem;
+        padding-bottom: 0;
+        padding-left: 4.16666667rem;
+        height: 53.33333333rem;
+        box-sizing: border-box;
+        background: #fff
+    }
+    .main_visual.r202007 .card-list li:nth-child(1) .card-body {
+        background: #f4f4f4
+    }
+    .main_visual.r202007 .card-list li:nth-child(1) .card-body .video-body {
+        position: absolute;
+        left: 1.66666667rem;
+        right: 1.66666667rem;
+        bottom: 4.16666667rem
+    }
+    .main_visual.r202007 .card-list li:nth-child(1) .card-body .video-body video {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: auto;
+        top: auto;
+        width: 100%
+    }
+    .main_visual.r202007 .card-list li:nth-child(1) .card-body div {
+        position: relative
+    }
+
+    .main_visual.r202007 .card-list li:nth-child(2) .card-body {
+        background: #f1f1f1
+    }
+    .main_visual.r202007 .card-list li:nth-child(2) .card-body:before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 4.16666667rem;
+        bottom: 4.16666667rem;
+        left: auto;
+        top: auto;
+        width: 73.66666667rem;
+        height: 29.83333333rem;
+        background-repeat: no-repeat;
+        background-image: url(../img/li-3.png);
+        background-size: cover
+    }
+    .main_visual.r202007 .card-list li+li {
+        margin-top: 85px
+    }
+    .main_visual.r202007 .video-pop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 10000;
+        display: none
+    }
+    .main_visual.r202007 .video-pop .video {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        width: 1280px;
+        transform: translate(-50%, -50%)
+    }
+    .main_visual.r202007 .video-pop .video .btn-close {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: -34px;
+        left: auto;
+        bottom: auto;
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        background-image: url(../img/ico-close.svg);
+        background-size: contain;
+        cursor: pointer
+    }
+    .main_visual.r202007 .video-pop .video video {
+        width: 100%
+    }
+    @supports (position:sticky) {
+        @media (min-height: 66.66666667rem) {
+            .main_visual.r202007 .card-list {
+                padding-top:0;
+                padding-right: 80px;
+                padding-bottom: 0;
+                padding-left: 80px
+            }
+            .main_visual.r202007 .card-list .dots-sticky {
+                display: block;
+                position: sticky;
+                top: 61px
+            }
+            .main_visual.r202007 .card-list li {
+                height: calc(100vh - 61px);
+                position: sticky;
+                top: 61px
+            }
+            .main_visual.r202007 .card-list li .card-body {
+                top: calc(50vh - 26.66666667rem - 30px)
+            }
+            .main_visual.r202007 .card-list li+li {
+                margin-top: 0
+            }
+        }
+    }
+}

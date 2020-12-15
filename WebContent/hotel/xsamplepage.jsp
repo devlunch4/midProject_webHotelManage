@@ -17,7 +17,6 @@
 </style>
 <!-- 공통 스타일 끝 -->
 
-
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -27,6 +26,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
+
+
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
@@ -58,7 +59,6 @@
 		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
 		userEmailStr = "이메일 : " + userEmail;
 		$('#userId').append(userId);
@@ -79,29 +79,25 @@
 
 		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
-			<%-- <%
-				if(pageCount > 0) {
-			%> --%>
 			$('#div_result *').remove();
 			//console.log(pageCount);
 			getMemberInfoVal();
-			<%-- <%}%> --%>
 		});
-		
+
 		//내정보수정 버튼 클릭하면 이 작업 수행
 		//$('#myinfoUpdateBtn').on('click', function(){
 		$(document).on('click', '#myinfoUpdateBtn', function(){
 			MemberInfoVal();
-			
+
 		});
-		
+
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
 		});
-					
+
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
@@ -142,7 +138,7 @@
 				</ul>-->
 				<hr>
 			</div>
-
+			
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지 게시판</a><br>
