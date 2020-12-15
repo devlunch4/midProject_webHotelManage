@@ -30,7 +30,7 @@
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
-	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+		<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
 			String userId;
 			String userName;
@@ -62,6 +62,15 @@
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
+		
+		//  예약확인 추가부분
+		if(userId!=null){
+			$('#div_result *').remove();
+			//console.log(pageCount);
+			getMemberInfoVal();
+		}else{alert("로그인이 필요합니다.")}
+	
+	
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
 			// 로그인 실행부분
@@ -95,6 +104,7 @@
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
+			
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
 		})
@@ -103,7 +113,8 @@
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
-	})
+	
+	});
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
