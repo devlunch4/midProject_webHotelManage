@@ -17,7 +17,7 @@
 </style>
 <!-- 공통 스타일 끝 -->
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -27,6 +27,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
+
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
@@ -41,7 +42,6 @@
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
-				userId = vo.getMem_id();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
@@ -53,9 +53,9 @@
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
 
-		console.log("userId : " + userId);
-		console.log("userName : " + userName);
-		console.log("userEmail : " + userEmail);
+		//console.log("userId : " + userId);
+		//console.log("userName : " + userName);
+		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
@@ -100,7 +100,7 @@
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
 		})
-		
+					
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
@@ -109,14 +109,25 @@
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
-<link rel="stylesheet" href="../css/allBoard.css">
-<script src="../js/review.js"></script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!--   <script src="http://192.168.42.49/board/js/board.js"></script> -->
+<script src="../js/qboard3.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+<link rel="stylesheet" href="../css/allBoard.css">
 <style>
 </style>
+
 <script>
- review= {};
- revreply= {};//객체선언
+ qboard= {}; //객체선언
+ qreply= {};
  $(function() {
 	listPageServer(1);
 	
@@ -146,13 +157,13 @@
 	
 	//이전 버튼 클릭 이벤트
 	$('#pagelist').on('click','.prev', function() {
-// 		$('.paging:last')
+		//$('.paging:last')
 		if($('#modifyForm').css('display') != 'none'){
 			// 다른 곳에 이미 열려 있다
 			replyReset();
 		}
 
-// 		//$('.paging:first')
+		//$('.paging:first')
 		currentPage = parseInt($('.paging').first().text() ) - 1;
 		listPageServer(currentPage);
 	})
@@ -165,56 +176,59 @@
 		vname = $(this).attr('name');
 		
 		if(vname == 'modify'){
+			writter = $(this).parents('.pbody').find('.nspan').html();
+			
+			alert("작성자 추출 : " +writter);
+			if(userId==writter){
+				
+			
 // 			alert(vidx + '번글 수정')
 			$('#uModal').modal('show');
 			
 			//수정할 내용을 가져와서 modal창에 출력
 			pbody = $(this).parents('.panel');
-// 			name = $(pbody).find('.nspan').text(); //이름
-// 			mail = $(pbody).find('.mspan').text(); //메일
 			
 			cont = $(pbody).find('.cspan').html(); //내용
-// 			cont = $(pbody).find('.cspan').html().trim(); //내용
 // 			console.log(cont);
 			cont = cont.replace(/<br>/g,"\n");
 			
 			title = $(pbody).find('a').text();	//제목
 			
 			//uform에 출력
-// 			$('#uform #name').val(name);
-			$('#uform #rev_title').val(title);
-// 			$('#uform #mail').val(mail);
-			$('#uform #cont').val(cont);
-			
+			$('#uform #q_title').val(title);
+			$('#uform #cont').val(cont);	
+			}else{alert("해당 문의글 작성자가 아닙니다.")}	
 			
 		}else if (vname == 'delete'){
+			writter = $(this).parents('.pbody').find('.nspan').html();
+			alert("작성자 추출 : " +writter);
+			if(userId==writter){
+				qboardDeleteServer(this);
+			}else{alert("해당 문의글  작성자가 아닙니다.")}
+		
 // 			alert(vidx + '번글 삭제')
-			reviewDeleteServer(this);
 			
 		}else if(vname == 'reply'){
 			alert(vidx + '번글의 댓글 등록')
-			//reviewreply테이블에 저장 - revrep_no, revrep_cont, revrep_date, mem_id, rev_no
-			revreply.rev_no = vidx;
+			//qreply테이블에 저장 - qre_no,  q_no, qre_cont, qre_date, admin_id
+			qreply.q_no = vidx;
  			
-// 			//작성자 아이디 임의 생성 ==> mem_id로 불러와야함/ 잘 모르겠음
-// 			rname1 = Math.floor(Math.random() * 50 + 1);
-//  		rname2 = String.fromCharCode(Math.random() * 26 + 65); //65~90
-//  		rname3 = String.fromCharCode(Math.random() * 26 + 97); //97~112
+// 			//작성자 아이디 임의 생성 ==> admin_id로 불러와야함/ 잘 모르겠음
+		
+ 			qreply.admin_id = 1;
  			
- 			revreply.mem_id = $(this).parent().find('.nspan').val();
- 			
- 			revreply.revrep_cont = $(this).parent().find('.area').val();
+ 			qreply.qre_cont = $(this).parent().find('.area').val();
 			
 			$(this).parent().find('.area').val("");
 			//ajax를 통해서 revreply객체를 서버로 보내기
-			revreplySaveServer(this);
+			qreplySaveServer(this);
 			
 		}else if (vname == 'list'){ //제목 클릭하면 해당 댓글 가져오기
 			
-			revreplyListServer(this);	//this -> list:  a태그
+			qreplyListServer(this);	//this -> list:  a태그
 			
 		}else if (vname == "r_modify"){
-			alert(vidx + "번 댓글을 수정합니다")
+			//alert(vidx + "번 댓글을 수정합니다")
 			
 			//수정폼이 이미 열려 있는지 비교
 			//다른곳에 열려 있다면 열려 있는 수정폼을 닫는다 - 폼을 body태그로 다시 append한다
@@ -234,7 +248,7 @@
 			$(this).parents('.rep').find('.cont').empty().append($('#modifyForm'))
 			$('#modifyForm').show();
 		}else if(vname == "r_delete") {
-			revreplyDeleteServer(this);
+			qreplyDeleteServer(this);
 		}
 		
 		
@@ -267,7 +281,7 @@
 		$(spantag).html(modicont.replace(/\n/g, "<br>"))
 		
 		//alert(modicont);
-		revreplyModifyServer();		//vidx, modicont
+		qreplyModifyServer();		//vidx, modicont
 	})
 	//댓글 수정폼에서 취소 버튼 클릭
 	$('#btnreset').on('click', function() {
@@ -280,11 +294,11 @@
 	
 	
 // 	//글쓰기버튼 이벤트
-// 	$('#write').on('click', function() {
-// 		//글쓰기 창 - modal창
-// 		$(#wModal).modal('show');
+ 	$('#write').on('click', function() {
+ 		//글쓰기 창 - modal창
+ 		$('#wModal').modal('show');
 		
-// 	})
+ 	})
 	//본문의 버튼에서 data-toggle, data-target속성으로 modal을 연다
 	//<input data-toggle="modal" data-target="#wModal" type="button" value="글쓰기" id="write">
 	
@@ -296,12 +310,8 @@
 		//data = {"writer" : name, "subject" : subject}
 		
 		// 	console.log($('#wform').serializeJSON());
-		
-			
-		//로그인시 출력되는 세션저장된 아이디를 가져온다.
-		alert(userId);
-		reviewSaveServer(this, userId);
-			
+		//alert(userId);
+		qboardSaveServer();
 		// 모달창 닫기
 		$('#wModal').modal('hide');
 		$('#wform .txt').val("");
@@ -310,19 +320,14 @@
 		$('#usend').on('click', function() {
 			
 			//모달창에 수정된 내용을 가져온다
-// 			board.writer = $('#uform #name').val();
-			review.rev_title = $('#uform #rev_title').val();
-// 			board.mail = $('#uform #mail').val();
-			review.rev_cont = $('#uform #cont').val();
-//	 		board.content = $('#uform #cont').val().trim();
-// 			board.password = $('#uform #pass').val();
-			review.rev_no = vidx;
+			qboard.q_title = $('#uform #q_title').val();
+			qboard.q_cont = $('#uform #cont').val();
+			qboard.q_no = vidx;
 			
 			//console.log(board.seq);
-			reviewUpdateServer();
+			qboardUpdateServer();
 			$('#uModal').modal('hide');
 			$('#uform.txt').val("");
-			
 		
 	 })
 })
@@ -386,6 +391,8 @@
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
 
+
+
 	<!-- 댓글 수정을 위한 폼 -->
 	<div id="modifyForm" style="display: none;">
 		<textarea id="text" rows="5" cols="50"></textarea>
@@ -393,15 +400,18 @@
 			type="button" value="취소" id="btnreset">
 	</div>
 	<div id="boardintro">
-		<h1 class=btxt1>후기게시판</h1>
-		<h4 class=btxt2>이것은 관리자 후기게시판 입니다</h4>
+		<h1 class=btxt1>문의게시판</h1>
+		<h4 class=btxt2>이것은 문의게시판 입니다</h4>
 	</div>
 	<div class="box"></div>
 	<br>
+	<br>
 	<div id="pagelist"></div>
 	<br>
-	<input data-toggle="modal" data-target="#wModal" type="button"
-		value="리뷰작성" id="write">
+	<br>
+	<!-- <input data-toggle="modal" data-target="#wModal" type="button"
+		value="글쓰기" id="write"> -->
+	<input type="button" value="글쓰기" id="write">
 
 	<!-- Modal -->
 	<div id="wModal" class="modal fade" role="dialog">
@@ -415,15 +425,9 @@
 				</div>
 				<div class="modal-body">
 					<form id="wform">
-						​ ​
-						<!-- 			<label>이름:</label> <input type='text' class='txt' id='name' name="writer"><br>​ -->
-						<label>제목:</label> <input type='text' class='txt' id='subject'
-							name="rev_title"><br>​
-						<!-- 			<label>메일:</label> <input type='text' class='txt' id='mail' name="mail" ><br>​ -->
-
-						<!-- 			<label>비밀번호:</label> <input type='password' class='txt' id='pass' name="password"><br>​ -->
-						<label>내용:</label> <br>
-						<textarea rows="10" cols="50" name="rev_cont" class='txt'></textarea>
+						​ ​ <label>제목:</label> <input type='text' class='txt' id='subject'
+							name="q_title"><br>​ <label>내용:</label> <br>
+						<textarea rows="10" cols="50" name="q_cont" class='txt'></textarea>
 						<br> <input type='button' value='확인' id="wsend"><br>​
 					</form>
 				</div>
@@ -448,16 +452,9 @@
 				</div>
 				<div class="modal-body">
 					<form id="uform">
-						​ ​
-						<!-- 			<label>이름:</label> <input type='text' class='txt' id='name' name="writer"><br>​ -->
-						<label>제목:</label> <input type='text' class='txt' id='rev_title'
-							name="rev_title"><br>​
-						<!-- 			<label>메일:</label> <input type='text' class='txt' id='mail' name="mail"><br>​ -->
-
-						<!-- 			<label>비밀번호:</label> <input type='password' class='txt' id='pass' name="password"><br>​ -->
-						<label>내용:</label> <br>
-						<textarea rows="10" cols="50" name="rev_cont" id="cont"
-							class='txt'></textarea>
+						​ ​ <label>제목:</label> <input type='text' class='txt' id='q_title'
+							name="q_title"><br>​ <label>내용:</label> <br>
+						<textarea rows="10" cols="50" name="q_cont" id="cont" class='txt'></textarea>
 						<br> <input type='button' value='확인' id="usend"><br>​
 					</form>
 				</div>
@@ -469,11 +466,9 @@
 		</div>
 	</div>
 	<br>
-
-<br>
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
 
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>

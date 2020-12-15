@@ -89,7 +89,7 @@ var listPageServer = function(cpage){
 			   code +='   <div id="collapse' + v.noti_no + '" class="panel-collapse collapse">';
 			   code +='     <div class="panel-body pbody">';
 			   code +='     	<p class="p1">';
-			   code +='     		작성자 : <span class="nspan">' + v.admin_id + '</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			   code +='     		작성자 : <span class="nspan">' + '관리자' + '</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 //			   code +='     		메일	 : <span class="mspan">' + v.mail + '</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 //			   code +='     		조회수 : <span class="hspan">' + v.hit + '</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 			   code +='     		작성날짜 : <span class="wspan">' + v.noti_date + '</span> &nbsp;&nbsp;&nbsp;';

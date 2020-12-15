@@ -4,10 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>호텔 달고나 홈페이지 - 이벤트</title>
+<meta charset="UTF-8">
+<title>호텔 달고나 - 직원 안내</title>
 
-<link rel="stylesheet" href="../css/event.css">
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -16,12 +15,53 @@
 	background: #722f37;
 	clear: both;
 }
+
+h1 {
+	display: block;
+	padding-bottom: 13px;
+	font-size: 30px;
+	color: #9c836a;
+	font-weight: 450;
+	padding-top: 10px;
+	margin-left: 100px;
+}
+
+.numRes101{
+
+	position : absolute;
+	top: 650px;
+	left : 513px;
+	font-size: 20px;
+}
+.numRes102{
+	position : absolute;
+	top: 52px;
+	left : 15px;
+	font-size: 20px;
+	
+}
+pre{
+	font-size: 25px;
+}
+span{
+	font-size: 20px;
+}
+.like{
+	position : absolute;
+	left : 500px;
+	top:600px;
+	
+}
+.like2{
+	position : absolute;
+	left : 500px;
+	top: 900px;
+	
+}
 </style>
 <!-- 공통 스타일 끝 -->
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -31,7 +71,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
-<link rel="stylesheet" href="../css/event.css">
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
@@ -46,6 +85,7 @@
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
+				userId = vo.getMem_id();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
@@ -109,18 +149,141 @@
 			getMyResvlogList();
 		})
 	})
-	
-			// 클릭하면 상세정보보기(modal창 띄워짐)
-	$(".event").on("click", function(){
 		
-				$('#Modal').modal('show');
-	});
-	
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
 
 </head>
+<script>
+
+	/* 직원 투표하기 기능 */
+
+	num1 = 0;
+	num = 0;
+	
+	$(function() {
+		
+		
+		// DB에 업데이트한 정보를 다시 가져오기
+		
+	 	$.ajax({
+	 		
+	 		//var arrnum = new Array("num1","num2");
+	 		
+	 		
+			url : "/hotel/voteUpdate.do",
+			type : "get",
+			data : { "code" : name,
+					 "count" : num1	
+			},
+			dataType : "json",
+			success : function (res) {
+				for(var i=0; i<res.length; i++){
+					var classname = ".numRes" + res[i].code;
+			 $(classname).html(res[i].count);	
+					
+				}
+			}, 
+			error : function (xhr) {
+				alert("업데이트한 정보 가져오기 오류 : " + xhr)
+			}
+			
+		})
+
+		
+		
+		// 첫번째 직원의 투표수 가져오기
+
+		$('.numRes').append(num);
+
+		$(this).on('click', '.btn1', function() {
+
+			var name= "101";
+			
+			
+			
+			var num1 = $(this).parents('.votemember').find('.numRes101').text();
+			num1 = parseInt(num1) + 1;
+			$.ajax({
+				url : "/hotel/voteUpdate.do",
+				type : "post",
+				data : { "code" : name,
+						 "count" : num1
+					
+				},
+				dataType : "json",
+				success : function (res) {
+					//alert(res.sw);
+					//console.log("성공");
+				//	$(".numRes").html(value);
+				},
+				error : function (xhr) {
+					//alert("실패" + xhr.status);
+					alert("직원1 투표수 정보 가져오기 오류 : " + xhr)
+				}
+			})
+			
+			
+			
+			$(this).parents('.votemember').find('.numRes101').empty();
+			$(this).parents('.votemember').find('.numRes101').text(num1);
+		})
+		
+		// 두번째 직원의 투표수 가져오기
+			$(this).on('click', '.btn2', function() {
+			
+			var name= "102";
+				
+			var num2 = $(this).parents('.votemember').find('.numRes102').text();
+			num2 = parseInt(num2) + 1;
+			
+		 	$.ajax({
+				url : "/hotel/voteUpdate.do",
+				type : "get",
+				data : { "code" : name,
+						"count" : num2
+					
+				},
+				dataType : "json",
+				success : function (res) {
+					//alert(res);
+				
+				// $(".numRes102").html(num2);
+				
+				}, 
+				error : function (xhr) {
+					alert("직원2 투표수 정보 가져오기 오류 : " + xhr)
+				}
+				
+			})
+			
+			$(this).parents('.votemember').find('.numRes102').empty();
+			$(this).parents('.votemember').find('.numRes102').text(num2);
+			
+			$.ajax({
+				url : "/hotel/voteUpdate.do",
+				type : "post",
+				data : { "code" : name,
+						 "count" : num2
+					
+				},
+				dataType : "json",
+				success : function (res) {
+					
+				//	$(".numRes").html(value);
+				//	alert(res.sw);
+					//console.log("성공");
+				},
+				error : function (xhr) {
+				//	alert("실패" + xhr.status);
+				}
+			})
+
+		})
+		//memberVote();
+	})
+</script>
 <body>
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
@@ -150,7 +313,7 @@
 				</ul>-->
 				<hr>
 			</div>
-
+			
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
@@ -158,106 +321,51 @@
 				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
 				<hr>
 			</div>
-
+			
 			<div id="menu3" class="tab-pane fade">
 				<h3>안내</h3>
 				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
 				<a href="<%=request.getContextPath()%>/amenity.me"
-					style="text-decoration: none">시설 안내</a><br> <a
-					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
+					style="text-decoration: none">시설 안내</a><br>
+				<a href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
 				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
-
+			
 		</div>
 	</div>
-
+	
 	<section id="section_result">
 		<article id="article_result">
 			<div id="div_result"></div>
 		</article>
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
-
-<h1 style="font-size: 30px; color: #9c836a; margin-left: 100px;">EVENT</h1>
-	<pre class="intro"style="margin-left: 0px; background-color: white; border: none; font-size: 20px">
-	호텔 달고나에서 진행되는<br> 
-	이벤트를 소개합니다.
-	</pre>
-	<p style="color:blue; margin-left: 100px;">[클릭하시면 크게 볼 수 있습니다.]</p>
 	
+	<h1>직원 안내 및 칭찬</h1>
+	<pre>
+	칭찬 릴레이에 참여하시려면 하트 버튼을
+	클릭해 기억에 남는 친절한 직원에게 투표해주세요.
+	</pre>
+	<br>
+	<div class="votemember" style="width: 600px; height: 300px; margin-left: 100px;">
+		<img src="../images/직원1.png" width="250" height="250">
+		<!-- <span>Like</span> -->
+		<div class="like" style="width: 50px; height: 50px;">
+		<input type="image" src="../images/투표.png" style="width:50px; height: 50px;" id="101" class="btn1">
+		</div>
+		<div id="test1" class="numRes101" ></div>
+	</div>
 	<hr>
 	
-<div class="event" style=" height:300px; margin-left: 100px; font-size: 25px; "  data-toggle="modal" data-target="#Modal" type="button" value="상세보기" id="write">
-	<img src="../images/이벤트1.jpg" width="400" height="300" >
-	 <div class="des"> 
-	<p class="e1" style="font-size: 25px;  margin-left: 50px;">
-	
-	<strong>FESTIVAL-PARTY</strong><br>
-	소중한 사람들과의 모임을 위한 특별 프로모션<br>
-	<br>
-	2020.12.01(화) ~ 2020.12.31(목)<br>
-	</p>
-</div>
-</div>
-<br>
-<hr>
-<div class="event" style=" height:300px; margin-left: 100px;"  data-toggle="modal" data-target="#Modal1" type="button" value="상세보기" id="write">
-	<img src="../images/이벤트2.jpg" width="400" height="300">
-	<div class="des">
-	<p class="e2" style="font-size: 25px; margin-left: 50px;">
-	<strong>DINING-KICHEN</strong><br>
-	크리스마스 및 연말을 위한 임페리얼 트레져의 특별한 프로모션<br>
-	가든카페에서 드리는 크리스마스를 위한 특별한 제안, <br>
-	크리스마스 케이크 3종<br>
-	<br>
-	2020.11.30(월) ~ 2020.12.25(금)
-	</p>
+	<div class="votemember" style="width: 600px; height: 300px; margin-left: 100px;">
+		<img src="../images/직원2.png" width="250" height="250"> 
+		<!-- <span>Like</span> -->
+		<div class="like2" style="width: 50px; height: 50px;">
+		<input type="image" src="../images/투표.png" style="width:50px; height: 50px;"  id="102" class="btn2">
+		<div id="test2" class="numRes102"></div>
+		</div>
 	</div>
-</div>
-<div id="Modal" class="modal fade" role="dialog">
-  <div class="modal-dialog"  style="max-width: 100%; width: auto; display: table;">
-
- <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">EVENT</h4>
-      </div>
-      <div class="modal-body">
-					<form id="uform">
-						<img src="../images/이벤트상세보기1.jpg">
-					</form>
-				</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div id="Modal1" class="modal fade" role="dialog">
-  <div class="modal-dialog"  style="max-width: 100%; width: auto; display: table;">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">EVENT</h4>
-      </div>
-      <div class="modal-body">
-					<form id="uform">
-						<img src="../images/이벤트상세보기2.jpg">
-					</form>
-				</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>

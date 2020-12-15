@@ -11,7 +11,7 @@
 	
 	 
 	<insert id="insertRevReply" parameterClass="revrepVo">
-		insert into reviewreply values (reviewreply_seq.nextval, #revrep_cont#, sysdate, #mem_id#, #rev_no# )
+		insert into reviewreply(revrep_no, revrep_cont, revrep_date, rev_no) values (reviewreply_seq.nextval, #revrep_cont#, sysdate, #rev_no#)
 	<selectKey keyProperty="revrep_no" resultClass="int">
 		select reviewreply_seq.currval from dual
 	</selectKey>

@@ -113,7 +113,7 @@
 
 
 <link rel="stylesheet" href="../css/allBoard.css">
-<script src="../js/notice.js"></script>
+<script src="../js/notice3.js"></script>
 
 <style>
 </style>
@@ -290,13 +290,13 @@
 	<div class="noticeboardbody" id="noticeboardbody">
 	<div id ="boardintro">
 		<h1 class=btxt1>공지게시판</h1>
-		<h4 class=btxt2>이것은 관리자 공지게시판 입니다</h4>
+		<h4 class=btxt2>이것은 공지게시판 입니다</h4>
 	</div>
 		<div class="box"></div>
 		<br> <br>
 		<div id="pagelist"></div><br>
-		<input data-toggle="modal" data-target="#wModal"
-			type="button" value="글쓰기" id="write">
+<!-- 		<input data-toggle="modal" data-target="#wModal" -->
+<!-- 			type="button" value="글쓰기" id="write"> -->
 
 		<!-- Modal -->
 		<div id="wModal" class="modal fade" role="dialog">

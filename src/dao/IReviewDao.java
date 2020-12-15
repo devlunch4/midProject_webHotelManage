@@ -22,7 +22,7 @@ public interface IReviewDao {
 	public int insertReview(ReviewVO revVo) throws SQLException;
 	
 	// 게시글 삭제
-	public int deleteReview(int rev_no) throws SQLException;
+	public int deleteReview(ReviewVO revVo) throws SQLException;
 	
 	// 게시글 수정
 	public int updateReview(ReviewVO revVo) throws SQLException;

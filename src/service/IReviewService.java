@@ -21,7 +21,7 @@ public interface IReviewService {
 	public int insertReview(ReviewVO revVo);
 	
 	// 게시글 삭제
-	public int deleteReview(int rev_no);
+	public int deleteReview(ReviewVO revVo);
 	
 	// 게시글 수정
 	public int updateReview(ReviewVO revVo);

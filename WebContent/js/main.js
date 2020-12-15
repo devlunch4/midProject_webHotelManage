@@ -2,6 +2,98 @@
  * 
  */
 
+// 비밀번호찾기
+var findPassWord = function() {
+	
+	userIdVal = userIdVal;
+	nameVal = nameVal;
+	EmailVal = EmailVal;
+	
+	$.ajax({
+		
+		url : '/hotel/FindPassWord.do',
+		type : 'post',
+		data : {"mem_name" : nameVal, 
+			"mem_email" : EmailVal,
+			"mem_id" : userIdVal},
+			success : function(res) {
+				
+				alert("비밀번호 전송이 " + res.sw + "되었습니다.");
+				
+				$('#div_result *').remove();
+				location.reload();
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.stauts)
+			},
+			dataType : 'json'
+				
+	})
+}
+// Id찾기
+var findId = function() {
+	
+	nameVal = nameVal;
+	EmailVal = EmailVal;
+	
+	$.ajax({
+		
+		url : '/hotel/FindId.do',
+		type : 'post',
+		data : {"mem_name" : nameVal, 
+			"mem_email" : EmailVal},
+		success : function(res) {
+				
+			alert("아이디 전송이 " + res.sw + "되었습니다.");
+				
+			$('#div_result *').remove();
+			location.reload();
+		},
+		error : function(xhr) {
+			alert("상태 : " + xhr.stauts)
+		},
+		dataType : 'json'
+			
+	})
+}
+
+// 비밀번호 찾기위해 입력부분 모드
+var createfindPassWordMode = function() {
+	
+	$('#div_result *').remove();
+	
+	code ='<input type="text" id="findIdVal" value="" placeholder="Id입력">';
+	code +='<input type="text" id="findNameVal" value="" placeholder="이름입력">';
+	code +='<input type="text" id="findEmailVal" value="" placeholder="이메일입력">';
+	code +='<input type="button" id="findPassWordBtn" value="비밀번호 찾기">';
+	
+	$('#div_result').append(code);
+	
+}
+// 아이디 찾기위해 입력부분 모드
+var createfindIdMode = function() {
+	
+	$('#div_result *').remove();
+	
+	code ='<input type="text" id="findNameVal" value="" placeholder="이름입력">';
+	code +='<input type="text" id="findEmailVal" value="" placeholder="이메일입력">';
+	code +='<input type="button" id="findIdBtn" value="아이디 찾기">';
+	
+	$('#div_result').append(code);
+	
+}
+
+// 아이디 비밀번호 찾기
+var createfindIdPassWordMode = function() {
+	
+	$('#div_result *').remove();
+	
+	code ='<input type="button" id="createfindIdBtn" value="Id찾기">';
+	code +='<input type="button" id="createfindPassWordBtn" value="비밀번호찾기">';
+	
+	$('#div_result').append(code);
+	
+}
 
 // 로그인하면 생기는 부분
 var createLoginAfterPart = function() {
@@ -28,7 +120,7 @@ var createLoginPart = function() {
 	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
 	code+='<input id="loginBtn" type="button" value="로그인">';
 	code+='<a href="main.html">회원가입</a>';
-	code+='<a href="main.html">ID/비밀번호찾기</a>';
+	code+='<a href="#" id="findIdPassWord">ID/비밀번호찾기</a>';
 	code+='</div>';
 	code+='</form>';
 	

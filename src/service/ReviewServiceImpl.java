@@ -78,11 +78,11 @@ public class ReviewServiceImpl implements IReviewService{
 	}
 
 	@Override
-	public int deleteReview(int rev_no) {
+	public int deleteReview(ReviewVO revVo) {
 		int cnt = 0;
 		
 		try {
-			cnt = dao.deleteReview(rev_no);
+			cnt = dao.deleteReview(revVo);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

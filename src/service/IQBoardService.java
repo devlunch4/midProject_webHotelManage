@@ -20,7 +20,7 @@ public interface IQBoardService {
 	public int insertQBoard(QBoardVO qboVo);
 	
 	// 게시글 삭제
-	public int deleteQBoard(int q_no);
+	public int deleteQBoard(QBoardVO qboVo);
 	
 	// 게시글 수정
 	public int updateQBoard(QBoardVO qboVo);

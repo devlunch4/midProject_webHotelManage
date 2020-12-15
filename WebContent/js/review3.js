@@ -85,10 +85,10 @@ var revreplyListServer = function(but) {	//but : 댓글등록버튼, 제목을 �
 				   code +=     			'작성날짜 : ' + v.revrep_date + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 				   code +='				<br><br><span class="cont">' + v.revrep_cont + '</span>';
 				   code +='     	</p>';
-				   code +='     	<p class="p2">';
-				   code +='     		<button type="button" idx="' + v.revrep_no + '" name="r_modify" class="action">댓글수정</button>';
-				   code +='     		<button type="button" idx="' + v.revrep_no + '" name="r_delete" class="action">댓글삭제</button>';
-				   code +='     	</p>';
+//				   code +='     	<p class="p2">';
+//				   code +='     		<button type="button" idx="' + v.revrep_no + '" name="r_modify" class="action">댓글수정</button>';
+//				   code +='     		<button type="button" idx="' + v.revrep_no + '" name="r_delete" class="action">댓글삭제</button>';
+//				   code +='     	</p>';
 				   code +='     </div>';
 				   
 			})
@@ -109,7 +109,7 @@ var reviewUpdateServer = function() {
 		type : 'post',
 		data : review,	//rev_no, rev_title, rev_cont 
 		success : function(res) {
-			alert(res.sw);
+			alert("게시글 수정 :" + res.sw);
 			//화면 수정 - 수정모달창에 있는 값들을 다시 가져와서(board객체) 화면에 출력.
 //			$(pbody).find('.nspan').text(notice.writer);
 //			$(pbody).find('.mspan').text(board.mail);
@@ -135,12 +135,16 @@ var reviewUpdateServer = function() {
 }
 
 var reviewDeleteServer = function(but) { 	//but : 삭제버튼
+	//userId검사
+	userId = userId;
+	console.log("userId : " + userId);
+	console.log("vidx : " + vidx);
 	
 	$.get(
 			'/hotel/ReviewDelete.do',
 			{"rev_no" : vidx},
 			function(res) {
-				alert(res.sw);
+				alert("게시글 삭제 :" + res.sw);
 				//화면에서 지우기
 				$(but).parents('.panel').remove();
 			},
@@ -151,7 +155,7 @@ var reviewDeleteServer = function(but) { 	//but : 삭제버튼
 var reviewSaveServer = function() {
 	
 	userId = userId;
-		
+	
 	$.ajax({
 		url : '/hotel/ReviewSave.do',
 		data : $('#wform').serializeJSON(),
@@ -200,10 +204,10 @@ var listPageServer = function(cpage){
 			   code +='     	</p>';
 			   code +='     	<hr>';
 			   code +='     	<p><span class="cspan">' + v.rev_cont + '</span></p>';
-			   code +=			'<p>';
-			   code +='    			<textarea class="area" rows="3.5" cols="60"></textarea>';
-			   code +='    			<button type="button" idx="' + v.rev_no + '" class="action repb" name="reply">댓글등록</button>';
-			   code +='     	</p>';
+//			   code +=			'<p>';
+//			   code +='    			<textarea class="area" rows="3.5" cols="60"></textarea>';
+//			   code +='    			<button type="button" idx="' + v.rev_no + '" class="action repb" name="reply">댓글등록</button>';
+//			   code +='     	</p>';
 			   code +='     </div>';
 			   code +='   </div>';
 			   code +=' </div>';

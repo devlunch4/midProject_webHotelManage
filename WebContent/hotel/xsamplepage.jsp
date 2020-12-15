@@ -41,6 +41,7 @@
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
+				userId = vo.getMem_id();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
@@ -57,10 +58,10 @@
 		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userIdStr = "아이디 : " + userId+" /";
-		userNameStr = userName + "님";
+		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
+		userNameStr = " / " + userName + " 님";
 		userEmailStr = "이메일 : " + userEmail;
-		$('#userId').append(userIdStr);
+		$('#userId').append(userId);
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
@@ -120,7 +121,8 @@
 			<li class="active"><a href="main.jsp">Home</a></li>
 			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
 			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
-			<li><a data-toggle="tab" href="#menu3">안내</a></li>
+			<li><a data-toggle="tab" href="#menu3">호텔 안내</a></li>
+			<li><a data-toggle="tab" href="#menu4">이벤트</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -128,8 +130,8 @@
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
 				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
-					확인</a>
+					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">내
+					예약 확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
@@ -143,20 +145,25 @@
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
-				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
-				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
+				<a href="notice2.jsp" style="text-decoration: none">공지 게시판</a><br>
+				<a href="review2.jsp" style="text-decoration: none">후기 게시판</a><br>
+				<a href="qboard2.jsp" style="text-decoration: none">문의 게시판</a>
 				<hr>
 			</div>
 
 			<div id="menu3" class="tab-pane fade">
-				<h3>안내</h3>
-				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<h3>호텔 안내</h3>
+				<a href="roombxslide2.jsp" style="text-decoration: none">객실 안내</a><br>
 				<a href="<%=request.getContextPath()%>/amenity.me"
 					style="text-decoration: none">시설 안내</a><br> <a
 					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
 				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
+			</div>
+
+			<div id="menu4" class="tab-pane fade">
+				<h3>이벤트</h3>
+				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
 			</div>
 
 		</div>

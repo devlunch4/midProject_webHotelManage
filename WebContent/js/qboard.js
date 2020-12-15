@@ -81,8 +81,8 @@ var qreplyListServer = function(but) {	//but : 댓글등록버튼, 제목을 클
 				
 				   code +='     <div class="panel-body rep">';
 				   code +='     	<p class="p1">';
-				   code +=     			v.admin_id + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-				   code +=     			v.qre_date + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				   code +=     			'작성자 :  관리자' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				   code +=     			'작성날짜 : ' + v.qre_date + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 				   code +='				<br><br><span class="cont">' + v.qre_cont + '</span>';
 				   code +='     	</p>';
 				   code +='     	<p class="p2">';
@@ -199,7 +199,7 @@ var listPageServer = function(cpage){
 			   code +='     	<hr>';
 			   code +='     	<p><span class="cspan">' + v.q_cont + '</span></p>';
 			   code +=			'<p>';
-			   code +='    			<textarea class="area" cols="60"></textarea>';
+			   code +='    			<textarea class="area" rows="3.5" cols="60"></textarea>';
 			   code +='    			<button type="button" idx="' + v.q_no + '" class="action repb" name="reply">댓글등록</button>';
 			   code +='     	</p>';
 			   code +='     </div>';

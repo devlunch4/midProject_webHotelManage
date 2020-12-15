@@ -27,10 +27,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
+
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
-	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+	<% MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
 			String userId;
 			String userName;
@@ -38,7 +39,7 @@
 
 			if (vo != null) {%>
 			createLoginAfterPart();
-			<%userId = vo.getMem_id();
+			<% userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
 				userId = vo.getMem_id();
@@ -110,7 +111,7 @@
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
 <link rel="stylesheet" href="../css/allBoard.css">
-<script src="../js/review.js"></script>
+<script src="../js/review3.js"></script>
 
 <style>
 </style>
@@ -165,6 +166,10 @@
 		vname = $(this).attr('name');
 		
 		if(vname == 'modify'){
+			writter = $(this).parents('.pbody').find('.nspan').html();
+	
+			alert("작성자 추출 : " +writter);
+			if(userId==writter){
 // 			alert(vidx + '번글 수정')
 			$('#uModal').modal('show');
 			
@@ -185,12 +190,16 @@
 			$('#uform #rev_title').val(title);
 // 			$('#uform #mail').val(mail);
 			$('#uform #cont').val(cont);
-			
+			}else{alert("해당 게시글 작성자가 아닙니다.")}	
 			
 		}else if (vname == 'delete'){
+			writter = $(this).parents('.pbody').find('.nspan').html();
+			alert("작성자 추출 : " +writter);
+			if(userId==writter){
 // 			alert(vidx + '번글 삭제')
 			reviewDeleteServer(this);
-			
+			}else{alert("해당 게시글 작성자가 아닙니다.")}
+		
 		}else if(vname == 'reply'){
 			alert(vidx + '번글의 댓글 등록')
 			//reviewreply테이블에 저장 - revrep_no, revrep_cont, revrep_date, mem_id, rev_no
@@ -297,11 +306,10 @@
 		
 		// 	console.log($('#wform').serializeJSON());
 		
-			
 		//로그인시 출력되는 세션저장된 아이디를 가져온다.
-		alert(userId);
+		//alert(userId);
 		reviewSaveServer(this, userId);
-			
+		
 		// 모달창 닫기
 		$('#wModal').modal('hide');
 		$('#wform .txt').val("");
@@ -392,9 +400,9 @@
 		<input type="button" value="확인" id="btnok"> <input
 			type="button" value="취소" id="btnreset">
 	</div>
-	<div id="boardintro">
+	<div id ="boardintro">
 		<h1 class=btxt1>후기게시판</h1>
-		<h4 class=btxt2>이것은 관리자 후기게시판 입니다</h4>
+		<h4 class=btxt2>이것은 후기게시판 입니다</h4>
 	</div>
 	<div class="box"></div>
 	<br>

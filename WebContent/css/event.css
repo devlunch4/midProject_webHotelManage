@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.des {
+	size : 100%;
+}
+h1 {
+	display: block;
+	font-size: 30px;
+	color: #9c836a;
+	font-weight: 450;
+	padding-top: 200px;
+	margin-left: 100px;
+}
+img {
+	margin-top: 0px;
+	margin-right: 15px;
+	float: left;
+}
+pre{
+ font-size: 25px;
+}
+strong{
+	font-size: 30px;
+}
+.event{
+	margin-bottom: 0px;
+}

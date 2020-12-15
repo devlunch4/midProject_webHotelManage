@@ -27,6 +27,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
+
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
@@ -57,8 +58,9 @@
 		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님 ";
+		userNameStr = " / " + userName + " 님";
 		userEmailStr = "이메일 : " + userEmail;
+		$('#userId').append(userId);
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
@@ -119,56 +121,8 @@
 <!--   <script src="http://192.168.42.49/board/js/board.js"></script> -->
 <script src="../js/qboard.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
+<link rel="stylesheet" href="../css/allBoard.css">
 <style>
-h1, #write, .panel {
-	margin: 10px;
-}
-
-#write {
-	margin-left: 5%;
-}
-
-.panel-heading:hover {
-	background: #28a0ff;
-}
-
-.pager {
-	float: left;
-	width: 120px;
-	margin: 5px;
-	margin-left: 5%;
-}
-
-.p1 {
-	float: left;
-	width: 80%;
-}
-
-.p2 {
-	float: right;
-	width: 20%;
-}
-
-hr {
-	clear: both;
-}
-
-.repb {
-	height: 45px;
-	vertical-align: top;
-}
-
-.rep {
-	margin: 2px;
-	padding: 3px;
-	background: pink;
-}
-
-label {
-	display: inline-block;
-	width: 100px;
-	height: 30px;
-}
 </style>
 
 <script>
@@ -362,8 +316,7 @@ label {
 			qboardUpdateServer();
 			$('#uModal').modal('hide');
 			$('#uform.txt').val("");
-			
-		
+					
 	 })
 })
 </script>
@@ -434,10 +387,10 @@ label {
 		<input type="button" value="확인" id="btnok"> <input
 			type="button" value="취소" id="btnreset">
 	</div>
-
-	<h1>문의게시판</h1>
-	<br>
-	<br>
+	<div id ="boardintro">
+		<h1 class=btxt1>문의게시판</h1>
+		<h4 class=btxt2>이것은 관리자 문의게시판 입니다</h4>
+	</div>
 	<div class="box"></div>
 	<br>
 	<br>
@@ -499,7 +452,10 @@ label {
 
 		</div>
 	</div>
-
+<br>
+<br>
+<br>
+<br>
 
 	<footer id="footer">
 		<p id="WebShop" style="color: white;">호텔 달고나</p>

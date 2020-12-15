@@ -28,15 +28,15 @@
 	
 	<insert id="insertReview" parameterClass="revVo">
 		insert into reviewboard	(rev_no, rev_title, rev_cont, rev_date, mem_id)
-		values (reviewboard_seq.nextval, #rev_title#, #rev_cont#, sysdate, 2)
+		values (reviewboard_seq.nextval, #rev_title#, #rev_cont#, sysdate, #mem_id#)
 	
   		<selectKey keyProperty="rev_no" resultClass="int">
   			select reviewboard_seq.currval from dual
   		</selectKey>
 	</insert>
 	
-	<delete id="deleteReview" parameterClass="int">
-		delete from reviewboard where rev_no = #rev_no#
+	<delete id="deleteReview" parameterClass="revVo">
+		delete from reviewboard where rev_no = #rev_no# AND mem_id = #mem_id#
 	</delete>
 	
 	<update id="updateReview" parameterClass="revVo">
@@ -44,7 +44,7 @@
 			rev_title = #rev_title#,
 			rev_cont = #rev_cont#,
 			rev_date = sysdate
-			where rev_no = #rev_no#
+			where rev_no = #rev_no# AND mem_id = #mem_id#
 	</update>
 	
 	

@@ -20,7 +20,7 @@ public interface IQBoardDao {
 	public int insertQBoard(QBoardVO qboVo) throws SQLException;
 	
 	// 게시글 삭제
-	public int deleteQBoard(int q_no) throws SQLException;
+	public int deleteQBoard(QBoardVO qboVo) throws SQLException;
 	
 	// 게시글 수정
 	public int updateQBoard(QBoardVO qboVo) throws SQLException;

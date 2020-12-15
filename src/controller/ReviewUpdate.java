@@ -7,9 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import service.IReviewService;
 import service.ReviewServiceImpl;
+import vo.MemberInfoVO;
 import vo.ReviewVO;
 
 /**
@@ -31,6 +33,7 @@ public class ReviewUpdate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		
 		request.setCharacterEncoding("utf-8");
 //		String writer = request.getParameter("writer");
@@ -39,6 +42,9 @@ public class ReviewUpdate extends HttpServlet {
 //		String password = request.getParameter("password");
 		String rev_cont = request.getParameter("rev_cont");
 		int rev_no = Integer.parseInt(request.getParameter("rev_no"));
+		
+		MemberInfoVO vo1 = (MemberInfoVO) session.getAttribute("result");
+		String mem_id = vo1.getMem_id();
 		
 		//0. writer, subject, mail, password, content, seq
 		// 가져와서 BoardVO에 저장
@@ -49,6 +55,7 @@ public class ReviewUpdate extends HttpServlet {
 //		vo.setPassword(password);
 		vo.setRev_cont(rev_cont);;
 		vo.setRev_no(rev_no);
+		vo.setMem_id(mem_id);
 		
 		
 		//1

@@ -66,11 +66,11 @@ public class QBoardServiceImpl implements IQBoardService{
 	}
 
 	@Override
-	public int deleteQBoard(int q_no) {
+	public int deleteQBoard(QBoardVO qboVo) {
 		int cnt = 0;
 		
 		try {
-			cnt = dao.deleteQBoard(q_no);
+			cnt = dao.deleteQBoard(qboVo);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

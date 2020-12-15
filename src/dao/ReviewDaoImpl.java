@@ -52,9 +52,9 @@ public class ReviewDaoImpl implements IReviewDao{
 	}
 
 	@Override
-	public int deleteReview(int rev_no) throws SQLException {
+	public int deleteReview(ReviewVO revVo) throws SQLException {
 		
-		return client.delete("reviewboard.deleteReview", rev_no);
+		return client.delete("reviewboard.deleteReview", revVo);
 	}
 
 	@Override

@@ -7,9 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import service.IQBoardService;
 import service.QBoardServiceImpl;
+import vo.MemberInfoVO;
 import vo.QBoardVO;
 
 /**
@@ -31,6 +33,7 @@ public class QBoardUpdate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		
 		request.setCharacterEncoding("utf-8");
 //		String writer = request.getParameter("writer");
@@ -40,15 +43,19 @@ public class QBoardUpdate extends HttpServlet {
 		String q_cont = request.getParameter("q_cont");
 		int q_no = Integer.parseInt(request.getParameter("q_no"));
 		
+		MemberInfoVO vo1 = (MemberInfoVO) session.getAttribute("result");
+		String mem_id = vo1.getMem_id();
+		
 		//0. writer, subject, mail, password, content, seq
 		// 가져와서 BoardVO에 저장
 		QBoardVO vo = new QBoardVO();
-//		vo.setWriter(writer);
 		vo.setQ_title(q_title);
 //		vo.setMail(mail);
 //		vo.setPassword(password);
 		vo.setQ_cont(q_cont);;
 		vo.setQ_no(q_no);
+		vo.setMem_id(mem_id);
+		
 		
 		
 		//1

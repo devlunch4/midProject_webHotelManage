@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+h1 {
+	display: block;
+	padding-bottom: 13px;
+	font-size: 30px;
+	color: #9c836a;
+	font-weight: 450;
+	padding-top: 200px;
+	margin-left: 100px;
+}
+/*  #middle img{
+vertical-align:middle;
+}
+ */
+
+img {
+	margin-right: 15px;
+	float: left;
+}
+.des{
+	position : absolute;
+	margin-top: 50px;
+	left : 500px;
+	font-size: 16px;
+}
+h3{
+ font-size: 25px;
+}
+.des1{
+	position : absolute;
+	margin-top: 50px;
+	left : 500px;
+	font-size: 16px;
+}

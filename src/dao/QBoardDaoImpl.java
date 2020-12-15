@@ -46,9 +46,9 @@ public class QBoardDaoImpl implements IQBoardDao{
 	}
 
 	@Override
-	public int deleteQBoard(int q_no) throws SQLException {
+	public int deleteQBoard(QBoardVO qboVo) throws SQLException {
 		// TODO Auto-generated method stub
-		return client.delete("qboard.deleteQBoard", q_no);
+		return client.delete("qboard.deleteQBoard", qboVo);
 	}
 
 	@Override
