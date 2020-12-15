@@ -42,4 +42,47 @@ public class MemberInfoDaoImpl implements IMemberInfoDao {
 		return client.update("memberinfo.updateMemberInfo", vo);
 	}
 
+	// 20201215 b2 회원 정보 가져오기
+	@Override
+	public List<MemberInfoVO> getMemberInfoList() throws SQLException {
+		return client.queryForList("memberinfo.getMemberInfoList");
+	}
+
+	// 20201215 b2  관리자가 회원정보 수정하는 부분
+	@Override
+	public int adminMemberInfoUpdate(MemberInfoVO vo) throws SQLException {
+
+		int res = client.update("memberinfo.MemberInfoUpdate", vo);
+		System.out.println("update 한 후 res 값 : " + res);
+		if (res > 0)
+			res = 1;
+		else
+			res = 0;
+		System.out.println("return 전 res 값 : " + res);
+
+		return res;
+	}
+
+	// 20201215 b2 관리자가 회원추가하는거
+	@Override
+	public int adminInsertMember(MemberInfoVO vo) throws SQLException {
+
+		vo = (MemberInfoVO) client.insert("memberinfo.insertMember", vo);
+		int res = 0;
+		if (vo == null)
+			res = 1;
+		else
+			res = 0;
+
+		System.out.println("return 전 res 값 : " + res);
+
+		return res;
+	}
+
+	// 20201215 b2 관리자가 회원 정보 삭제
+	@Override
+	public int deleteMember(String mem_id) throws SQLException {
+		return client.delete("memberinfo.deleteMember", mem_id);
+	}
+	
 }

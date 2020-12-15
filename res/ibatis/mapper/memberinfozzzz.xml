@@ -40,13 +40,6 @@
 		where mem_id = #mem_id#
 	</update> 	
 	
-	
-	<select id="selectById" parameterClass="string"
-		resultClass="string">
-		SELECT mem_id FROM memberinfo WHERE mem_id = #data#
-	</select>
-
-
 	<insert id="insertMember" parameterClass="memberinfoVO">
 		insert into memberinfo values(
 			#mem_id#,#mem_pass#,#mem_name#,to_date(#mem_bir#, 'yyyy-mm-dd'),

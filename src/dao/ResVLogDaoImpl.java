@@ -18,7 +18,7 @@ public class ResVLogDaoImpl implements IResVLogDao {
 	}
 
 	public static IResVLogDao getDao() {
-		if(dao == null)
+		if (dao == null)
 			dao = new ResVLogDaoImpl();
 		return dao;
 	}
@@ -33,6 +33,12 @@ public class ResVLogDaoImpl implements IResVLogDao {
 	@Override
 	public List<ResvlogVO> getresvLogAllList(String mem_id) throws SQLException {
 		return (List<ResvlogVO>) client.queryForList("resvlog.getresvLogAllList", mem_id);
+	}
+
+	// 202011215 b2 년월매출 조회해서 가져오기
+	@Override
+	public List<ResvlogVO> getResvlogDateMoney(String resev_date) throws SQLException {
+		return client.queryForList("resvlog.getResvlogDateMoney", resev_date);
 	}
 
 }

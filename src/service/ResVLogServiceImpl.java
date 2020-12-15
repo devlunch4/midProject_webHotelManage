@@ -53,6 +53,22 @@ public class ResVLogServiceImpl implements IResVLogService{
 		
 		return list;
 	}
+	
+	// 20201215 b2 년월매출 가져오는 메서드
+	@Override
+	public List<ResvlogVO> getResvlogDateMoney(String resev_date) {
+		
+		List<ResvlogVO> list = null;
+		
+		try {
+			list = dao.getResvlogDateMoney(resev_date);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 
 
 }

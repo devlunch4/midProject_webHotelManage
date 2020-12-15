@@ -116,8 +116,8 @@ public class HotelServiceImpl implements IHotelService {
 		}
 		return resId;
 	}
-	
-	//b1 회원가입 인서트
+
+	// b1 회원가입 인서트
 	@Override
 	public String insertMember(MemberInfoVO vo) {
 		String cnt = null;
@@ -130,64 +130,95 @@ public class HotelServiceImpl implements IHotelService {
 		return cnt;
 	}
 
-	
 	// b3 직원 투표 업데이트
 	@Override
 	public int updateMemberVote(VoteVO vo) {
-int cnt = 0;
-		
+		int cnt = 0;
+
 		try {
 			cnt = dao.updateMemberVote(vo);
-		}catch (SQLException e) {
-			
+		} catch (SQLException e) {
+
 			e.printStackTrace();
 		}
-		
+
 		return cnt;
 	}
 
 	// b3 직원 가져오기
 	@Override
 	public List<VoteVO> votelistAll() {
-List<VoteVO> list = null;
-		
+		List<VoteVO> list = null;
+
 		try {
-			list=dao.votelistAll();
+			list = dao.votelistAll();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return list;
 	}
 
 	// 20201214 b2 관리자가 쓸 호텔 정보 가져오기
 	@Override
 	public List<RoomVO> getRoomInfoList() {
-List<RoomVO> list = null;
-		
+		List<RoomVO> list = null;
+
 		try {
 			list = dao.getRoomInfoList();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return list;
 	}
 
 	// 20201214 b2 관리자가 변경한 방 상태 업데이트
 	@Override
 	public int updateRoomStatus(Map<String, Object> map) {
-int res = 0;
-		
+		int res = 0;
+
 		try {
 			res = dao.updateRoomStatus(map);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+		return res;
+	}
+
+	// 20201215 b2 관리자가 호텔방 추가
+	@Override
+	public int insertRoom(Map<Object, Object> map) {
+
+		int res = 0;
+
+		try {
+			res = dao.insertRoom(map);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return res;
+	}
+
+	// 20201215 b2 호텔방 삭제
+	@Override
+	public int deleteRoom(Map<String, Object> map) {
+
+		int res = 0;
+
+		try {
+			res = dao.deleteRoom(map);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		return res;
 	}
 

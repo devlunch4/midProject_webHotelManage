@@ -98,4 +98,44 @@ public class HotelDaoImpl implements IHotelDao {
 		return client.update("room.updateRoomStatus", map);
 	}
 
+	// 20201215 b2 관리자가 호텔 방 추가
+	@Override
+	public int insertRoom(Map<Object, Object> map) throws SQLException {
+
+		int res = 0;
+
+		map = (Map<Object, Object>) client.insert("room.insertRoom", map);
+
+		if (map == null) {
+			res = 1;
+			System.out.println("dao에 있는 if의 res 값" + res);
+		} else {
+			res = 0;
+			System.out.println("dao에 있는 else의 res 값" + res);
+		}
+
+		return res;
+
+		// return client.insert("room.insertRoom", map);
+	}
+
+	// 20201215 b2 호텔방 삭제
+	@Override
+	public int deleteRoom(Map<String, Object> map) throws SQLException {
+
+		int res = 0;
+
+		map = (Map<String, Object>) client.insert("room.deleteRoom", map);
+
+		if (map == null) {
+			res = 1;
+			System.out.println("dao에 있는 if의 res 값" + res);
+		} else {
+			res = 0;
+			System.out.println("dao에 있는 else의 res 값" + res);
+		}
+
+		return res;
+	}
+
 }

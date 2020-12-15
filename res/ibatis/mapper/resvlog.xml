@@ -33,4 +33,11 @@
 		ORDER BY resev_no
 	</select>
 	
+	<select id="getResvlogDateMoney" parameterClass="String" resultClass="resvlogVO">
+		select *
+		from resvlog
+		where resev_state = '결제'
+		and to_char(resev_date, 'yyyymm') = #resev_date#
+	</select>
+	
 </sqlMap>

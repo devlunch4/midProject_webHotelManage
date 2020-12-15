@@ -15,5 +15,17 @@ public interface IMemberInfoDao {
 
 	// 20201213 내정보 수정
 	public int updateMemberInfo(MemberInfoVO vo) throws SQLException;
+	
+	// 20201215 b2 회원정보 가져오기
+	public List<MemberInfoVO> getMemberInfoList() throws SQLException;
+	
+	// 20201215 b2 회원정보 수정
+	public int adminMemberInfoUpdate(MemberInfoVO vo) throws SQLException;
+	
+	// 20201215 b2  관리자가 회원정보 등록
+	public int adminInsertMember(MemberInfoVO vo) throws SQLException;
+	
+	// 20201215 b2 관리자가 회원정보 삭제
+	public int deleteMember(String mem_id) throws SQLException;
 
 }

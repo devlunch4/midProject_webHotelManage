@@ -57,8 +57,10 @@
 		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님 ";
+		userIdStr = "아이디 : " + userId+" /";
+		userNameStr = userName + "님";
 		userEmailStr = "이메일 : " + userEmail;
+		$('#userId').append(userIdStr);
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
@@ -72,7 +74,7 @@
 		$('#loginOutBtn').on('click', function() {
 			// 로그아웃 실행 부분
 			logout();
-		})
+		});
 
 		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
@@ -83,27 +85,27 @@
 			//console.log(pageCount);
 			getMemberInfoVal();
 			<%-- <%}%> --%>
-		})
+		});
 		
 		//내정보수정 버튼 클릭하면 이 작업 수행
 		//$('#myinfoUpdateBtn').on('click', function(){
 		$(document).on('click', '#myinfoUpdateBtn', function(){
 			MemberInfoVal();
 			
-		})
+		});
 		
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
-		})
+		});
 					
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
-		})
-	})
+		});
+	});
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->

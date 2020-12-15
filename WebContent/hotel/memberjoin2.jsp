@@ -396,9 +396,6 @@ infox = {};
 									$("#joinspan").html(idvaluex + " 님 "+ res.sw).css("color", "red");
 									alert("가입을 축하합니다. ");
 									location.href="main.jsp";
-									
-									
-									
 								},
 								error : function(xhr) {
 									alert("상태 : " + xhr.status);

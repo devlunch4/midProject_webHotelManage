@@ -43,4 +43,10 @@ public interface IHotelDao {
 
 	// 20201214 b2 관리자가 변경한 방 상태 업데이트
 	public int updateRoomStatus(Map<String, Object> map) throws SQLException;
+	
+	// 20201215 b2 호텔방 추가하기
+	public int insertRoom(Map<Object, Object> map) throws SQLException;
+	
+	// 20201215 b2 호텔방 삭제하기
+	public int deleteRoom(Map<String, Object> map) throws SQLException;
 }

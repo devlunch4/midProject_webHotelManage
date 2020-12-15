@@ -36,11 +36,17 @@ public interface IHotelService {
 
 	// b3 직원 가져오기
 	public List<VoteVO> votelistAll();
-	
+
 	// 20201214 b2 관리자가 쓸 호텔 정보 가져오기
 	public List<RoomVO> getRoomInfoList();
-	
-	// 20201214 b2  관리자가 변경한 방 상태 업데이트
+
+	// 20201214 b2 관리자가 변경한 방 상태 업데이트
 	public int updateRoomStatus(Map<String, Object> map);
+
+	// 20201215 b2 호텔방 추가하기
+	public int insertRoom(Map<Object, Object> map);
+
+	// 20201215 b2 호텔방 삭제하기
+	public int deleteRoom(Map<String, Object> map);
 
 }

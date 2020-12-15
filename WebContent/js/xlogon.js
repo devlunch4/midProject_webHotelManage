@@ -190,10 +190,11 @@ var createLoginAfterPart = function() {
 	
 	code='<form id="loginForm" action="#" method="post">';
 	code+='<div id="loginAfter">';
-	code+='<label id="userName"></label>';
-	code+='<label id="userEmail"></label>';
+	code+='<label id="userId"></label>&nbsp';
+	code+='<label id="userName"></label>&nbsp';
+	code+='<label id="userEmail"></label>&nbsp';
 	code+='<input id="loginOutBtn" type="button" value="로그아웃">';
-	code+='<input type="button" value="내정보">';
+	//code+='<input type="button" value="내정보">';
 	code+='</div>';
 	code+='</form>';
 	

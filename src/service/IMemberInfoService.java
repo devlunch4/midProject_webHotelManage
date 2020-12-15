@@ -15,4 +15,16 @@ public interface IMemberInfoService {
 	// 20201213 b2 내정보 수정
 	public int updateMemberInfo(MemberInfoVO vo);
 	
+	// 20201215 b2 회원정보 가져오기
+	public List<MemberInfoVO> getMemberInfoList();
+	
+	// 20201215 b2 관리자가 회원정보 수정
+	public int adminMemberInfoUpdate(MemberInfoVO vo);
+	
+	// 20201215 b2 관리자가 회원정보 등록
+	public int adminInsertMember(MemberInfoVO vo);
+	
+	// 20201215 b2 관리자가 회원정보 삭제
+	public int deleteMember(String mem_id);
+	
 }
