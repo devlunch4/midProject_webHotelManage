@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+#maincont{
+    color: #9c836a;
+    background: #f9f9f9;
+    margin: 30px 0px;
+    padding: 30px 40px;
+    width: 100%;
+}
+
+#jointitle{
+	font-weight: bold;
+}
+
+.btnidcheckx, .btnfindaddrx{
+	min-width: auto;
+	padding: 0 12px;
+	font-size: 12.5px;
+	height: 32px;
+	line-height: 32px;
+	background: #fff;
+	border: 1px solid #9c836a;
+	color: #9c836a;
+}
+
+.btnidcheckx:hover, .btnfindaddrx:hover{
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	background: #9c836a;
+}
+
+button{
+	color: #fff;
+	background: #9c836a;
+	border: 1px solid #9c836a;
+	min-width: auto;
+	padding: 0 12px;
+	font-size: 12.5px;
+	height: 34px;
+	line-height: 34px;
+}

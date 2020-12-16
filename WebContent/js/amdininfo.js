@@ -78,7 +78,7 @@ var createMemberModal = function() {
 	
 $('#modal_result *').remove();
 	
-	code ='<div id="memberInsertModal" class="modal fade" role="dialog">';
+	code = '<div id="memberInsertModal" class="modal fade" role="dialog">';
 	code +='<div class="modal-dialog">';
 	code +='회원정보 수정하기';
 	code +='<div class="modal-content">';
@@ -95,7 +95,7 @@ $('#modal_result *').remove();
 	code +='<label>전화번호</label> : <input id="memberModalmem_tel" type="text" name="mem_tel"><br>';
 	code +='<label>주소</label> : <input id="memberModalmem_addr" type="text" name="mem_addr"><br>';
 	code +='<label>이메일</label> : <input id="memberModalmem_email" type="text" name="mem_email"><br>';
-	code +='<label>권환</label> : <input id="memberModalpower" type="text" name="power"><br>';
+	code +='<label>권한</label> : <input id="memberModalpower" type="text" name="power"><br>';
 	code +='<input type="button" value="추가완료" id="memberInsertSubmitBtn"><br>';
 	code +='</form>';
 	code +='</div>';
@@ -172,7 +172,7 @@ var createMemberInfoUpdateModal = function() {
 	code +='<label>전화번호</label> : <input id="memberModalmem_tel" type="text" name="mem_tel"><br>';
 	code +='<label>주소</label> : <input id="memberModalmem_addr" type="text" name="mem_addr"><br>';
 	code +='<label>이메일</label> : <input id="memberModalmem_email" type="text" name="mem_email"><br>';
-	code +='<label>권환</label> : <input id="memberModalpower" type="text" name="power"><br>';
+	code +='<label>권한</label> : <input id="memberModalpower" type="text" name="power"><br>';
 	code +='<input type="button" value="수정완료" id="memberUpdateSubmitBtn"><br>';
 	code +='</form>';
 	code +='</div>';
@@ -202,7 +202,7 @@ var MemberInfoUpdateMode = function() {
 			
 			code = '<table id="getMemberInfoListTable" border="1">';
 			code += '<tr><th>Id</th><th>pass</th><th>이름</th><th>생년월일</th>';
-			code += '<th>전화번호</th><th>주소</th><th>이메일</th><th>권환</th><th>수정하기</th><th>삭제하기</th></tr>';
+			code += '<th>전화번호</th><th>주소</th><th>이메일</th><th>권한</th><th>수정하기</th><th>삭제하기</th></tr>';
 			$.each(res, function(i, v) {
 				code += '<tr id="'+i+'">';
 				code += '<td id="mem_id'+i+'" name="'+v.mem_id+'">'+ v.mem_id +'</td>';
@@ -248,7 +248,7 @@ var MemberInfoList = function() {
 			code += '<input id="getMemberInfoUpdateBtn" type="button" value="회원수정"><br>';
 			code += '<table id="getMemberInfoListTable" border="1">';
 			code += '<tr><th>Id</th><th>pass</th><th>이름</th><th>생년월일</th>';
-			code += '<th>전화번호</th><th>주소</th><th>이메일</th><th>권환</th></tr>';
+			code += '<th>전화번호</th><th>주소</th><th>이메일</th><th>권한</th></tr>';
 			$.each(res, function(i, v) {
 				code += '<tr id="'+i+'">';
 				code += '<td id="mem_id'+i+'" name="'+v.mem_id+'">'+ v.mem_id +'</td>';

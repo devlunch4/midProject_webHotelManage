@@ -6,13 +6,20 @@
 <%
 	//List<MemberInfoVO> list = (List<MemberInfoVO>) request.getAttribute("list");
 	MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
+	if(vo!=null){
 %>
 
 	{
 				"mem_id" : "<%= vo.getMem_id() %>",
 				"mem_name" : "<%= vo.getMem_name() %>",
-				"mem_email" : "<%= vo.getMem_email() %>"
+				"mem_email" : "<%= vo.getMem_email() %>",
+				"power" : "<%= vo.getPower() %>"
 	}
+<% }else{ %>
+	{
+				"power" : "1"
+	}
+<%} %>	
 <%-- 	<%
 		session.setAttribute("mem_id", vo.getMem_id());
 		session.setAttribute("mem_name", vo.getMem_name());

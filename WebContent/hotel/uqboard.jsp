@@ -50,26 +50,31 @@
 			String userId;
 			String userName;
 			String userEmail;
+			String power;
 
 			if (vo != null) {%>
 			createLoginAfterPart();
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
+				power = vo.getPower();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
 				userName = null;
 				userEmail = null;
+				power = null;
 			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
+		power = "<%= power %>";
 
 		//console.log("userId : " + userId);
 		//console.log("userName : " + userName);
 		//console.log("userEmail : " + userEmail);
+		//console.log("power : " + power);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
@@ -494,6 +499,14 @@
 	<br>
 	<br>
 	<br>
+	<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 	
 <footer id="footer">

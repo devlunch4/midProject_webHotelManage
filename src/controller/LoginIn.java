@@ -28,6 +28,7 @@ public class LoginIn extends HttpServlet {
 
 		String userId = request.getParameter("MEM_ID");
 		String userPassword = request.getParameter("MEM_PASS");
+		String power = null;
 
 		IMemberInfoService service = MemberInfoServiceImpl.getService();
 
@@ -39,7 +40,10 @@ public class LoginIn extends HttpServlet {
 		vo = service.getMemberInfo(vo);
 
 		// request.setAttribute("list", list);
-		session.setAttribute("result", vo);
+		if (vo.getPower().equals("0")) {
+			session.setAttribute("result", vo);
+			System.out.println("권한 : " + vo.getPower());
+		}
 		// 20201213 b2 삭제구역 시작
 		// System.out.println("vo.getMem_id() : " + vo.getMem_id());
 		// System.out.println("vo.getMem_name() : " + vo.getMem_name());

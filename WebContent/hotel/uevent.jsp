@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>호텔 달고나 홈페이지 - 이벤트</title>
 
-<link rel="stylesheet" href="../css/event.css">
+
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -47,7 +47,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
-
+<link rel="stylesheet" href="../css/event.css">
 
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
@@ -57,6 +57,7 @@
 			String userId;
 			String userName;
 			String userEmail;
+			String power;
 
 			if (vo != null) {%>
 			createLoginAfterPart();
@@ -64,21 +65,24 @@
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
 				userId = vo.getMem_id();
+				power = vo.getPower();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
 				userName = null;
 				userEmail = null;
+				power = null;
 			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
-		userEmail = "<%=userEmail%>
-	";
+		userEmail = "<%=userEmail%>";
+		power = "<%= power %>";
 
 		//console.log("userId : " + userId);
 		//console.log("userName : " + userName);
 		//console.log("userEmail : " + userEmail);
+		//console.log("power : " + power);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
@@ -126,72 +130,88 @@
 		});
 
 		// 아이디 비밀번호 찾기부분
-<%if (userId == null) {%>
-	// 아이디 비밀번호 찾기 버튼 생성
-		$(document).on('click', '#findIdPassWord', function() {
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 비밀번호 찾기 버튼 생성
+			$(document).on('click', '#findIdPassWord', function() {
+				
+				$('#reservation').hide();
+				createfindIdPassWordMode();
+			})
+		<% } %>
+		
+		// 아이디 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindIdBtn', function() {
+				
+				createfindIdMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 생성
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// Id 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// id 찾기 
+			$(document).on('click', '#findIdBtn', function() {
+				
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findId();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 
+			$(document).on('click', '#findPassWordBtn', function() {
+				
+				userIdVal = $('#findIdVal').val().trim();
+				console.log("userIdVal : " + userIdVal);
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findPassWord();
+			})
+		<% } %>
 
-			$('#reservation').hide();
-			createfindIdPassWordMode();
-		})
-<%}%>
-	// 아이디 찾기위해 입력부분 만들기
-<%if (userId == null) {%>
-	// 아이디 찾기위해 입력부분 만들기
-		$(document).on('click', '#createfindIdBtn', function() {
-
-			createfindIdMode();
-		})
-<%}%>
-	// 비밀번호 찾기위해 입력부분 만들기
-<%if (userId == null) {%>
-	// 비밀번호 찾기위해 입력부분 만들기
-		$(document).on('click', '#createfindPassWordBtn', function() {
-
-			createfindPassWordMode();
-		})
-<%}%>
-	// 비밀번호 찾기부분
-<%if (userId == null) {%>
-	// 비밀번호 찾기 생성
-		$(document).on('click', '#createfindPassWordBtn', function() {
-
-			createfindPassWordMode();
-		})
-<%}%>
-	// Id 찾기부분
-<%if (userId == null) {%>
-	// id 찾기 
-		$(document).on('click', '#findIdBtn', function() {
-
-			nameVal = $('#findNameVal').val().trim();
-			console.log("nameVal : " + nameVal);
-			EmailVal = $('#findEmailVal').val().trim();
-			console.log("EmailVal : " + EmailVal);
-
-			findId();
-		})
-<%}%>
-	// 비밀번호 찾기부분
-<%if (userId == null) {%>
-	// 비밀번호 찾기 
-		$(document).on('click', '#findPassWordBtn', function() {
-
-			userIdVal = $('#findIdVal').val().trim();
-			console.log("userIdVal : " + userIdVal);
-			nameVal = $('#findNameVal').val().trim();
-			console.log("nameVal : " + nameVal);
-			EmailVal = $('#findEmailVal').val().trim();
-			console.log("EmailVal : " + EmailVal);
-
-			findPassWord();
-		})
-<%}%>
 	});
-
-	// 추가본 클릭하면 상세정보보기(modal창 띄워짐)
+		// 추가본 클릭하면 상세정보보기(modal창 띄워짐)
 	$(".event").on("click", function() {
-		$('#Modal').modal('show');
-	});
+		$('#Modal').modal('show');})
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->

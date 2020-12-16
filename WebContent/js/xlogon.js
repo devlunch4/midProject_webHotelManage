@@ -27,7 +27,6 @@ var findPassWord = function() {
 				alert("상태 : " + xhr.stauts)
 			},
 			dataType : 'json'
-				
 	})
 }
 // Id찾기
@@ -113,14 +112,15 @@ var getMyResvlogList = function() {
 		success : function(res) {
 			
 			code = '<table class="getresvLogAllListTable" id="getResvlogDateMoneyTable" border="1">';
-			code += '<tr><th>체크인</th><th>체크아웃시간</th><th>회원계정</th><th>방번호</th>';
-			code +='<th>지점</th><th>방타입</th><th>투숙인원</th><th>예약 상태</th><th>예약한 날짜</th></tr>';
-			
+			code += '<thead>';
+			code += '<tr id="tabletitle"><th scope="cols">예약번호</th><th scope="cols">체크인</th><th scope="cols">체크아웃시간</th><th scope="cols">회원계정</th><th scope="cols">방번호</th>';
+			code +='<th scope="cols">지점</th><th scope="cols">방타입</th><th scope="cols">투숙인원</th><th scope="cols">예약 상태</th><th scope="cols">예약한 날짜</th></tr>';
+			code += '</thead>';
 			$.each(res, function(i, v) {
-				code += '예약번호 : <p id="RESEV_NO" value="'+v.RESEV_NO+'">'+v.RESEV_NO+'</p>';
 				
-				
-				code += '<tr><td id="ROOM_IN'+i+'" value="'+v.ROOM_IN+'">'+v.ROOM_IN+'</td>';
+				code += '<tbody>';
+				code += '<tr><th scope="row" id="RESEV_NO" value="'+v.RESEV_NO+'">'+v.RESEV_NO+'</th>';
+				code += '<td id="ROOM_IN'+i+'" value="'+v.ROOM_IN+'">'+v.ROOM_IN+'</td>';
 				code += '<td id="ROOM_OUT'+i+'" value="'+v.ROOM_OUT+'">'+v.ROOM_OUT+'</td>';
 				code += '<td id="MEM_ID'+i+'" value="'+v.MEM_ID+'">'+v.MEM_ID+'</td>';
 				code += '<td id="ROOM_PL'+i+'" value="'+v.ROOM_PL+'">'+v.ROOM_PL+'</td>';
@@ -129,6 +129,7 @@ var getMyResvlogList = function() {
 				code += '<td id="ROOM_NUM'+i+'" value="'+v.ROOM_NUM+'">'+v.ROOM_NUM+'</td>';
 				code += '<td id="RESEV_STATE'+i+'" value="'+v.RESEV_STATE+'">'+v.RESEV_STATE+'</td>';
 				code += '<td id="RESEV_DATE'+i+'" value="'+v.RESEV_DATE+'">'+v.RESEV_DATE+'</td><tr>';
+				code += '</tbody>';
 			})
 			code += '</table>';
 			$('#div_result *').remove();
@@ -292,7 +293,7 @@ var createLoginAfterPart = function() {
 	code+='<label id="userName"></label>&nbsp';
 	code+='<label id="userEmail"></label>&nbsp';
 	code+='<input id="loginOutBtn" type="button" value="로그아웃">';
-	code+='<input type="button" value="내정보">';
+	//code+='<input type="button" value="내정보">';
 	code+='</div>';
 	code+='</form>';
 	
@@ -363,13 +364,15 @@ var login = function() {
 			url : '/hotel/LoginIn.do',
 			type : 'post',
 			data : {"MEM_ID" : userId, "MEM_PASS" : userPassword},	
+			
 			success : function(res) {
-				
-				alert("로그인 성공!!\n" + res.mem_name + " 님 환영합니다.");
-				
-				$('#userName').empty();
-				location.reload();
-				
+				if(res.power==0){
+					alert("로그인 성공!!\n" + res.mem_name + " 님 환영합니다.");
+					$('#userName').empty();
+					location.reload();
+				}else{
+					alert("로그인이 불가합니다. 관리자에게 문의하세요.");
+				}
 			},
 			error : function(xhr) {
 				alert("로그인 실패 상태 : " + xhr.status);

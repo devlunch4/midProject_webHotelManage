@@ -35,6 +35,7 @@
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/reservation.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -275,7 +276,9 @@
 
 		</div>
 	</div>
-
+	
+	<h1 id="maintitle">예약확인</h1>
+	
 	<section id="section_result">
 		<article id="article_result">
 			<div id="div_result"></div>
@@ -283,8 +286,6 @@
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
 
-
-	<h1>예약확인</h1>
 	<br>
 	
 <footer id="footer">

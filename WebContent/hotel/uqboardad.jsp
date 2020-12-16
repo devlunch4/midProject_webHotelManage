@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 
 <!-- 공통 스타일 시작 -->
@@ -33,6 +34,7 @@
 
 
 <!-- 공통부분 타이틀부분  시작 -->
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -50,6 +52,7 @@
 			String userId;
 			String userName;
 			String userEmail;
+			String power;
 
 			if (vo != null) {%>
 			createLoginAfterPart();
@@ -57,20 +60,24 @@
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
 				userId = vo.getMem_id();
+				power = vo.getPower();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
 				userName = null;
 				userEmail = null;
+				power = null;
 			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
+		power = "<%= power %>";
 
 		//console.log("userId : " + userId);
 		//console.log("userName : " + userName);
 		//console.log("userEmail : " + userEmail);
+		//console.log("power : " + power);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
@@ -201,7 +208,6 @@
 <!-- 공통 스크립트 부분 끝 -->
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -209,7 +215,6 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<!--   <script src="http://192.168.42.49/board/js/board.js"></script> -->
 <script src="../js/qboard.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <link rel="stylesheet" href="../css/allBoard.css">
@@ -547,7 +552,13 @@
 	<br>
 	<br>
 	<br>
-
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
 
 
 <footer id="footer">

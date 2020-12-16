@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#maintitle{
+	font-weight: bold;
+	color: #9c836a;
+}
+/* #tabletitle{ */
+/* 	color: #fff; */
+/* 	background: #9c836a; */
+/* 	border: 2px solid BLACK; */
+/* 	font-weight : bold; */
+/* } */
+/* table{ */
+/* 	text-align: center; */
+/* 	weight : auto; */
+/* } */
+
+
+table.getresvLogAllListTable {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  margin: 20px 10px;
+}
+table.getresvLogAllListTable thead {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  background: #9c836a;
+}
+table.getresvLogAllListTable thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+}
+table.getresvLogAllListTable tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: 	#E8E0D7;
+}
+table.getresvLogAllListTable td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}

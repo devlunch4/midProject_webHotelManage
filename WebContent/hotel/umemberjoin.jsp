@@ -35,6 +35,7 @@
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/join.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -573,8 +574,8 @@ infox = {};
 	</div> -->
 
 	<div id="result1">
-		<div class="container">
-			<h2>회원 가입</h2>
+		<div class="container" id="maincont">
+			<h2 id=jointitle>회원 가입</h2>
 			<form id="joinform" class="form-horizontal">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="joinid">아이디 :</label>
@@ -582,7 +583,7 @@ infox = {};
 						<input type="text" class="form-control" id="joinid"
 							placeholder="Enter 아이디" name="mem_idx">
 					</div>
-					<input id="idbtn" class="btn btn-warning" type="button"
+					<input id="idbtn" class="btnidcheckx" type="button"
 						value="중복검사"> <span id="joinidspan"></span>
 				</div>
 
@@ -669,7 +670,7 @@ infox = {};
 							placeholder="Enter 우편번호" name="mem_zip">
 					</div>
 
-					<input class="btn btn-warning" type="button"
+					<input class="btnfindaddrx" type="button"
 						onClick="openDaumZipAddress();" value="주소 찾기" /> <br>
 					<!-- <input	id="zipw" type="button" value="번호검색window" class="btn btn-warning"> -->
 					<!-- <input id="zipm" type="button"
@@ -712,8 +713,8 @@ infox = {};
 						<!-- 클래스내 설정 
 					btn btn-primary 버튼의 디자인 
 					btn-lg  버튼의 크기 -->
-						<button id="joinbtn" type="button" class="btn btn-primary btn-lg">전송버튼</button>
-						<button id="resetbtn" type="reset" class="btn btn-danger btn-lg">초기화
+						<button id="joinbtn" type="button" class="btnsendx">전송버튼</button>
+						<button id="resetbtn" type="reset" class="btnresetx">초기화
 						</button>
 						<span id="joinspan"></span>
 					</div>
