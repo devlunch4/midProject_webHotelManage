@@ -52,6 +52,7 @@
 			String userId;
 			String userName;
 			String userEmail;
+			String power;
 
 			if (vo != null) {%>
 			createLoginAfterPart();
@@ -59,20 +60,24 @@
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
 				userId = vo.getMem_id();
+				power = vo.getPower();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
 				userName = null;
 				userEmail = null;
+				power = null;
 			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
+		power = "<%= power %>";
 
 		//console.log("userId : " + userId);
 		//console.log("userName : " + userName);
 		//console.log("userEmail : " + userEmail);
+		//console.log("power : " + power);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
@@ -80,14 +85,6 @@
 		$('#userId').append(userId);
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
-
-		
-		//  예약확인 추가부분
-		if(userId!=null){
-			$('#div_result *').remove();
-			//console.log(pageCount);
-			getMemberInfoVal();
-		}else{alert("로그인이 필요합니다.")}
 
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
@@ -205,7 +202,19 @@
 				findPassWord();
 			})
 		<% } %>
+		
+		
+		// 해당 페이지 특별 추가 코드 내정보 보기 
+		$('#div_result *').remove();
+		//console.log(pageCount);
+		
+		<% if(userId!=null){ %>
+			getMemberInfoVal();
+		 <%}else{%>
+			alert("로그인이 필요합니다.");
+		<%}%>
 	});
+
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->

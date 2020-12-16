@@ -7,10 +7,10 @@
 <sqlMap namespace="memberinfo">
 
 	<select id="getMemberInfo" parameterClass="memberinfoVO" resultClass="memberinfoVO">
-		select mem_id, mem_pass, mem_name, mem_email
+		select *
 		from memberinfo
 		where mem_id = #mem_id#
-		and mem_pass = #mem_pass#
+		and mem_pass = #mem_pass# 
 	</select>
 	
 	<select id="getMemberInfoVal" parameterClass="String" resultClass="memberinfoVO">
@@ -72,6 +72,10 @@
 		and mem_email = #mem_email#
 		and mem_id = #mem_id#
 	</select>
+	
+	<update id="updateMemberWithdraw" parameterClass="String">
+		update memberinfo set power = 2 where mem_id = #mem_id#
+	</update>
 
 </sqlMap>
 

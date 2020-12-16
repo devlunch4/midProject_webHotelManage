@@ -16,8 +16,8 @@
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
 #footer {
-	position: absolute;
-	bottom: auto;
+	position : absolute;
+	bottom : auto;
 	width: 100%;
 	height: 120px;
 	background: #2c2b29;
@@ -25,14 +25,13 @@
 	text-align: left;
 	padding: 20px
 }
-
 #logo {
-	position: absolute;
-	bottom: 10px;
+	position : absolute;
+	bottom : 10px;
 	float: right;
 	height: 100px;
 	width: auto;
-	right: 10px;
+	right : 10px;
 }
 </style>
 <!-- 공통 스타일 끝 -->
@@ -47,8 +46,6 @@
 	href="<%=request.getContextPath()%>/css/hotel.css">
 
 <!-- 공통부분 타이틀부분  시작 -->
-
-
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -71,6 +68,7 @@
 			String userId;
 			String userName;
 			String userEmail;
+			String power;
 
 			if (vo != null) {%>
 			createLoginAfterPart();
@@ -78,20 +76,24 @@
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
 				userId = vo.getMem_id();
+				power = vo.getPower();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
 				userName = null;
 				userEmail = null;
+				power = null;
 			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
 		userEmail = "<%=userEmail%>";
+		power = "<%= power %>";
 
 		//console.log("userId : " + userId);
 		//console.log("userName : " + userName);
 		//console.log("userEmail : " + userEmail);
+		//console.log("power : " + power);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
 		userNameStr = " / " + userName + " 님";
@@ -251,7 +253,7 @@
 	<br>
 	<div class="container">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="main.jsp">Home</a></li>
+			<li class="active"><a href="<%=request.getContextPath()%>/hotel/main.jsp">Home</a></li>
 			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
 			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
 			<li><a data-toggle="tab" href="#menu3">호텔 안내</a></li>
@@ -262,8 +264,8 @@
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="umyinfomodify.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="umyresv.jsp" style="text-decoration: none">내
+				<a href="<%=request.getContextPath()%>/hotel/umyinfomodify.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="<%=request.getContextPath()%>/hotel/umyresv.jsp" style="text-decoration: none">내
 					예약 확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
@@ -278,25 +280,25 @@
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
-				<a href="unotice.jsp" style="text-decoration: none">공지 게시판</a><br>
-				<a href="ureview.jsp" style="text-decoration: none">후기 게시판</a><br>
-				<a href="uqboard.jsp" style="text-decoration: none">문의 게시판</a>
+				<a href="<%=request.getContextPath()%>/hotel/unotice.jsp" style="text-decoration: none">공지 게시판</a><br>
+				<a href="<%=request.getContextPath()%>/hotel/ureview.jsp" style="text-decoration: none">후기 게시판</a><br>
+				<a href="<%=request.getContextPath()%>/hotel/uqboard.jsp" style="text-decoration: none">문의 게시판</a>
 				<hr>
 			</div>
 
 			<div id="menu3" class="tab-pane fade">
 				<h3>호텔 안내</h3>
 				<a href="uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
-				<a href="<%=request.getContextPath()%>/amenity.me"
+				<a href="<%=request.getContextPath()%>/hotel/amenity.me"
 					style="text-decoration: none">시설 안내</a><br> <a
-					href="uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
-				<a href="ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
+					href="<%=request.getContextPath()%>/hotel/uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
+				<a href="<%=request.getContextPath()%>/hotel/ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
 
 			<div id="menu4" class="tab-pane fade">
 				<h3>이벤트</h3>
-				<a href="uevent.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="<%=request.getContextPath()%>/hotel/uevent.jsp" style="text-decoration: none">이벤트 안내</a><br>
 			</div>
 
 		</div>

@@ -13,6 +13,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+<script src="../js/xlogon.js"></script>
+
 
 <style>
 body {
@@ -308,10 +311,46 @@ table {
 	});
 </script>
 
+<script>
+
+//애니메이션 추가
+	$(function(){
+		  $('.bxslider').bxSlider({
+		    mode: 'fade',
+		    captions: true,
+		    slideWidth: 600
+		  });
+		});
+		
+</script>
+
 </head>
+
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/mainbasic.css">
+
+<script src="../js/jquery.bxslider.js"></script>
+
+<script type="text/javascript">
+	//<![CDATA[
+	var jQ182 = $.noConflict(true);
+	jQ182(document).ready(function() {
+		jQ182('.bxslider').bxSlider({
+			auto : true,
+			speed : 500,
+			pause : 4000,
+			mode : 'fade',
+			autoControls : true,
+			pager : true,
+		});
+	});
+	//]]>
+</script>
+<link href="../css/jquery.bxslider.css" rel="stylesheet">
+
 <body>
 	<!-- 바디 공통 부분 시작 -->
-	<div id="login" style="float: right;"></div>
+	<div id="login" style="margin-top: 15px; margin-right : 15px; float: right;"></div>
 	<br>
 	<div class="container">
 		<ul class="nav nav-tabs">
@@ -323,7 +362,7 @@ table {
 		</ul>
 
 		<div class="tab-content">
-			<div id="home" class="tab-pane fade in active"></div>
+			<div id="home" class="tab-pane fade in active" ></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
 				<a href="umyinfomodify.jsp" style="text-decoration: none">내 정보
@@ -375,22 +414,56 @@ table {
 
 	<br>
 
+	<div>
+
+		<ul class="bxslider">
+			<li>
+				<div id="maindes">
+					<h3 id="descr" style="text-align: center; width: 50px">호텔 달고나 Members Only</h3><br>
+					<h1 id="descr1">Rewards Merry Winter</h1>
+					<h4 id="detaildes">[성인 2인, 소인 1인] 크리스마스 북 콘서트, DIY키트, 에코백&키링 | 250,000원 부터
+						</h4>
+				</div> <img src="../images/호텔메인1.jpg"
+				style="width: 2000px; height: 750px;">
+			</li>
+			<li>
+				<div id="maindes">
+					<h3 id="descr" style="text-align: center; width: 100px">호텔 달고나 Members Only</h3>
+					<br>
+					<h1 id="descr1">Rewards Early Bird Offer</h1>
+					<h4 id="detaildes">[12월 31일까지 예약 가능] 라운지, 실내 실내사우나, 리워즈
+						2만point</h4>
+				</div> <img src="../images/호텔메인2.jpg" style="width: 100%; height: 750px;">
+			</li>
+			<li>
+				<div id="maindes">
+					<h3 id="descr" style="text-align: center; width: 100px">호텔 달고나 Members Only</h3>
+					<br>
+					<h1 id="descr1">Rewards Delicious Dinner</h1>
+					<h4 id="detaildes">디너 2인, 리워즈 1만 p | 420,000원 부터</h4>
+				</div> <img src="../images/호텔메인3.jpg" style="width: 100%; height: 750px;">
+			</li>
+		</ul>
+	</div>
+
+
 	<div id="reservation">
-		<table border="1" align="center">
-			<tr>
-				<td>지점 선택</td>
+		<table id="tb" border="0" align="center">
+			<tr id="tr1">
+				<td>지점선택</td>
 				<td>시작일</td>
 				<td>마지막일</td>
 				<td>객실타입</td>
-				<td>객실 인원</td>
+				<td>객실인원</td>
 				<td>방번호</td>
 				<td rowspan="2"><input id="reservationBtn" type="button"
 					value="예약"></td>
 			</tr>
 			<tr>
-				<td id="room_pl" idx="room_pl" name="room_pl"><select
-					id="roomPlList">
-				</select></td>
+				<td id="room_pl" idx="room_pl" name="room_pl">
+				<select id="roomPlList">
+				</select>
+				</td>
 				<td><input type="date" id="dateStart" name="dateStart"></td>
 				<td><input type="date" id="dateEnd" name="dateEnd"></td>
 				<td id="room_type" idx="room_type" name="room_type"><select

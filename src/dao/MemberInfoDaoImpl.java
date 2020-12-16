@@ -96,4 +96,11 @@ public class MemberInfoDaoImpl implements IMemberInfoDao {
 	public String getMemberPassWord(MemberInfoVO vo) throws SQLException {
 		return (String) client.queryForObject("memberinfo.getMemberPassword", vo);
 	}
+	
+	// 20201217 회원 탈퇴시 권한 변경
+	@Override
+	public int updateMemberWithdraw(String mem_id) throws SQLException {
+		return client.update("memberinfo.updateMemberWithdraw", mem_id);
+	}
+	
 }

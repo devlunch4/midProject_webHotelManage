@@ -33,4 +33,7 @@ public interface IMemberInfoService {
 	// 20201215 비밀번호 찾기
 	public String getMemberPassWord(MemberInfoVO vo);
 	
+	// 20201217 회원 탈퇴시 권환변경	
+	public int updateMemberWithdraw(String mem_id);
+	
 }

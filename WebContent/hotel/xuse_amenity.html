@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>호텔 달고나 홈페이지</title>
+<link rel="stylesheet" href="../css/hotel.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+
+<link href="../css/reset.css" rel="stylesheet">
+<link href="../css/common.css" rel="stylesheet">
+<link href="../css/contents.css" rel="stylesheet">
+</head>
+
+<script>
+	/* 부대시설 별점 평가 기능 */
+
+	$(function() {
+			
+		
+		$('.star').click(function() {
+			
+			a = $(this).parent('.stardiv').attr("id");
+			console.log("id값 : " + a);
+			
+			$(this).parent().children('a').removeClass('on');
+
+			$(this).addClass('on').prevAll('a').addClass('on');
+			var dbstar = $(this).addClass('on').prevAll('a').addClass('on');
+			star01 = dbstar.length + 1;
+
+			console.log(star01);
+
+			$.ajax({
+				url : '/hotel/amenity.do', //404 url 쪽
+				type : 'post',
+				data : {
+					"star" : star01,
+					"fac_no" : a
+				}, 
+				dataType : 'json',
+				success : function(res) {
+					alert(res.sw);
+					console.log('성공');
+					//$('#idspan').html(star).css('color', 'red');
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr.status);
+				}
+			})
+		}); 
+	})
+</script>
+
+<body>
+
+<section id="container">
+	<!-- 디자인이 확정이 아니랍니다 -->
+	<section class="subGnb">
+		<div class="innerBox">
+			<h1><img src="/pcPub/static/images/submain/sub_gnb1.png" alt="paradise" /></h1>
+			<ul>
+				<li><a href="/front/hotel/overview">Overview</a></li>
+				<li><a href="/front/hotel/room/list">객실</a></li>
+				<li><a href="/front/hotel/dining/list">다이닝</a></li>
+				<li class="on"><a href="/front/hotel/facility/list">부대시설</a></li>
+				<li><a href="/front/reservation?TAB_CD=HTL&V_SBU_CD_HTL[]=000001&SBU_CD_HTL[]=000001">OFFERS</a></li>
+				<li><a href="/front/event/event?SBU_CD=000002">Events</a></li>
+				<li><a href="/front/hotel/support">고객지원</a></li>
+			</ul>
+		</div>
+	</section>
+	<!-- //디자인이 확정이 아니랍니다 -->
+	
+	<div class="hotelParadiseWrap">
+		<div class="innerBox">
+			<h1 class="contTitle"><span>부대시설</span>다채로운 액티비티와 휴식을 함께 <br />즐길 수 있는 호텔 파라다이스의 시설을 즐겨보세요.</h1>
+			<div class="rightButton"><!-- <a href="#" class="btn small arrow"><span>FLOOR MAP</span></a> --></div>
+			
+			<div class="descBox">
+				<div class="imageWrap"><img src="../images/부대시설헬스장.png" alt=""></div>
+				<div class="text">
+					<p class="title"><span>Outdoor Pool</span>하늘과 마주한 로맨틱한 Outdoor Pool</p>
+					<a href="/front/hotel/facility/view?FACILITY_NM=FacilityOutdoorPool" class="btn small2"><span>상세 보기</span></a>
+				</div>
+			</div>
+			<div class="descBox">
+				<div class="imageWrap"><img src="../images/풀장.jpg" alt=""></div>
+				<div class="text">
+					<p class="title"><span>Indoor Pool</span>자연과 하나되는 Relaxation Indoor Pool</p>
+					<div class="stardiv" id="f1">
+						<a class="star">★</a>
+						<a class="star">★</a>
+						<a class="star">★</a>
+		 				<a class="star">★</a> 
+		 				<a class="star">★</a>
+		   
+							<span id="idspan"></span>
+				</div>
+				</div>
+			</div>
+			<div class="descBox">
+				<div class="imageWrap"><img src="/pcPub/static/images/hotalParadise/facilities3.jpg" alt=""></div>
+				<div class="text">
+					<p class="title"><span>Sauna</span>편안한 휴식을 즐길 수 있는 실내 사우나</p>
+					<a href="/front/hotel/facility/view?FACILITY_NM=FacilitySauna" class="btn small2"><span>상세 보기</span></a>
+				</div>
+			</div>
+			<div class="descBox">
+				<div class="imageWrap"><img src="/pcPub/static/images/hotalParadise/facilities4.jpg" alt=""></div>
+				<div class="text">
+					<p class="title"><span>Fitness</span>건강한 하루를 호텔에서도 <br />유지할 수 있게 도와주는 피트니스클럽</p>
+					<a href="/front/hotel/facility/view?FACILITY_NM=FacilityFitness" class="btn small2"><span>상세 보기</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+<!-- //컨텐츠 영역 -->
+
+
+
+
+	<img src="../images/부대시설풀장.png" width="200" height="150">
+	<h2>Private pool</h2>
+
+	<pre>몸과 마음이 힐링되는 프라이빗한 휴식 공간</pre>
+	<br>
+	<div class="stardiv" id="f2">
+		<a class="star">★</a>
+		 <a class="star">★</a>
+		  <a class="star">★</a>
+		   <a class="star">★</a> 
+		   <a class="star">★</a>
+		<span id="idspan2"></span>
+	</div>
+	<!-- 	<span id ="idspan"></span> -->
+
+</body>
+</html>

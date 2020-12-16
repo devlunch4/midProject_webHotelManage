@@ -165,5 +165,21 @@ public class MemberInfoServiceImpl implements IMemberInfoService {
 
 		return memPass;
 	}
+	
+	// 20201217 회원 탈퇴시 권한변경
+	@Override
+	public int updateMemberWithdraw(String mem_id) {
+		
+		int res = 0;
+		
+		try {
+			res = dao.updateMemberWithdraw(mem_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
 
 }
