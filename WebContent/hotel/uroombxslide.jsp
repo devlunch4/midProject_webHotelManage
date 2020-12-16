@@ -308,9 +308,10 @@ jQ182(document).ready(function(){
 		</article>
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
-	<div style="max-width: 780px; margin-left: 500px; margin-top: 50px;">
+	<div style="min-width : 780px; max-width: 780px; margin-left : 570px; /*  margin-right: 50%; */ margin-top: 5% ">
 
-		<h1 style="text-align: center;">객실타입</h1>
+
+		<h1 style="margin-left: 335px;">객실타입</h1>
 		<ul class="bxslider">
 			<li><img src="../images/객실1.jpg" title="DUPLEX SUITE"></li>
 			<li><img src="../images/객실2.jpg" title="JUNIOR SUITE"></li>
@@ -353,9 +354,8 @@ jQ182(document).ready(function(){
 		<div class="des">
 			<p class="de">
 				<strong> 자택처럼 자유롭고 넓게 누리는 VIP만을 위한<br> 최상급 로열 스위트
-				</strong> <br>
-				<br> - 면적하부층 : 84.9m²<br> <br> - 인원성인 : 2인 기준<br>
-				<br> - 베드타입 : KING / TWIN<br>
+				</strong> <br> <br> - 면적하부층 : 84.9m²<br> <br> - 인원성인 : 2인
+				기준<br> <br> - 베드타입 : KING / TWIN<br>
 			</p>
 		</div>
 		<!-- <input type="button" value='예약하기' id="room2" class="btn2"> -->
