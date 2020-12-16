@@ -102,6 +102,85 @@
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		});
+
+		// 아이디 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 비밀번호 찾기 버튼 생성
+			$(document).on('click', '#findIdPassWord', function() {
+				
+				$('#reservation').hide();
+				createfindIdPassWordMode();
+			})
+		<% } %>
+		
+		// 아이디 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindIdBtn', function() {
+				
+				createfindIdMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 생성
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// Id 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// id 찾기 
+			$(document).on('click', '#findIdBtn', function() {
+				
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findId();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 
+			$(document).on('click', '#findPassWordBtn', function() {
+				
+				userIdVal = $('#findIdVal').val().trim();
+				console.log("userIdVal : " + userIdVal);
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findPassWord();
+			})
+		<% } %>
 	});
 </script>
 <!-- 공통 타이틀부분 끝 -->
@@ -138,7 +217,7 @@
 				</ul>-->
 				<hr>
 			</div>
-			
+
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
 				<a href="notice2.jsp" style="text-decoration: none">공지 게시판</a><br>

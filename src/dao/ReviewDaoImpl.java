@@ -50,17 +50,32 @@ public class ReviewDaoImpl implements IReviewDao{
 		
 		return (Integer)client.insert("reviewboard.insertReview", revVo);
 	}
+	@Override
+	public int insertReview2(ReviewVO revVo) throws SQLException {
+		
+		return (Integer)client.insert("reviewboard.insertReview2", revVo);
+	}
 
 	@Override
 	public int deleteReview(ReviewVO revVo) throws SQLException {
 		
 		return client.delete("reviewboard.deleteReview", revVo);
 	}
+	@Override
+	public int deleteReview2(ReviewVO revVo) throws SQLException {
+		
+		return client.delete("reviewboard.deleteReview2", revVo);
+	}
 
 	@Override
 	public int updateReview(ReviewVO revVo) throws SQLException {
 		
 		return client.update("reviewboard.updateReview", revVo);
+	}
+	@Override
+	public int updateReview2(ReviewVO revVo) throws SQLException {
+		
+		return client.update("reviewboard.updateReview2", revVo);
 	}
 
 	@Override

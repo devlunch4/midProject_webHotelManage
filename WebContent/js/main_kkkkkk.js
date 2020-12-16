@@ -100,11 +100,10 @@ var createLoginAfterPart = function() {
 	
 	code='<form id="loginForm" action="#" method="post">';
 	code+='<div id="loginAfter">';
-	code+='<label id="userId"></label>&nbsp';
-	code+='<label id="userName"></label>&nbsp';
-	code+='<label id="userEmail"></label>&nbsp';
+	code+='<label id="userName"></label>';
+	code+='<label id="userEmail"></label>';
 	code+='<input id="loginOutBtn" type="button" value="로그아웃">';
-	//code+='<input type="button" value="내정보">';
+	code+='<input type="button" value="내정보">';
 	code+='</div>';
 	code+='</form>';
 	
@@ -116,7 +115,7 @@ var createLoginAfterPart = function() {
 var createLoginPart = function() {
 	
 	code='<form id="loginForm" action="#" method="post">';
-	code+='<div id="loginBefore">';
+	code='<div id="loginBefore">';
 	code+='<label>아이디 : </label><input id="id" type="text" name="id">';
 	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
 	code+='<input id="loginBtn" type="button" value="로그인">';
@@ -153,7 +152,7 @@ var logout = function() {
 				
 		},
 		error : function(xhr) {
-			alert("로그아웃 실패 상태 : " + xhr.stauts)
+			alert("상태 : " + xhr.stauts)
 		},
 		dataType : 'json'
 			
@@ -177,14 +176,14 @@ var login = function() {
 			data : {"MEM_ID" : userId, "MEM_PASS" : userPassword},	
 			success : function(res) {
 				
-				alert("로그인 성공!!\n" + res.mem_name + " 님 환영합니다.");
+				alert("로그인 성공!!\n" + res.mem_name + "님 환영합니다.");
 				
 				$('#userName').empty();
 				location.reload();
 				
 			},
 			error : function(xhr) {
-				alert("로그인 실패 상태 : " + xhr.status);
+				alert("상태 : " + xhr.status);
 				$('#id').empty();
 				$('#password').empty();
 				return false;

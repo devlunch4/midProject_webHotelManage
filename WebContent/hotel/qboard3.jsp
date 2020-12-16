@@ -296,8 +296,12 @@
 // 	//글쓰기버튼 이벤트
  	$('#write').on('click', function() {
  		//글쓰기 창 - modal창
- 		$('#wModal').modal('show');
-		
+// 		if(userId != "null"){
+ 			$('#wModal').modal('show');
+//		}
+// 		else{
+// 			alert("글쓰기버튼 클릭 팝업 " + userId);	
+// 		} 
  	})
 	//본문의 버튼에서 data-toggle, data-target속성으로 modal을 연다
 	//<input data-toggle="modal" data-target="#wModal" type="button" value="글쓰기" id="write">

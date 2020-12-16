@@ -279,12 +279,12 @@
 	})
 	
 	
-// 	//글쓰기버튼 이벤트
-// 	$('#write').on('click', function() {
-// 		//글쓰기 창 - modal창
-// 		$(#wModal).modal('show');
+	//글쓰기버튼 이벤트
+	$('#write').on('click', function() {
+		//글쓰기 창 - modal창
+		$('#wModal').modal('show');
 		
-// 	})
+	})
 	//본문의 버튼에서 data-toggle, data-target속성으로 modal을 연다
 	//<input data-toggle="modal" data-target="#wModal" type="button" value="글쓰기" id="write">
 	
@@ -299,8 +299,10 @@
 		
 			
 		//로그인시 출력되는 세션저장된 아이디를 가져온다.
-		alert(userId);
-		reviewSaveServer(this, userId);
+// 		alert(userId);
+// 		if(userId==null){ userId = '관리자';}
+// 		reviewSaveServer(this, userId);
+		reviewSaveServer();
 			
 		// 모달창 닫기
 		$('#wModal').modal('hide');
@@ -400,8 +402,9 @@
 	<br>
 	<div id="pagelist"></div>
 	<br>
-	<input data-toggle="modal" data-target="#wModal" type="button"
-		value="리뷰작성" id="write">
+	<input type="button" value="리뷰작성" id="write">
+<!-- 	<input data-toggle="modal" data-target="#wModal" type="button" -->
+<!-- 		value="리뷰작성" id="write"> -->
 
 	<!-- Modal -->
 	<div id="wModal" class="modal fade" role="dialog">

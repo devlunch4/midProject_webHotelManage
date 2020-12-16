@@ -20,12 +20,18 @@ public interface IReviewDao {
 	
 	// 게시글 등록
 	public int insertReview(ReviewVO revVo) throws SQLException;
+	// 관리자 게시글 등록
+	public int insertReview2(ReviewVO revVo) throws SQLException;
 	
 	// 게시글 삭제
 	public int deleteReview(ReviewVO revVo) throws SQLException;
+	// 관리자 게시글 삭제
+	public int deleteReview2(ReviewVO revVo) throws SQLException;
 	
 	// 게시글 수정
 	public int updateReview(ReviewVO revVo) throws SQLException;
+	// 관리자 게시글 수정
+	public int updateReview2(ReviewVO revVo) throws SQLException;
 	
 	
 	

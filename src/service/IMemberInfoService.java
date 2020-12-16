@@ -27,4 +27,10 @@ public interface IMemberInfoService {
 	// 20201215 b2 관리자가 회원정보 삭제
 	public int deleteMember(String mem_id);
 	
+	// 20201215 id 찾기
+	public String getMemberId(MemberInfoVO vo);
+	
+	// 20201215 비밀번호 찾기
+	public String getMemberPassWord(MemberInfoVO vo);
+	
 }

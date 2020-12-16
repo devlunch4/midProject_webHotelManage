@@ -32,9 +32,20 @@
   			select qboard_seq.currval from dual
   		</selectKey>
 	</insert>
+	<insert id="insertQBoard2" parameterClass="qboVo">
+		insert into qboard	(q_no, q_title, q_cont, q_date, mem_id)
+		values (qboard_seq.nextval, #q_title#, #q_cont#, sysdate, '관리자')
+	
+  		<selectKey keyProperty="q_no" resultClass="int">
+  			select qboard_seq.currval from dual
+  		</selectKey>
+	</insert>
 	
 	<delete id="deleteQBoard" parameterClass="qboVo">
 		delete from qboard where q_no = #q_no# and mem_id = #mem_id#
+	</delete>
+	<delete id="deleteQBoard2" parameterClass="qboVo">
+		delete from qboard where q_no = #q_no#
 	</delete>
 	
 	<update id="updateQBoard" parameterClass="qboVo">
@@ -43,6 +54,13 @@
 			q_cont = #q_cont#,
 			q_date = sysdate
 			where q_no = #q_no# AND mem_id = #mem_id# 
+	</update>
+	<update id="updateQBoard2" parameterClass="qboVo">
+		update qboard set
+			q_title = #q_title#,
+			q_cont = #q_cont#,
+			q_date = sysdate
+			where q_no = #q_no#
 	</update>
 	
 	

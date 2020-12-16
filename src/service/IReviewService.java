@@ -19,12 +19,18 @@ public interface IReviewService {
 	
 	// 게시글 등록
 	public int insertReview(ReviewVO revVo);
+	// 관리자 게시글 등록
+	public int insertReview2(ReviewVO revVo);
 	
 	// 게시글 삭제
 	public int deleteReview(ReviewVO revVo);
+	// 관리자 게시글 삭제
+	public int deleteReview2(ReviewVO revVo);
 	
 	// 게시글 수정
 	public int updateReview(ReviewVO revVo);
+	// 관리자 게시글 수정
+	public int updateReview2(ReviewVO revVo);
 	
 	
 	// 댓글 리스트

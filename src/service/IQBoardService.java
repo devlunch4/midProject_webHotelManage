@@ -18,12 +18,16 @@ public interface IQBoardService {
 	
 	// 게시글 등록
 	public int insertQBoard(QBoardVO qboVo);
+	// 게시글 등록
+	public int insertQBoard2(QBoardVO qboVo);
 	
 	// 게시글 삭제
 	public int deleteQBoard(QBoardVO qboVo);
+	public int deleteQBoard2(QBoardVO qboVo);
 	
 	// 게시글 수정
 	public int updateQBoard(QBoardVO qboVo);
+	public int updateQBoard2(QBoardVO qboVo);
 	
 	
 	// 댓글 리스트

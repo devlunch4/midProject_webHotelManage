@@ -18,12 +18,16 @@ public interface IQBoardDao {
 	
 	// 게시글 등록
 	public int insertQBoard(QBoardVO qboVo) throws SQLException;
+	// 관리자 게시글 등록
+	public int insertQBoard2(QBoardVO qboVo) throws SQLException;
 	
 	// 게시글 삭제
 	public int deleteQBoard(QBoardVO qboVo) throws SQLException;
+	public int deleteQBoard2(QBoardVO qboVo) throws SQLException;
 	
 	// 게시글 수정
 	public int updateQBoard(QBoardVO qboVo) throws SQLException;
+	public int updateQBoard2(QBoardVO qboVo) throws SQLException;
 	
 	
 	

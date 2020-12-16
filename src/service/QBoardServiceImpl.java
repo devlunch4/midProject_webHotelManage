@@ -64,6 +64,17 @@ public class QBoardServiceImpl implements IQBoardService{
 		}
 		return q_no;
 	}
+	@Override
+	public int insertQBoard2(QBoardVO vo) {
+		int q_no = 0;
+		
+		try {
+			q_no = dao.insertQBoard2(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return q_no;
+	}
 
 	@Override
 	public int deleteQBoard(QBoardVO qboVo) {
@@ -77,6 +88,18 @@ public class QBoardServiceImpl implements IQBoardService{
 		
 		return cnt;
 	}
+	@Override
+	public int deleteQBoard2(QBoardVO qboVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = dao.deleteQBoard2(qboVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 
 	@Override
 	public int updateQBoard(QBoardVO vo) {
@@ -84,6 +107,19 @@ public class QBoardServiceImpl implements IQBoardService{
 		
 		try {
 			cnt = dao.updateQBoard(vo);
+		} catch (SQLException e) {
+			cnt = 0;
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	@Override
+	public int updateQBoard2(QBoardVO vo) {
+		int cnt = 0;
+		
+		try {
+			cnt = dao.updateQBoard2(vo);
 		} catch (SQLException e) {
 			cnt = 0;
 			e.printStackTrace();

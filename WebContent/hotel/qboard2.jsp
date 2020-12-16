@@ -280,11 +280,11 @@
 	
 	
 // 	//글쓰기버튼 이벤트
-// 	$('#write').on('click', function() {
-// 		//글쓰기 창 - modal창
-// 		$(#wModal).modal('show');
+	$('#write').on('click', function() {
+		//글쓰기 창 - modal창
+		$('#wModal').modal('show');
 		
-// 	})
+	})
 	//본문의 버튼에서 data-toggle, data-target속성으로 modal을 연다
 	//<input data-toggle="modal" data-target="#wModal" type="button" value="글쓰기" id="write">
 	
@@ -394,9 +394,9 @@
 	<div id="pagelist"></div>
 	<br>
 	<br>
-	<input data-toggle="modal" data-target="#wModal" type="button"
-		value="글쓰기" id="write">
-
+<!-- 	<input data-toggle="modal" data-target="#wModal" type="button" -->
+<!-- 		value="글쓰기" id="write"> -->
+	<input type="button" value="글쓰기" id="write">
 	<!-- Modal -->
 	<div id="wModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">

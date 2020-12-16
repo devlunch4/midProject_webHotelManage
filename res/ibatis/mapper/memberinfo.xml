@@ -57,6 +57,21 @@
 	<delete id="deleteMember" parameterClass="String">
 		delete memberinfo where mem_id = #mem_id#
 	</delete>
+	
+	<select id="getMemberId" parameterClass="memberinfoVO" resultClass="String">
+		select mem_id
+		from memberinfo
+		where mem_name = #mem_name#
+		and mem_email = #mem_email#
+	</select>
+	
+	<select id="getMemberPassword" parameterClass="memberinfoVO" resultClass="String">
+		select mem_pass
+		from memberinfo
+		where mem_name = #mem_name#
+		and mem_email = #mem_email#
+		and mem_id = #mem_id#
+	</select>
 
 </sqlMap>
 

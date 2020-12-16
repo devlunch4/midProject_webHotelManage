@@ -85,4 +85,15 @@ public class MemberInfoDaoImpl implements IMemberInfoDao {
 		return client.delete("memberinfo.deleteMember", mem_id);
 	}
 	
+	// 20201215 id찾기
+	@Override
+	public String getMemberId(MemberInfoVO vo) throws SQLException {
+		return (String) client.queryForObject("memberinfo.getMemberId", vo);
+	}
+	
+	// 20201215 비밀번호 찾기
+	@Override
+	public String getMemberPassWord(MemberInfoVO vo) throws SQLException {
+		return (String) client.queryForObject("memberinfo.getMemberPassword", vo);
+	}
 }

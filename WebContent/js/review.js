@@ -105,7 +105,7 @@ var revreplyListServer = function(but) {	//but : 댓글등록버튼, 제목을 �
 var reviewUpdateServer = function() {
 	
 	$.ajax ({
-		url : '/hotel/ReviewUpdate.do',
+		url : '/hotel/ReviewUpdate2.do',
 		type : 'post',
 		data : review,	//rev_no, rev_title, rev_cont 
 		success : function(res) {
@@ -137,7 +137,7 @@ var reviewUpdateServer = function() {
 var reviewDeleteServer = function(but) { 	//but : 삭제버튼
 	
 	$.get(
-			'/hotel/ReviewDelete.do',
+			'/hotel/ReviewDelete2.do',
 			{"rev_no" : vidx},
 			function(res) {
 				alert(res.sw);
@@ -153,7 +153,7 @@ var reviewSaveServer = function() {
 	userId = userId;
 		
 	$.ajax({
-		url : '/hotel/ReviewSave.do',
+		url : '/hotel/ReviewSave2.do',
 		data : $('#wform').serializeJSON(),
 		type : 'post',
 		dataType : 'json',

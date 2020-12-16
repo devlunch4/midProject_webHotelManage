@@ -105,7 +105,7 @@ var qreplyListServer = function(but) {	//but : 댓글등록버튼, 제목을 클
 var qboardUpdateServer = function() {
 	
 	$.ajax ({
-		url : '/hotel/QBoardUpdate.do',
+		url : '/hotel/QBoardUpdate2.do',
 		type : 'post',
 		data : qboard,	//q_no, q_title, q_cont 
 		success : function(res) {
@@ -137,7 +137,7 @@ var qboardUpdateServer = function() {
 var qboardDeleteServer = function(but) { 	//but : 삭제버튼
 	
 	$.get(
-			'/hotel/QBoardDelete.do',
+			'/hotel/QBoardDelete2.do',
 			{"q_no" : vidx},
 			function(res) {
 				alert(res.sw);
@@ -151,7 +151,7 @@ var qboardDeleteServer = function(but) { 	//but : 삭제버튼
 var qboardSaveServer = function() {
 	
 	$.ajax({
-		url : '/hotel/QBoardSave.do',
+		url : '/hotel/QBoardSave2.do',
 		data : $('#wform').serializeJSON(),
 		type : 'post',
 		dataType : 'json',

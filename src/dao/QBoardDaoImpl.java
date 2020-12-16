@@ -44,17 +44,32 @@ public class QBoardDaoImpl implements IQBoardDao{
 		// TODO Auto-generated method stub
 		return (Integer)client.insert("qboard.insertQBoard", qboVo);
 	}
+	@Override
+	public int insertQBoard2(QBoardVO qboVo) throws SQLException {
+		// TODO Auto-generated method stub
+		return (Integer)client.insert("qboard.insertQBoard2", qboVo);
+	}
 
 	@Override
 	public int deleteQBoard(QBoardVO qboVo) throws SQLException {
 		// TODO Auto-generated method stub
 		return client.delete("qboard.deleteQBoard", qboVo);
 	}
+	@Override
+	public int deleteQBoard2(QBoardVO qboVo) throws SQLException {
+		// TODO Auto-generated method stub
+		return client.delete("qboard.deleteQBoard2", qboVo);
+	}
 
 	@Override
 	public int updateQBoard(QBoardVO qboVo) throws SQLException {
 		// TODO Auto-generated method stub
 		return client.update("qboard.updateQBoard", qboVo);
+	}
+	@Override
+	public int updateQBoard2(QBoardVO qboVo) throws SQLException {
+		// TODO Auto-generated method stub
+		return client.update("qboard.updateQBoard2", qboVo);
 	}
 	
 

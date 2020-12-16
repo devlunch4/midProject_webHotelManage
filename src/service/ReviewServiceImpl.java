@@ -76,6 +76,18 @@ public class ReviewServiceImpl implements IReviewService{
 		}
 		return rev_no;
 	}
+	
+	@Override
+	public int insertReview2(ReviewVO vo) {
+		int rev_no = 0;
+		
+		try {
+			rev_no = dao.insertReview2(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rev_no;
+	}
 
 	@Override
 	public int deleteReview(ReviewVO revVo) {
@@ -91,6 +103,18 @@ public class ReviewServiceImpl implements IReviewService{
 	}
 
 	@Override
+	public int deleteReview2(ReviewVO revVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = dao.deleteReview2(revVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	@Override
 	public int updateReview(ReviewVO vo) {
 		int cnt = 0;
 		
@@ -103,7 +127,21 @@ public class ReviewServiceImpl implements IReviewService{
 		
 		return cnt;
 	}
-
+	
+	@Override
+	public int updateReview2(ReviewVO vo) {
+		int cnt = 0;
+		
+		try {
+			cnt = dao.updateReview2(vo);
+		} catch (SQLException e) {
+			cnt = 0;
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	
 	@Override
 	public List<RevReplyVO> listRevReply(int rev_no) {
 		List<RevReplyVO> list = null;
