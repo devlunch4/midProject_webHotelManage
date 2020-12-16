@@ -439,8 +439,10 @@ var getResvlogDateMoneyVal = function() {
 			code = '<table class="getResvlogDateMoneyTable" id="getResvlogDateMoneyTable" border="1">';
 			code += '<tr><th>예약번호</th><th>체크인날</th><th>체크아웃날</th><th>회원계정</th>';
 			code += '<th>지점</th><th>방번호</th><th>방타입</th><th>투숙인원</th><th>예약결제상태</th>';
-			code += '<th>결제날짜</th></tr>';
+			code += '<th>결제날짜</th><th>매출</th><th>총매출</th></tr>';
+			salesAll = 0;
 			$.each(res, function(i, v) {
+				salesAll += parseInt(v.sales);
 				code += '<tr id="'+i+'">';
 				code += '<td id="resev_no'+i+'" name="'+v.resev_no+'">'+ v.resev_no +'</td>';
 				code += '<td id="room_in'+i+'" value="'+v.room_in+'">'+ v.room_in +'</td>';
@@ -452,9 +454,15 @@ var getResvlogDateMoneyVal = function() {
 				code += '<td id="room_num'+i+'" value="'+v.room_num+'">'+ v.room_num +'</td>';
 				code += '<td id="resev_state'+i+'" value="'+v.resev_state+'">'+ v.resev_state +'</td>';
 				code += '<td id="resev_date'+i+'" value="'+v.resev_date+'">'+ v.resev_date +'</td>';
+				code += '<td id="sales'+i+'" value="'+v.sales+'">'+ v.sales +'</td>';
+				code += '<td></td>';
 				code += '</tr>';
 				
 			})
+			salesAll = String (salesAll);
+			salesAll = salesAll.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+			code += '<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
+			code += '<td id="salesAll" value="'+salesAll+'">'+ salesAll +'</td></tr>';
 			code +='</table>';
 			
 			$('#getResvlogDate_result').append(code);

@@ -5,13 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>호텔 달고나 홈페이지 - 이벤트</title>
+
+<link rel="stylesheet" href="../css/event.css">
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
 #footer {
 	position : absolute;
-	bottom : auto;
+	bottom: auto;
 	width: 100%;
 	height: 120px;
 	background: #2c2b29;
@@ -31,7 +33,11 @@
 <!-- 공통 스타일 끝 -->
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <!-- 공통부분 타이틀부분  시작 -->
+<link rel="stylesheet" href="../css/event.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -196,6 +202,13 @@
 			})
 		<% } %>
 	});
+	
+	
+	// 추가본 클릭하면 상세정보보기(modal창 띄워짐)
+	$(".event").on("click", function(){
+		$('#Modal').modal('show');
+	});
+	
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
@@ -243,8 +256,7 @@
 			<div id="menu3" class="tab-pane fade">
 				<h3>호텔 안내</h3>
 				<a href="uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
-				<a href="<%=request.getContextPath()%>/amenity.me"
-					style="text-decoration: none">시설 안내</a><br> <a
+				<a href="<%=request.getContextPath()%>/amenity.me" style="text-decoration: none">시설 안내</a><br> <a
 					href="uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
 				<a href="ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
@@ -265,18 +277,97 @@
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
 
+	<h1 style="font-size: 30px; color: #9c836a; margin-left: 100px;">EVENT</h1>
+	<pre class="intro"
+		style="margin-left: 0px; background-color: white; border: none; font-size: 20px">
+	호텔 달고나에서 진행되는<br> 
+	이벤트를 소개합니다.
+	</pre>
+	<p style="color: blue; margin-left: 100px;">[클릭하시면 크게 볼 수 있습니다.]</p>
 
-	<h1>XSAMPLE PAGE</h1>
-	<br> sample PAGE
+	<hr>
+
+	<div class="event"
+		style="height: 300px; margin-left: 100px; font-size: 25px;"
+		data-toggle="modal" data-target="#Modal" type="button" value="상세보기"
+		id="write">
+		<img src="../images/이벤트1.jpg" width="400" height="300">
+		<div class="des">
+			<p class="e1" style="font-size: 25px; margin-left: 50px;">
+
+				<strong>FESTIVAL-PARTY</strong><br> 소중한 사람들과의 모임을 위한 특별 프로모션<br>
+				<br> 2020.12.01(화) ~ 2020.12.31(목)<br>
+			</p>
+		</div>
+	</div>
 	<br>
+	<hr>
+	<div class="event" style="height: 300px; margin-left: 100px;"
+		data-toggle="modal" data-target="#Modal1" type="button" value="상세보기"
+		id="write">
+		<img src="../images/이벤트2.jpg" width="400" height="300">
+		<div class="des">
+			<p class="e2" style="font-size: 25px; margin-left: 50px;">
+				<strong>DINING-KICHEN</strong><br> 크리스마스 및 연말을 위한 임페리얼 트레져의 특별한
+				프로모션<br> 가든카페에서 드리는 크리스마스를 위한 특별한 제안, <br> 크리스마스 케이크 3종<br>
+				<br> 2020.11.30(월) ~ 2020.12.25(금)
+			</p>
+		</div>
+	</div>
+	<div id="Modal" class="modal fade" role="dialog">
+		<div class="modal-dialog"
+			style="max-width: 100%; width: auto; display: table;">
 
-<footer id="footer">
-		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="../images/log.png"> </p>
-		<p id="WebShop" style="color: rgba(255,255,255,0.8);">
-						㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br>
-						대표이사 전영헌 사업자등록번호 123-45-67890<br>
-						대표전화 1004-1004
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">EVENT</h4>
+				</div>
+				<div class="modal-body">
+					<form id="uform">
+						<img src="../images/이벤트상세보기1.jpg">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<footer id="footer">
+		<p id="footer title" style="color: #9c836a;">
+			HOTEL DALGONA <img id="logo" src="../images/log.png">
+		</p>
+		<p id="WebShop" style="color: rgba(255, 255, 255, 0.8);">
+			㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br> 대표이사 전영헌 사업자등록번호 123-45-67890<br>
+			대표전화 1004-1004
 		</p>
 	</footer>
+
+	<div id="Modal1" class="modal fade" role="dialog">
+		<div class="modal-dialog"
+			style="max-width: 100%; width: auto; display: table;">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">EVENT</h4>
+				</div>
+				<div class="modal-body">
+					<form id="uform">
+						<img src="../images/이벤트상세보기2.jpg">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
 </html>

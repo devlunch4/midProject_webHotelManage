@@ -11,8 +11,14 @@ public class ResvlogVO {
 	private int room_num;
 	private String resev_state;
 	private String resev_date;
+	private int sales; // 추가된거
 	
-	
+	public int getSales() {
+		return sales;
+	}
+	public void setSales(int sales) {
+		this.sales = sales;
+	}
 	public int getResev_no() {
 		return resev_no;
 	}

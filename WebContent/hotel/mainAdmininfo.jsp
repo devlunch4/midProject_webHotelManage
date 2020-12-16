@@ -15,7 +15,10 @@
 
 
 <style>
-
+table, th, td{
+width : auto;
+hight : auto;
+text-align: center;}
 </style>
 
 <script>

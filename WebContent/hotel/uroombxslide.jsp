@@ -4,8 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>호텔달고나 홈페이지- 객실 안내</title>
+<link href="../css/jquery.bxslider.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -199,8 +202,49 @@
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
+<script>
+$(function(){
+	  $('.bxslider').bxSlider({
+	    mode: 'fade',
+	    captions: true,
+	    slideWidth: 600
+	  });
+	});
+</script>
 
 </head>
+<!-- <style>
+.bxslider{
+	margin-left: 200px; 
+</style> -->
+
+
+
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/room.css">
+<script src="../js/jquery.bxslider.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+var jQ182 = $.noConflict(true);
+jQ182(document).ready(function(){
+     jQ182('.bxslider').bxSlider({
+        auto: true,
+        speed: 500,
+        pause: 4000,
+        mode:'fade',
+        autoControls: true,
+        pager: true,
+    });
+});
+
+//]]>
+</script>
+
+
 <body>
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
@@ -264,10 +308,58 @@
 		</article>
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
+	<div style="max-width: 780px; margin-left: 500px; margin-top: 50px;">
 
+		<h1 style="text-align: center;">객실타입</h1>
+		<ul class="bxslider">
+			<li><img src="../images/객실1.jpg" title="DUPLEX SUITE"></li>
+			<li><img src="../images/객실2.jpg" title="JUNIOR SUITE"></li>
+			<li><img src="../images/객실3.jpg" title="ROYAL SUITE"></li>
+		</ul>
+	</div>
 
-	<h1>XSAMPLE PAGE</h1>
-	<br> sample PAGE
+	<br>
+	<br>
+
+	<div style="width: 600px; height: 400px; margin-left: 300px;">
+		<h3>DUPLEX SUITE</h3>
+		<img src="../images/객실1.jpg" width="500" height="300">
+		<div class="des">
+			<p>
+				<strong> 트렌디하며 감각적으로 꾸며진 복층구조의<br> 듀플렉스 스위트<br>
+				</strong> <br> - 면적하부층 : 42.5m² / 상부층 14.9m²<br> <br> - 인원성인 :
+				2인 기준<br> <br> - 베드타입 : KING<br>
+			</p>
+		</div>
+		<!-- <input type="button" value='예약하기' id="room1" class="btn1"> -->
+	</div>
+	<hr>
+	<div style="width: 600px; height: 400px; margin-left: 300px;">
+		<h3>JUNIOR SUITE</h3>
+		<img src="../images/객실2.jpg" width="500" height="300">
+		<div class="des">
+			<p>
+				<strong> 예술이 마치 일상처럼 깃들어 품격이 돋보이는<br> 주니어 스위트<br>
+				</strong> <br> - 면적하부층 : 61.8m² / 62.8m² / 64.6m²<br> <br> -
+				인원성인 : 2인 기준<br> <br> - 베드타입 : KING / TWIN<br>
+			</p>
+		</div>
+		<!-- <input type="button" value='예약하기' id="room2" class="btn2"> -->
+	</div>
+	<hr>
+	<div style="width: 600px; height: 400px; margin-left: 300px;">
+		<h3>ROYAL SUITE</h3>
+		<img src="../images/객실3.jpg" width="500" height="300">
+		<div class="des">
+			<p class="de">
+				<strong> 자택처럼 자유롭고 넓게 누리는 VIP만을 위한<br> 최상급 로열 스위트
+				</strong> <br>
+				<br> - 면적하부층 : 84.9m²<br> <br> - 인원성인 : 2인 기준<br>
+				<br> - 베드타입 : KING / TWIN<br>
+			</p>
+		</div>
+		<!-- <input type="button" value='예약하기' id="room2" class="btn2"> -->
+	</div>
 	<br>
 
 <footer id="footer">
@@ -279,4 +371,6 @@
 		</p>
 	</footer>
 </body>
+
+
 </html>

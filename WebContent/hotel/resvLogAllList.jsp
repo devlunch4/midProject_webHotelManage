@@ -25,7 +25,8 @@
 		"room_type" : "<%=vo.getRoom_type()%>",
 		 "room_num" : "<%=vo.getRoom_num()%>",
 		"resev_state" : "<%=vo.getResev_state()%>",
-		 "resev_date" : "<%=vo.getResev_date()%>"
+		 "resev_date" : "<%=vo.getResev_date()%>",
+		 "sales" : "<%=vo.getSales()%>"
 	}
 	<%} %>
 ]

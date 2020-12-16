@@ -4,21 +4,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>호텔달고나 홈페이지</title>
-<link href="../css/jquery.bxslider.css" rel="stylesheet">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
 #footer {
-	height: 80px;
-	background: #722f37;
+	position : absolute;
+	bottom : auto;
+	width: 100%;
+	height: 120px;
+	background: #2c2b29;
 	clear: both;
+	text-align: left;
+    padding: 20px
+    
+}
+#logo {
+	position : absolute;
+	bottom : 10px;
+	float: right;
+	height: 100px;
+	width: auto;
+	right : 10px;
 }
 </style>
 <!-- 공통 스타일 끝 -->
+
 
 <!-- 공통부분 타이틀부분  시작 -->
 <link rel="stylesheet"
@@ -36,11 +48,11 @@
 	$(function() {
 	<%MemberInfoVO vo = (MemberInfoVO) session.getAttribute("result");
 
-String userId;
-String userName;
-String userEmail;
+			String userId;
+			String userName;
+			String userEmail;
 
-if (vo != null) {%>
+			if (vo != null) {%>
 			createLoginAfterPart();
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
@@ -49,9 +61,9 @@ if (vo != null) {%>
 			} else {%>
 			createLoginPart();
 			<%userId = null;
-	userName = null;
-	userEmail = null;
-}%>
+				userName = null;
+				userEmail = null;
+			}%>
 
  		userId = "<%=userId%>";
 		userName = "<%=userName%>";
@@ -68,6 +80,14 @@ if (vo != null) {%>
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
+		
+		//  예약확인 추가부분
+		if(userId!=null){
+			$('#div_result *').remove();
+			//console.log(pageCount);
+			getMemberInfoVal();
+		}else{alert("로그인이 필요합니다.")}
+
 		// 로그인 버튼 누르면 로그인 실행하는 부분
 		$('#loginBtn').on('click', function() {
 			// 로그인 실행부분
@@ -80,80 +100,116 @@ if (vo != null) {%>
 			logout();
 		});
 
-// 내정보 가져오는걸 처리
+		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
 			$('#div_result *').remove();
 			//console.log(pageCount);
 			getMemberInfoVal();
-		})
-		
+		});
+
 		//내정보수정 버튼 클릭하면 이 작업 수행
 		//$('#myinfoUpdateBtn').on('click', function(){
 		$(document).on('click', '#myinfoUpdateBtn', function(){
 			MemberInfoVal();
-			
-		})
-		
+
+		});
+
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
-			
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
-			
-		})
-		
+		});
+
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
-		})
-	})
+		});
+		
+		// 아이디 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 비밀번호 찾기 버튼 생성
+			$(document).on('click', '#findIdPassWord', function() {
+				
+				$('#reservation').hide();
+				createfindIdPassWordMode();
+			})
+		<% } %>
+		
+		// 아이디 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindIdBtn', function() {
+				
+				createfindIdMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 생성
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// Id 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// id 찾기 
+			$(document).on('click', '#findIdBtn', function() {
+				
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findId();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 
+			$(document).on('click', '#findPassWordBtn', function() {
+				
+				userIdVal = $('#findIdVal').val().trim();
+				console.log("userIdVal : " + userIdVal);
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findPassWord();
+			})
+		<% } %>
+	});
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
-<script>
-$(function(){
-	  $('.bxslider').bxSlider({
-	    mode: 'fade',
-	    captions: true,
-	    slideWidth: 600
-	  });
-	});
-</script>
 
 </head>
-<!-- <style>
-.bxslider{
-	margin-left: 200px; 
-</style> -->
-
-
-
-
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="../css/room.css">
-<script src="../js/jquery.bxslider.js"></script>
-
-<script type="text/javascript">
-//<![CDATA[
-var jQ182 = $.noConflict(true);
-jQ182(document).ready(function(){
-     jQ182('.bxslider').bxSlider({
-        auto: true,
-        speed: 500,
-        pause: 4000,
-        mode:'fade',
-        autoControls: true,
-        pager: true,
-    });
-});
-
-//]]>
-</script>
-
-
 <body>
 	<!-- 바디 공통 부분 시작 -->
 	<div id="login" style="float: right;"></div>
@@ -171,8 +227,8 @@ jQ182(document).ready(function(){
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">내
+				<a href="umyinfomodify.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="umyresv.jsp" style="text-decoration: none">내
 					예약 확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
@@ -187,25 +243,25 @@ jQ182(document).ready(function(){
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
-				<a href="notice2.jsp" style="text-decoration: none">공지 게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기 게시판</a><br>
-				<a href="qboard2.jsp" style="text-decoration: none">문의 게시판</a>
+				<a href="unotice.jsp" style="text-decoration: none">공지 게시판</a><br>
+				<a href="ureview.jsp" style="text-decoration: none">후기 게시판</a><br>
+				<a href="uqboard.jsp" style="text-decoration: none">문의 게시판</a>
 				<hr>
 			</div>
 
 			<div id="menu3" class="tab-pane fade">
 				<h3>호텔 안내</h3>
-				<a href="roombxslide2.jsp" style="text-decoration: none">객실 안내</a><br>
+				<a href="uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
 				<a href="<%=request.getContextPath()%>/amenity.me"
 					style="text-decoration: none">시설 안내</a><br> <a
-					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
+					href="uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
+				<a href="ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
 
 			<div id="menu4" class="tab-pane fade">
 				<h3>이벤트</h3>
-				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<a href="uevent.jsp" style="text-decoration: none">이벤트 안내</a><br>
 			</div>
 
 		</div>
@@ -217,65 +273,18 @@ jQ182(document).ready(function(){
 		</article>
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
-	<div style="max-width: 780px; margin-left: 500px; margin-top: 50px;">
 
 
-		<h1 style="text-align: center;">객실타입</h1>
-		<ul class="bxslider">
-			<li><img src="../images/객실1.jpg" title="DUPLEX SUITE"></li>
-			<li><img src="../images/객실2.jpg" title="JUNIOR SUITE"></li>
-			<li><img src="../images/객실3.jpg" title="ROYAL SUITE"></li>
-		</ul>
-	</div>
-
-	<br>
+	<h1>내 정보 수정</h1>
 	<br>
 
-	<div style="width: 600px; height: 400px; margin-left: 300px;">
-		<h3>DUPLEX SUITE</h3>
-		<img src="../images/객실1.jpg" width="500" height="300">
-		<div class="des">
-			<p>
-				<strong> 트렌디하며 감각적으로 꾸며진 복층구조의<br> 듀플렉스 스위트<br>
-				</strong> <br> - 면적하부층 : 42.5m² / 상부층 14.9m²<br> <br> - 인원성인 :
-				2인 기준<br> <br> - 베드타입 : KING<br>
-			</p>
-		</div>
-		<!-- <input type="button" value='예약하기' id="room1" class="btn1"> -->
-	</div>
-	<hr>
-	<div style="width: 600px; height: 400px; margin-left: 300px;">
-		<h3>JUNIOR SUITE</h3>
-		<img src="../images/객실2.jpg" width="500" height="300">
-		<div class="des">
-			<p>
-				<strong> 예술이 마치 일상처럼 깃들어 품격이 돋보이는<br> 주니어 스위트<br>
-				</strong> <br> - 면적하부층 : 61.8m² / 62.8m² / 64.6m²<br> <br> -
-				인원성인 : 2인 기준<br> <br> - 베드타입 : KING / TWIN<br>
-			</p>
-		</div>
-		<!-- <input type="button" value='예약하기' id="room2" class="btn2"> -->
-	</div>
-	<hr>
-	<div style="width: 600px; height: 400px; margin-left: 300px;">
-		<h3>ROYAL SUITE</h3>
-		<img src="../images/객실3.jpg" width="500" height="300">
-		<div class="des">
-			<p class="de">
-				<strong> 자택처럼 자유롭고 넓게 누리는 VIP만을 위한<br> 최상급 로열 스위트
-				</strong> <br>
-				<br> - 면적하부층 : 84.9m²<br> <br> - 인원성인 : 2인 기준<br>
-				<br> - 베드타입 : KING / TWIN<br>
-			</p>
-		</div>
-		<!-- <input type="button" value='예약하기' id="room2" class="btn2"> -->
-	</div>
-	<br>
-
-	<footer id="footer">
-		<p id="WebShop" style="color: white;">호텔 달고나</p>
+<footer id="footer">
+		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="../images/log.png"> </p>
+		<p id="WebShop" style="color: rgba(255,255,255,0.8);">
+						㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br>
+						대표이사 전영헌 사업자등록번호 123-45-67890<br>
+						대표전화 1004-1004
+		</p>
 	</footer>
 </body>
-
-
 </html>

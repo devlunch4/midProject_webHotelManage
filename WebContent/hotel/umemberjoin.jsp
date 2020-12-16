@@ -10,9 +10,23 @@
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
 #footer {
-	height: 80px;
-	background: #722f37;
+	position : absolute;
+	bottom : auto;
+	width: 100%;
+	height: 120px;
+	background: #2c2b29;
 	clear: both;
+	text-align: left;
+    padding: 20px
+    
+}
+#logo {
+	position : absolute;
+	bottom : 10px;
+	float: right;
+	height: 100px;
+	width: auto;
+	right : 10px;
 }
 </style>
 <!-- 공통 스타일 끝 -->
@@ -27,6 +41,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
+
+
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
 	$(function() {
@@ -41,6 +57,7 @@
 			<%userId = vo.getMem_id();
 				userName = vo.getMem_name();
 				userEmail = vo.getMem_email();
+				userId = vo.getMem_id();
 			} else {%>
 			createLoginPart();
 			<%userId = null;
@@ -57,8 +74,9 @@
 		//console.log("userEmail : " + userEmail);
 
 		// 로그인하면 로그인부분에 유저 닉네임하고 이메일 출력해서 보여주는부분
-		userNameStr = userName + "님 ";
+		userNameStr = " / " + userName + " 님";
 		userEmailStr = "이메일 : " + userEmail;
+		$('#userId').append(userId);
 		$('#userName').append(userNameStr);
 		$('#userEmail').append(userEmailStr);
 
@@ -72,38 +90,113 @@
 		$('#loginOutBtn').on('click', function() {
 			// 로그아웃 실행 부분
 			logout();
-		})
+		});
 
 		// 내정보 가져오는걸 처리
 		$('#updateMemberInfoBtn').on('click', function() {
-			<%-- <%
-				if(pageCount > 0) {
-			%> --%>
 			$('#div_result *').remove();
 			//console.log(pageCount);
 			getMemberInfoVal();
-			<%-- <%}%> --%>
-		})
-		
+		});
+
 		//내정보수정 버튼 클릭하면 이 작업 수행
 		//$('#myinfoUpdateBtn').on('click', function(){
 		$(document).on('click', '#myinfoUpdateBtn', function(){
 			MemberInfoVal();
-			
-		})
-		
+
+		});
+
 		// 내정보 수정 완료하면 업데이트 부분
 		//$('#myinfoUpdateSubmit').on('click', function() {
 		$(document).on('click', '#myinfoUpdateSubmit', function() {
 			MemberInfoValUpdateSubmit();
 			updateSessionDate();
-		})
-					
+		});
+
 		// 유저가 예약한 정보 확인
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
-		})
-	})
+		});
+
+		// 아이디 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 비밀번호 찾기 버튼 생성
+			$(document).on('click', '#findIdPassWord', function() {
+				
+				$('#reservation').hide();
+				createfindIdPassWordMode();
+			})
+		<% } %>
+		
+		// 아이디 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindIdBtn', function() {
+				
+				createfindIdMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 생성
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// Id 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// id 찾기 
+			$(document).on('click', '#findIdBtn', function() {
+				
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findId();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 
+			$(document).on('click', '#findPassWordBtn', function() {
+				
+				userIdVal = $('#findIdVal').val().trim();
+				console.log("userIdVal : " + userIdVal);
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findPassWord();
+			})
+		<% } %>
+	});
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
@@ -417,16 +510,17 @@ infox = {};
 			<li class="active"><a href="main.jsp">Home</a></li>
 			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
 			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
-			<li><a data-toggle="tab" href="#menu3">안내</a></li>
+			<li><a data-toggle="tab" href="#menu3">호텔 안내</a></li>
+			<li><a data-toggle="tab" href="#menu4">이벤트</a></li>
 		</ul>
 
 		<div class="tab-content">
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
-					확인</a>
+				<a href="umyinfomodify.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="umyresv.jsp" style="text-decoration: none">내
+					예약 확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
@@ -440,20 +534,25 @@ infox = {};
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
-				<a href="notice2.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="review2.jsp" style="text-decoration: none">후기게시판</a><br>
-				<a href="qboard2.jsp" style="text-decoration: none">문의게시판</a>
+				<a href="unotice.jsp" style="text-decoration: none">공지 게시판</a><br>
+				<a href="ureview.jsp" style="text-decoration: none">후기 게시판</a><br>
+				<a href="uqboard.jsp" style="text-decoration: none">문의 게시판</a>
 				<hr>
 			</div>
 
 			<div id="menu3" class="tab-pane fade">
-				<h3>안내</h3>
-				<a href="event2.jsp" style="text-decoration: none">이벤트 안내</a><br>
+				<h3>호텔 안내</h3>
+				<a href="uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
 				<a href="<%=request.getContextPath()%>/amenity.me"
 					style="text-decoration: none">시설 안내</a><br> <a
-					href="votemember2.jsp" style="text-decoration: none">직원 안내</a><br>
-				<a href="location2.jsp" style="text-decoration: none">오시는 길</a><br>
+					href="uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
+				<a href="ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
+			</div>
+
+			<div id="menu4" class="tab-pane fade">
+				<h3>이벤트</h3>
+				<a href="uevent.jsp" style="text-decoration: none">이벤트 안내</a><br>
 			</div>
 
 		</div>
@@ -653,9 +752,13 @@ infox = {};
 	</div>
 	<br>
 
-	<footer id="footer">
-		<p id="WebShop" style="color: white;">호텔 달고나</p>
+<footer id="footer">
+		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="../images/log.png"> </p>
+		<p id="WebShop" style="color: rgba(255,255,255,0.8);">
+						㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br>
+						대표이사 전영헌 사업자등록번호 123-45-67890<br>
+						대표전화 1004-1004
+		</p>
 	</footer>
-
 </body>
 </html>

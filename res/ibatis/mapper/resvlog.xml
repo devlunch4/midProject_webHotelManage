@@ -33,11 +33,28 @@
 		ORDER BY resev_no
 	</select>
 	
+	<!-- <select id="getResvlogDateMoney" parameterClass="String" resultClass="map" remapResults="true"> -->
 	<select id="getResvlogDateMoney" parameterClass="String" resultClass="resvlogVO">
-		select *
+		<!-- select *
 		from resvlog
 		where resev_state = '결제'
-		and to_char(resev_date, 'yyyymm') = #resev_date#
+		and to_char(resev_date, 'yyyymm') = #resev_date# -->
+		select a.resev_no, a.room_in, a.room_out,
+        a.mem_id, a.room_pl, a.room_no,
+        a.room_type, a.room_num, a.resev_state, a.resev_date,
+        a.sales
+		from
+		    (select resev_no, room_in, room_out,
+		        mem_id, room_pl, room_no,
+		        room_type, room_num, resev_state, resev_date,
+		            case
+		                when room_type = '싱글' then 10000
+		                when room_type = '더블' then 20000
+		                when room_type = '스위트' then 40000
+		                end sales
+		    from resvlog) a
+		where a.resev_state = '결제'
+		and to_char(a.resev_date, 'yyyymm') = #resev_date#
 	</select>
 	
 </sqlMap>

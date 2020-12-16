@@ -112,22 +112,25 @@ var getMyResvlogList = function() {
 		dataType : 'json',
 		success : function(res) {
 			
-			code = "****************************************************************************<br>";
+			code = '<table class="getresvLogAllListTable" id="getResvlogDateMoneyTable" border="1">';
+			code += '<tr><th>체크인</th><th>체크아웃시간</th><th>회원계정</th><th>방번호</th>';
+			code +='<th>지점</th><th>방타입</th><th>투숙인원</th><th>예약 상태</th><th>예약한 날짜</th></tr>';
 			
 			$.each(res, function(i, v) {
 				code += '예약번호 : <p id="RESEV_NO" value="'+v.RESEV_NO+'">'+v.RESEV_NO+'</p>';
-				code += '체크인 : <p id="ROOM_IN" value="'+v.ROOM_IN+'">'+v.ROOM_IN+'</p>';
-				code += '체크아웃시간 : <p id="ROOM_OUT" value="'+v.ROOM_OUT+'">'+v.ROOM_OUT+'</p>';
-				code += '회원계정 : <p id="MEM_ID" value="'+v.MEM_ID+'">'+v.MEM_ID+'</p>';
-				code += '방번호 : <p id="ROOM_PL" value="'+v.ROOM_PL+'">'+v.ROOM_PL+'</p>';
-				code += '지점 : <p id="ROOM_NO" value="'+v.ROOM_NO+'">'+v.ROOM_NO+'</p>';
-				code += '방타입 : <p id="ROOM_TYPE" value="'+v.ROOM_TYPE+'">'+v.ROOM_TYPE+'</p>';
-				code += '투숙인원 : <p id="ROOM_NUM" value="'+v.ROOM_NUM+'">'+v.ROOM_NUM+'</p>';
-				code += '예약 상태 : <p id="RESEV_STATE" value="'+v.RESEV_STATE+'">'+v.RESEV_STATE+'</p>';
-				code += '예약한 날짜 : <p id="RESEV_DATE" value="'+v.RESEV_DATE+'">'+v.RESEV_DATE+'</p>';
-				code += "****************************************************************************<br>";
+				
+				
+				code += '<tr><td id="ROOM_IN'+i+'" value="'+v.ROOM_IN+'">'+v.ROOM_IN+'</td>';
+				code += '<td id="ROOM_OUT'+i+'" value="'+v.ROOM_OUT+'">'+v.ROOM_OUT+'</td>';
+				code += '<td id="MEM_ID'+i+'" value="'+v.MEM_ID+'">'+v.MEM_ID+'</td>';
+				code += '<td id="ROOM_PL'+i+'" value="'+v.ROOM_PL+'">'+v.ROOM_PL+'</td>';
+				code += '<td id="ROOM_NO'+i+'" value="'+v.ROOM_NO+'">'+v.ROOM_NO+'</td>';
+				code += '<td id="ROOM_TYPE'+i+'" value="'+v.ROOM_TYPE+'">'+v.ROOM_TYPE+'</td>';
+				code += '<td id="ROOM_NUM'+i+'" value="'+v.ROOM_NUM+'">'+v.ROOM_NUM+'</td>';
+				code += '<td id="RESEV_STATE'+i+'" value="'+v.RESEV_STATE+'">'+v.RESEV_STATE+'</td>';
+				code += '<td id="RESEV_DATE'+i+'" value="'+v.RESEV_DATE+'">'+v.RESEV_DATE+'</td><tr>';
 			})
-			
+			code += '</table>';
 			$('#div_result *').remove();
 			$('#div_result').append(code);
 			
@@ -288,7 +291,7 @@ var createLoginAfterPart = function() {
 	code+='<label id="userName"></label>&nbsp';
 	code+='<label id="userEmail"></label>&nbsp';
 	code+='<input id="loginOutBtn" type="button" value="로그아웃">';
-	//code+='<input type="button" value="내정보">';
+	code+='<input type="button" value="내정보">';
 	code+='</div>';
 	code+='</form>';
 	
@@ -304,7 +307,7 @@ var createLoginPart = function() {
 	code+='<label>아이디 : </label><input id="id" type="text" name="id">';
 	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
 	code+='<input id="loginBtn" type="button" value="로그인">';
-	code+='<a href="memberjoin2.jsp">회원가입</a>';
+	code+='<a href="umemberjoin.jsp">회원가입</a>';
 	code+='<a href="#" id="findIdPassWord">ID/비밀번호찾기</a>';
 	code+='</div>';
 	code+='</form>';

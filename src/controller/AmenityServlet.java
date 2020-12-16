@@ -38,7 +38,7 @@ public class AmenityServlet extends HttpServlet {
 		ArrayList<FacVO> list = (ArrayList<FacVO>) service.selectScoreAvg();
 		
 		request.setAttribute("scoreList", list);
-		request.getRequestDispatcher("hotel/amenity.jsp").forward(request, response);
+		request.getRequestDispatcher("hotel/uamenity.jsp").forward(request, response);
 	}
 
 	/**

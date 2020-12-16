@@ -10,9 +10,23 @@
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
 #footer {
-	height: 80px;
-	background: #722f37;
+	position : absolute;
+	bottom : auto;
+	width: 100%;
+	height: 120px;
+	background: #2c2b29;
 	clear: both;
+	text-align: left;
+    padding: 20px
+    
+}
+#logo {
+	position : absolute;
+	bottom : 10px;
+	float: right;
+	height: 100px;
+	width: auto;
+	right : 10px;
 }
 </style>
 <!-- 공통 스타일 끝 -->
@@ -102,10 +116,90 @@
 		$('#getMyResvlogBtn').on('click', function() {
 			getMyResvlogList();
 		})
-	})
+		
+		// 아이디 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 비밀번호 찾기 버튼 생성
+			$(document).on('click', '#findIdPassWord', function() {
+				
+				$('#reservation').hide();
+				createfindIdPassWordMode();
+			})
+		<% } %>
+		
+		// 아이디 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 아이디 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindIdBtn', function() {
+				
+				createfindIdMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기위해 입력부분 만들기
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기위해 입력부분 만들기
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 생성
+			$(document).on('click', '#createfindPassWordBtn', function() {
+				
+				createfindPassWordMode();
+			})
+		<% } %>
+		
+		// Id 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// id 찾기 
+			$(document).on('click', '#findIdBtn', function() {
+				
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findId();
+			})
+		<% } %>
+		
+		// 비밀번호 찾기부분
+		<%
+		if(userId  == null) {
+		%>
+			// 비밀번호 찾기 
+			$(document).on('click', '#findPassWordBtn', function() {
+				
+				userIdVal = $('#findIdVal').val().trim();
+				console.log("userIdVal : " + userIdVal);
+				nameVal = $('#findNameVal').val().trim();
+				console.log("nameVal : " + nameVal);
+				EmailVal = $('#findEmailVal').val().trim();
+				console.log("EmailVal : " + EmailVal);
+				
+				findPassWord();
+			})
+		<% } %>
+	});
 </script>
 <!-- 공통 타이틀부분 끝 -->
 <!-- 공통 스크립트 부분 끝 -->
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -454,8 +548,15 @@
 	<br>
 	<br>
 
-	<footer id="footer">
-		<p id="WebShop" style="color: white;">호텔 달고나</p>
+
+
+<footer id="footer">
+		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="../images/log.png"> </p>
+		<p id="WebShop" style="color: rgba(255,255,255,0.8);">
+						㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br>
+						대표이사 전영헌 사업자등록번호 123-45-67890<br>
+						대표전화 1004-1004
+		</p>
 	</footer>
 </body>
 </html>
