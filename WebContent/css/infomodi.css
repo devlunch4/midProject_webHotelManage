@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.getmyinfox #p_id, .getmyinfox #p_name, .getmyinfox #p_bir, .getmyinfox #p_tel, .getmyinfox #p_addr, .getmyinfox #p_email{
+    color: #666;	
+}
+#div_result{
+ 	color: #9c836a;
+    background: #f9f9f9;
+    margin: 30px 0px;
+    padding: 30px 40px;
+}
+/* label{ */
+/* 	   color: #9c836a; */
+/* } */
+#myinfoUpdateBtn, #myinfoUpdateSubmit {	
+    min-width: auto;
+    padding: 0 24px;
+    font-size: 14px;
+    height: 48px;
+    line-height: 48px;
+    background: #fff;
+    border: 1px solid #9c836a;
+    color: #9c836a;
+}
+h1{
+	font-weight: bold;
+	color: #9c836a;
+}
+
+#myinfoUpdateBtn:hover, #myinfoUpdateSubmit:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background: #9c836a;
+}
+
+.clickmyinfox #p_name, .clickmyinfox #p_tel, .clickmyinfox #p_addr, .clickmyinfox #p_email{
+    color: #9c836a;
+    font-weight: bold;
+}
+
+.clickmyinfox #p_nameVal, .clickmyinfox #p_telVal, .clickmyinfox #p_emailVal, .clickmyinfox #p_addrVal{
+    color: #666;
+}
+

@@ -230,11 +230,11 @@ var MemberInfoVal = function() {
 	
 	$('#div_result *').remove();
 	
-	code = '<p id="p_name">닉네임 :</p><input id="p_nameVal" type="text" value="'+ p_nameVal +'">';
-	code += '<p id="p_tel">전화번호 :</p><input id="p_telVal" type="text" value="'+ p_telVal +'">';
-	code += '<p id="p_addr">주소 :</p><input id="p_addrVal" type="text" value="'+ p_addrVal +'">';
-	code += '<p id="p_email">이메일 :</p><input id="p_emailVal" type="text" value="'+ p_emailVal +'"><br>';
-	code += '<input id="myinfoUpdateSubmit" type="button" value="내정보수정완료">';
+	code = '<div class="clickmyinfox"><p id="p_name">닉네임</p><input id="p_nameVal" type="text" value="'+ p_nameVal +'"><br><br>';
+	code += '<p id="p_tel">전화번호</p><input id="p_telVal" type="text" value="'+ p_telVal +'"><br><br>';
+	code += '<p id="p_addr">주소</p><input id="p_addrVal" type="text" value="'+ p_addrVal +'"><br><br>';
+	code += '<p id="p_email">이메일</p><input id="p_emailVal" type="text" value="'+ p_emailVal +'"><br><br><br>';
+	code += '<input id="myinfoUpdateSubmit" type="button" value="내정보수정완료"></div>';
 	
 	$('#div_result').append(code);
 	
@@ -263,13 +263,14 @@ var getMemberInfoVal = function() {
 			console.log("res.mem_addr : " + res.mem_addr);
 			console.log("res.mem_email : " + res.mem_email);
 			
-			code= '아이디 :<p id="p_id" value="'+ res.mem_id +'">' + res.mem_id +'</p>';				
-			code += '닉네임 :<p id="p_name" value="'+ res.mem_name +'">' + res.mem_name +'</p>';
-			code += '생년월일 :<p id="p_bir" value="'+ res.mem_bir +'">' + res.mem_bir +'</p>';
-			code += '전화번호 :<p id="p_tel" value="'+ res.mem_tel +'">' + res.mem_tel +'</p>';
-			code += '주소 :<p id="p_addr" value="'+ res.mem_addr +'">' + res.mem_addr +'</p>';
-			code += '이메일 :<p id="p_email" value="'+ res.mem_email +'">' + res.mem_email +'</p>';
-			code += '<input id="myinfoUpdateBtn" type="button" value="내정보수정하기">';
+			
+			code= '<div class="getmyinfox"><label>아이디 </label><p id="p_id" value="'+ res.mem_id +'">' + res.mem_id +'</p>';				
+			code += '<label>닉네임 </label><p id="p_name" value="'+ res.mem_name +'">' + res.mem_name +'</p>';
+			code += '<label>생년월일</label> <p id="p_bir" value="'+ res.mem_bir +'">' + res.mem_bir +'</p>';
+			code += '<label>전화번호 </label><p id="p_tel" value="'+ res.mem_tel +'">' + res.mem_tel +'</p>';
+			code += '<label>주소 </label><p id="p_addr" value="'+ res.mem_addr +'">' + res.mem_addr +'</p>';
+			code += '<label>이메일 </label><p id="p_email" value="'+ res.mem_email +'">' + res.mem_email +'</p>';
+			code += '<input id="myinfoUpdateBtn" type="button" value="내정보수정하기"></div>';
 			
 			$('#div_result').append(code);
 		},

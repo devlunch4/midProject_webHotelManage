@@ -727,7 +727,11 @@ var adminLoginAfter = function() {
 	main = '<input id="room_statusCheckBtn" type="button" value="방상태확인"><br>';
 	main += '<input type="button" id="resvloglist" value="resvloglist"><br>';
 	main += '<input type="button" id="getResvlogDateMoneyBtn" value="매출확인"><br>';
-	main += '<input type="button" id="getMemberInfoListBtn" value="회원확인"><br>';
+	main += '<input type="button" id="getMemberInfoListBtn" value="회원확인"><br><br>';
+	// 게시판 권한 신~
+	main += '<a href = "unoticead.jsp">공지 게시판 관리</a><br>';
+	main += '<a href = "uqboardad.jsp">문의 게시판 관리</a><br>';
+	main += '<a href = "ureviewad.jsp">후기 게시판 관리</a><br>';
 	
 	$('#login').append(code);
 	$('#main_result').append(main);
