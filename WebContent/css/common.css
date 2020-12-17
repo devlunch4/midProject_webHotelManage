@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+@import url('lib/animated.css');
+@import url('lib/jquery-ui-1.10.4.custom.min.css');
+@import url('lib/swiper.css');
+@import url('lib/jquery.mCustomScrollbar.css');
+@import url('main.css');
+
+
+/* ==============================
+ * header
+ * ============================== */
+#headerWrap { position:relative; top: 48px; left:0; right:0; min-width:1000px; height:48px; z-index:10; background:#21201e; transition: top .3s ease;}
+#headerWrap h1 { float:left; width:22px; height:23px; margin:13px 0 0 32px; font-size:0; background:url('../images/common/logo.png') no-repeat;}
+#headerWrap h1 a { display:block; height:100%;}
+#headerWrap .gnb { float:left; position:relative; margin-left:25px;}
+#headerWrap .gnb > ul > li { float:left; margin-right:25px;}
+#headerWrap .gnb > ul > li > a { display:block; position:relative; text-transform:uppercase; line-height:48px; color:#2f2f2f; transition:all .2s ease; color:rgba(255,255,255,0.65); font-size:12px; font-weight:300;}
+#headerWrap .gnb > ul > li.on > a { color:#9c836a;}
+#headerWrap .gnb > ul > li.on > a:after { content:''; display:block; position:absolute; bottom:0; left:0; right:0; height:3px; background:#9c836a;}
+
+#headerWrap .gnbDepth2 { display:none; position:absolute; left:0; top:48px; z-index:1; width:850px; height:400px; font-size:0;}
+#headerWrap .gnbDepth2 > div { float:left; margin-top:35px; margin-right:65px; vertical-align: top;}
+#headerWrap .gnbDepth2 h2 a { font-size:16px; color:#fff; font-weight:450; text-transform:uppercase;}
+#headerWrap .gnbDepth2 h2 span { display:block; margin-bottom:3px; font-size:12px; color:#9c836a; font-weight:300;}
+#headerWrap .gnbDepth2 ul { margin-top:20px;}
+#headerWrap .gnbDepth2 li { margin-bottom:8px;}
+#headerWrap .gnbDepth2 li a { font-size:13px; color:#999; font-weight:300; text-transform:uppercase;}
+#headerWrap .gnbDepth2 li a:hover { color:#9c836a;}
+#headerWrap .on .gnbDepth2 {/* display:block;*/}
+
+
+#headerWrap .bgDepth { display:none; position:absolute; top:48px; left:0; right:0; height:250px; background:#21201e;}
+#headerWrap .bgDepth:before { display:none; content:''; position:absolute; top:0; left:80px; right:0; height:1px; background:rgba(255,255,255,0.1);}
+
+#headerWrap.hover .bgDepth {/* display:block;*/}
+
+
+.scrollActive #headerWrap {top:-48px; }
+
+/* ==============================
+ * footer
+ * ============================== */
+
+
+
+
+@media screen and (max-width:800px) {
+}
+
+@media screen and (max-width:640px) {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

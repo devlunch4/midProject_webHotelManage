@@ -1,0 +1,586 @@
+@charset "utf-8";
+
+
+ 
+
+
+ /* ==============================
+ * main
+ * ============================== */
+#main #headerWrap { height:94px; background:none; transition:background .3s ease;}
+#main #headerWrap.on { background:rgba(33,32,30,0.95);}
+#main #headerWrap h1 { width:213px; height:32px; margin-top:46px; background:url('../images/common/main_logo.png') no-repeat;}
+#main #headerWrap .gnb { margin-top:39px; margin-left:45px;}
+#main #headerWrap .gnb > ul > li { margin-right:33px;}
+#main #headerWrap .gnb > ul > li > a { color:#fff; font-size:14px; line-height:55px;}
+#main #headerWrap .gnb > ul > li.on > a { color:#9c836a;}
+#main #headerWrap .topLink { position:absolute; top:0; right:64px; float:none; margin-right:0;}
+#main #headerWrap .topLink .more li a { color:#fff;}
+#main #headerWrap .topLink .more li a:hover { color:#9c836a;}
+#main #headerWrap .bgDepth { top:94px; background:rgba(33,32,30,0.95);}
+
+.scrollActive #main #headerWrap { top:0;}
+.mainHeaderBg #main #headerWrap { background:rgba(33,32,30,0.95);}
+.mainHeaderBg #main #headerWrap h1 { background:url('../images/common/main_logo2.png') no-repeat;}
+
+#main #container { padding-top:0;}
+
+.mainVisual { overflow:hidden; position:relative; min-width:1280px; min-height:840px; margin-right:64px;}
+.mainVisual .visual { display:table; position:absolute; top:0; left:0; z-index:2; width:100%; min-height:840px;}
+.mainVisual .visual > div { display:table-cell; position:relative;}
+.mainVisual .visual > div:after { content:''; display:block; position:absolute; top:0; left:0; bottom:0; z-index:1; width:1px; background:rgba(255,255,255,0.1);}
+.mainVisual .textBox { position:absolute; bottom:50%; left:30px; right:30px; z-index:1; transition: all .4s ease;}
+.mainVisual .textBox i { display:block; background:url('../images/main/icon_main_visual.png') no-repeat;}
+.mainVisual .textBox .icon1 { width:22px; height:20px; background-position:0 0;}
+.mainVisual .textBox .icon2 { width:21px; height:21px; background-position:0 -22px;}
+.mainVisual .textBox .icon3 { width:20px; height:20px; background-position:0 -46px;}
+.mainVisual .textBox .icon4 { width:20px; height:19px; background-position:0 -69px;}
+.mainVisual .textBox .icon5 { width:18px; height:22px; background-position:0 -94px;}
+.mainVisual .textBox .title { margin-top:15px; font-size:22px; color:#fff; font-family:'roboto'; font-weight:500; text-transform:uppercase;}
+.mainVisual .textBox .text { margin-top:5px; font-size:12px; color:#fff;}
+.mainVisual .textView { display:none; position:absolute; bottom:0; left:0; right:0; z-index:1; background:#7c6c5d;}
+.mainVisual .textView a { display:block; position:relative; padding:20px 30px 70px 30px; border-bottom:1px solid rgba(255,255,255,0.1);}
+.mainVisual .textView a:after { content:''; display:block; position:absolute; bottom:30px; left:30px; width:42px; height:9px; background:url('../images/main/btn_arrow.png') no-repeat; transition:all .3s ease;}
+.mainVisual .textView a h2 { font-size:14px; color:#fff; font-family:'roboto'; font-weight:500; text-transform:uppercase; }
+.mainVisual .textView a .text { font-size:12px; color:rgba(255,255,255,0.5); line-height:18px;}
+.mainVisual .textView a:hover:after { left:50px;}
+
+.mainVisual .bg1 .textView { background:#7c6c5d;}
+.mainVisual .bg2 .textView { background:#977e5c;}
+.mainVisual .bg3 .textView { background:#3a403e;}
+.mainVisual .bg4 .textView { background:#8e8270;}
+.mainVisual .bg5 .textView { background:#494c43;}
+
+.mainVisual .visual > div.on { background:rgba(0,0,0,0);}
+.mainVisual .visual > div.on .textBox { transition: all .6s ease;}
+.mainVisual .visual > div.off { background:none;}
+.mainVisual .visual > div.off .textBox { bottom:60px !important; opacity:0.7;}
+
+.mainVisual .visualView { font-size:0;}
+.mainVisual .visualView > div { position:absolute; top:0; min-height:840px;}
+.mainVisual .visualView > div span { visibility:hidden; opacity:0; position:absolute; top:0; left:0; bottom:0; transition:opacity .1s ease, transform 5s ease 1s;}
+.mainVisual .visualView > .bg1 { background:url('../images/main/img_main_visual1.jpg') no-repeat center bottom; background-size:cover;}
+.mainVisual .visualView > .bg2 { background:url('../images/main/img_main_visual2.jpg') no-repeat center bottom; background-size:cover;}
+.mainVisual .visualView > .bg3 { background:url('../images/main/img_main_visual3.jpg') no-repeat center bottom; background-size:cover;}
+.mainVisual .visualView > .bg4 { background:url('../images/main/img_main_visual4.jpg') no-repeat center bottom; background-size:cover;}
+.mainVisual .visualView > .bg5 { background:url('../images/main/img_main_visual5.jpg') no-repeat center bottom; background-size:cover;}
+.mainVisual .visualView > .bg1 span { background:url('../images/main/img_main_visual1_view.jpg') no-repeat center bottom; background-size:cover; background-position:50% 50%;}
+.mainVisual .visualView > .bg2 span { background:url('../images/main/img_main_visual2_view.jpg') no-repeat center bottom; background-size:cover; background-position:50% 50%;}
+.mainVisual .visualView > .bg3 span { background:url('../images/main/img_main_visual3_view.jpg') no-repeat center bottom; background-size:cover; background-position:50% 50%;}
+.mainVisual .visualView > .bg4 span { background:url('../images/main/img_main_visual4_view.jpg') no-repeat center bottom; background-size:cover; background-position:50% 50%;}
+.mainVisual .visualView > .bg5 span { background:url('../images/main/img_main_visual5_view.jpg') no-repeat center bottom; background-size:cover; background-position:50% 50%;}
+.mainVisual .visualView > div.show { z-index:1;}
+.mainVisual .visualView > div.show span { visibility:visible; opacity:1; transform:scale(1.03);}
+
+@keyframes mainVisual{
+	0% { transform:scale(1);}
+	50% { transform:scale(1.03);}
+	100% { transform:scale(1);}
+}
+
+
+.mainVisual .scrollDown { position:absolute; bottom:0px; left:50%; width:96px; height:43px; margin-left:-28px; font-size:0; background:url('../images/submain/bg_scrollDown.png') no-repeat;}
+
+ /* ==============================
+ * subMain
+ * ============================== */
+#container .subMain { overflow:hidden; width:100%; min-width:1280px; padding-bottom:112px;}
+#container .subMain.pb0 { padding-bottom:0;}
+
+.subMain .visual { position:relative; min-height:550px;}
+.subMain .visual .img > div { position:absolute; top:0; left:100%; width:100%; height:100%; background-position:center 0; background-size:cover;}
+.subMain .visual .img > div:first-child { left:0;}
+.subMain .visual .textBox { position:absolute; top:50%; left:80px; transform:translateY(-50%);}
+.subMain .visual h1 { font-size:56px; font-family:'roboto'; font-weight:500; line-height:66px; color:#fff; text-transform:uppercase; }
+.subMain .visual p { margin-top:10px; font-size:16px; color:#fff; font-size:16px; line-height:26px; text-shadow: 0 0 10px rgba(0,0,0,0.6);}
+.subMain .visual .scrollDown { position:absolute; bottom:0px; left:50%; width:96px; height:43px; margin-left:-28px; font-size:0; background:url('../images/submain/bg_scrollDown.png') no-repeat;}
+.subMain .visual [class*=btnArrow] { overflow:hidden; position:absolute; bottom:32px; width:32px; height:23px; font-size:0; background:url('../images/submain/btn_arrow.png') no-repeat;}
+.subMain .visual .btnArrowLeft { left:80px;}
+.subMain .visual .btnArrowRight { right:144px; background-position:-32px 0;}
+.subMain .visual .exclamation { position:absolute; bottom:80px; left:80px; right:0; width:400px; padding:20px 30px 20px 64px; border:1px solid #acaaa8; color:rgba(255,255,255,0.65); font-size:12px; background:rgba(0,0,0,0.2)}
+.subMain .visual .exclamation span { position:absolute; top:30px; left:24px; width:24px; height:24px; margin-top:-2px; margin-right:5px; vertical-align:middle; background:url('../images/submain/artParadiso/icon_exclamation.png') no-repeat;}
+.subMain .visual .exclamation.type2 { position:absolute; bottom:0; left:0; right:0; width:auto; height:auto; margin:0; border:0; padding:16px 80px 14px;color:rgba(255,255,255,0.65); font-size:12px; background:rgba(33,32,30,0.8)}
+.subMain .visual .exclamation.type2 span { position:static; display:inline-block; width:20px; height:19px; margin-top:-2px; margin-right:10px; vertical-align:middle; background:url('../images/submain/convention/ico_exclamation2.png') no-repeat;}
+.subMain .visual.artSpace .textWrap .textBox { display:none;}
+.subMain .visual.artSpace .textWrap .textBox:first-child { display:block;}
+
+.subMain .visual.casino {}
+.subMain .visual.casino .textBox { top:inherit; bottom:300px;}
+.subMain .visual.casino .chsinoMoney { position:absolute; bottom:0; left:0; right:0; height:243px; text-align:center; background:rgba(0,0,0,0.4)}
+.subMain .visual.casino .chsinoMoney .tit { margin:25px 0 14px; font-size:16px; font-family:'roboto'; font-weight:400; text-transform:uppercase;}
+.subMain .visual.casino .chsinoMoney .count { width:728px; height:72px; padding-left:78px; margin:0 auto; text-align:right; font-size:64px; color:#fff; letter-spacing:0.3em; line-height:72px; font-family:'roboto'; font-weight:400; background:url('../images/submain/casino/bg_cash.png') no-repeat;}
+
+.mainSwiperMotion .img { overflow:hidden;}
+.mainSwiperMotion .img img { position:absolute; top:0; left:50%; transform:translateX(-50%) scale(1); transition:none;}
+.mainSwiperMotion li:hover .img > img {transform:translateX(-50%) scale(1);}
+.mainSwiperMotion .slick-slider { position:static; box-shadow:20px 30px 40px rgba(38,36,34,0.1);}
+
+.mainSwiperMotion .btnArrow a { display:block; bottom:-40px; position:absolute; width:32px; height:17px; font-size:0; background:url('../images/mypage/btn_membership_arrow.png') no-repeat;}
+.mainSwiperMotion .btnArrow .btnLeft { left:80px;}
+.mainSwiperMotion .btnArrow .btnRight { right:80px; background-position:0 -17px;}
+
+.mainSwiperMotion .slick-dots { position:absolute; bottom:5px; left:50%; text-align:center; transform:translateX(-50%); font-size:0;}
+.mainSwiperMotion .slick-dots li { display:inline-block; width:6px; height:6px; margin:0 4px; border-radius:50%; background:#c6c6c6;}
+.mainSwiperMotion .slick-dots li.slick-active { background:#9c836a;}
+.subMain .visual.type3 [class*=btnArrow]{ bottom:80px;}
+.subMain .visual.type3 .scrollDown {bottom:48px;}
+
+.subMain .visual .date { margin:8px 0 34px;}
+.subMain .visual .btnArtSpace { margin-top:50px;}
+.subMain .visual .btnExhibit { display:block; position:absolute; bottom:119px; right:144px; width:160px; height:160px; padding:24px; color:#fff; background:#8d7760;}
+.subMain .visual .btnExhibit:after{ content: ''; display:block; position:absolute; bottom:24px; left:24px; width: 31px; height: 10px; background: url(../images/submain/btn_more.png) 0 0 no-repeat;}
+.subMain .visual .openMessage { position:absolute; top:50%; right:144px; width:99px; height:129px; padding-top:20px; margin-top:-65px; border:1px solid #fff; font-size:20px; font-family:'roboto'; font-weight:400; text-align:center; color:#fff;}
+.subMain .visual .openMessage span { display:block; font-weight:400;}
+.subMain .visual .openMessage span:before { content:''; display:block; width:24px; height:1px; margin:15px auto; background:#fff;}
+
+.subMain [class*=section] {}
+.subMain [class*=section] .innerBox { position:relative;}
+.subMain [class*=section] .sectionH { position:absolute; z-index:2; width:520px; padding:20px 60px 20px 20px;}
+.subMain [class*=section] .sectionH h1 { font-size:30px; font-weight:100; color:#9c836a;}
+.subMain [class*=section] .sectionH p { font-size:16px; color:#666; line-height:26px;}
+.subMain [class*=section] .sectionH .link { display:inline-block; margin-top:20px; font-size:14px; color:#9c836a; text-decoration:underline;}
+.subMain [class*=section] .swipeCont { position:absolute; width:100%;}
+.subMain [class*=section] .swipeCont > div { position:absolute; top:0; left:0; width:440px; visibility:hidden; opacity:0; transition:all .3s ease;}
+.subMain [class*=section] .swipeCont > div.on { visibility:inherit; opacity:1;}
+.subMain [class*=section] .swipeCont .title { font-weight:450; font-size:16px; color:#333; transition:all .3s ease; transform:translateY(-7px);}
+.subMain [class*=section] .swipeCont .text { max-width: 457px; margin-top:5px; color:#999999; line-height:24px; transition:all .3s ease; transform:translateY(7px);}
+.subMain [class*=section] .swipeCont .on .title,
+.subMain [class*=section] .swipeCont .on .text { transform:translateY(0); transition:all .3s ease;}
+
+.subMain .section01 { margin-top:96px;}
+.subMain .section01 .sectionH { left:50%; margin-left:60px;}
+.subMain .section01 .swipeCont { top:260px; left:50%; margin-left:80px;}
+.subMain .section01 .mainSwiperMotion { width:576px;}
+.subMain .section01 .mainSwiperMotion .swiperWrap .img { height:344px;}
+.subMain .section01 .mainSwiperMotion .slick-dots { left:0; bottom:-35px; z-index:1; width:1120px; transform:translateX(0)}
+.subMain .section01 .mainSwiperMotion .btnArrow { position:absolute; left:0%; width:100%; padding:0 80px;}
+.subMain .section01 .bgbar { position:absolute; top:200px; left:0px; width:338px; height:224px; background:#d8d6d3;}
+.subMain .section01 .bgbar.color1 { background:#9d9892;}
+
+.subMain .section01.plaza { position:relative; padding-bottom:100px;}
+.subMain .section01.plaza:before { content:''; display:block; position:absolute; top:129px; left:0; right:0; bottom:0; background:#f9f9f9;}
+.subMain .section01.plaza .sectionH { left:inherit; right:-289px; top:129px; bottom:0; width:384px; padding:30px; background:#fff;}
+.subMain .section01.plaza .mainSwiperMotion { width:832px;}
+.subMain .section01.plaza .mainSwiperMotion .swiperWrap .img { height:512px;}
+.subMain .section01.plaza .mainSwiperMotion .swiperWrap .img img { width:100%; height:100%;}
+.subMain .section01.plaza .mainSwiperMotion .slick-slider { box-shadow:none;}
+.subMain .section01.plaza .mainSwiperMotion .swipeCont { width:328px;}
+.subMain .section01.plaza .mainSwiperMotion .swipeCont > div { width:320px;}
+.subMain .section01.plaza .swipeCont { top:350px; z-index:3; margin-left:206px;}
+.subMain .section01.plaza .mainSwiperMotion .slick-dots { left:inherit; right:-259px; bottom:36px; z-index:2; width:320px;}
+.subMain .section01.plaza .mainSwiperMotion .btnArrow { left:66.3%; bottom:31px; z-index:2; padding:0; width:320px;}
+.subMain .section01.plaza .mainSwiperMotion .btnArrow .btnLeft { left:0; bottom:0;}
+.subMain .section01.plaza .mainSwiperMotion .btnArrow .btnRight { right:0; bottom:0;}
+.subMain .section01.plaza .btnMore { position:relative; margin-top:55px; text-align:center;}
+.subMain .section01.plaza .btnMore a { font-size:14px; color:#9c836a; text-decoration:underline;}
+
+.subMain .section02 { margin-top:200px;}
+.subMain .section02 .sectionH { left:60px; padding:20px 40px 20px 20px;}
+.subMain .section02 .swipeCont { top:260px; left:80px;}
+.subMain .section02 .mainSwiperMotion { width:576px; margin-left:544px;}
+.subMain .section02 .mainSwiperMotion .swiperWrap .img { height:344px;}
+.subMain .section02 .mainSwiperMotion .slick-dots { left:-576px; bottom:-35px; z-index:1; width:1120px; transform:translateX(0)}
+.subMain .section02 .mainSwiperMotion .btnArrow { position:absolute; left:0%; width:100%; padding:0 80px;}
+.subMain .section02 .bgbar { position:absolute; top:90px; right:-453px; width:732px; height:352px; background:#c4bfbb;}
+.subMain .section02 .bgbar.color1 { background:#21201e;}
+
+.subMain .section03 { margin:200px 0 120px;}
+.subMain .section03 .sectionH { left:50%; margin-left:60px;}
+.subMain .section03 .swipeCont {top:290px; left:50%; margin-left:80px}
+.subMain .section03 .mainSwiperMotion { width:856px; margin-left:-280px;}
+.subMain .section03 .mainSwiperMotion .img img {}
+.subMain .section03 .mainSwiperMotion .swiperWrap .img { height:384px;}
+.subMain .section03 .mainSwiperMotion .slick-dots { left:100%; width:1280px; bottom:-35px; margin-left:-60px;}
+.subMain .section03 .mainSwiperMotion .btnArrow { position:absolute; left:50%; width:1280px; margin-left:-640px;}
+.subMain .section03 .bgbar { position:absolute; top:260px; left:0; width:1280px; height:290px; background:#f9f9f9;}
+
+.subMain .section04 { margin:80px 0 0px;}
+.subMain .section04 h1 { margin-bottom:10px; font-size:30px; font-weight:100; text-align:center; color:#9c836a;}
+.subMain .section04 p.tit { margin-bottom:43px; font-size:16px; color:#666; text-align:center;}
+.subMain .section04 .swipeCont { position:relative; height:131px; border-bottom:1px solid #e6e3df;}
+.subMain .section04 .swipeCont > div { width:100%; padding:30px 0 0px; text-align:center;}
+.subMain .section04 .mainSwiperMotion { width:100%;}
+.subMain .section04 .mainSwiperMotion .img img { width:100%;}
+.subMain .section04 .mainSwiperMotion .swiperWrap .img { height:420px;}
+.subMain .section04 .mainSwiperMotion .slick-dots { bottom:-170px;}
+.subMain .section04 .mainSwiperMotion .btnArrow { overflow:hidden; position:relative; margin-top:25px;}
+.subMain .section04 .mainSwiperMotion .btnArrow .btnLeft { position:static; float:left;}
+.subMain .section04 .mainSwiperMotion .btnArrow .btnRight { position:static; float:right;}
+.subMain .section04 .btnMore { margin-top:55px; text-align:center;}
+.subMain .section04 .btnMore a { font-size:14px; color:#9c836a; text-decoration:underline;}
+.subMain .section04 .innerBox .swipeCont .text{width: 100%; max-width: 100%;}
+
+.subMainCont { padding:80px 0 0;}
+.subMainCont h2 { margin-bottom:10px; font-size:30px; font-weight:100; text-align:center; color:#9c836a; text-transform:uppercase;}
+.subMainCont p.tit { margin-bottom:43px; font-size:16px; color:#666; text-align:center; line-height: 26px;}
+.subMainCont .btnMore { margin-top:20px; text-align:center;}
+.subMainCont .btnMore a { font-size:14px; color:#9c836a; text-decoration:underline;}
+
+.subMain .visual .img > div:after{display:block;position: absolute;top: 0;right: 0;bottom: 0;left: 0;content:'';background-image: linear-gradient(to right, rgba(0,0,0,0.4) 5%, transparent)}
+
+.SMOffers { position:relative;}
+.SMOffers.bg { padding-bottom:80px; background:#f9f9f9;}
+.SMOffers div.offers:last-of-type { padding-bottom:0;}
+.SMOffers div.offers ul{margin: 0 0px 0 -32px; text-align:center; font-size:0;}
+.SMOffers div.offers ul li{ display:inline-block; width: 256px; margin: 0 0px 20px 32px; text-align:left;}
+.SMOffers div.offers ul li:nth-child(1) { animation-delay: 0s;}
+.SMOffers div.offers ul li:nth-child(2) { animation-delay: 0.2s;}
+.SMOffers div.offers ul li:nth-child(3) { animation-delay: 0.4s;}
+.SMOffers div.offers ul li:nth-child(4) { animation-delay: 0.6s;}
+.SMOffers div.offers ul li div.img{position: relative;}
+.SMOffers div.offers ul li div.img img { width:256px; height:168px;}
+.SMOffers div.offers ul li div.img p{position: absolute;top: 0; left: 0;}
+.SMOffers div.offers ul li div.img p span{float: left; display: block; padding: 0 8px; color: #fff; font-size: 12px; font-weight: 300; line-height: 24px; background-color: #857b71; vertical-align: top;}
+.SMOffers div.offers ul li div.img p span.type1{background-color: #e66045;}
+.SMOffers div.offers ul li div.img p span.type2{background-color: #9c836a}
+.SMOffers div.offers ul li.sold div.img:after{display: block; content: 'SOLD OUT'; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(156,131,106,0.9); text-align: center; color: #fff; font-weight: 450; line-height: 168px;}
+.SMOffers div.offers ul li div.txt{padding: 20px 25px 30px; border: 1px solid #f4f2ef; border-top: 0;}
+.SMOffers div.offers ul li strong{display: block; color: rgba(0,0,0,0.85); font-weight: 450; text-transform: uppercase; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:14px;}
+.SMOffers div.offers ul li span.sub{overflow:hidden; display: block; height:38px; margin: 12px 0 16px; color: rgba(0,0,0,0.7); font-size:14px;}
+.SMOffers div.offers ul li p.price{margin-bottom: 18px;}
+.SMOffers div.offers ul li p.price span{font-weight: 450;}
+.SMOffers div.offers ul li p.price span.price1{font-size: 14px; color: rgba(0,0,0,0.85);}
+.SMOffers div.offers ul li p.price span.price2{position: relative; font-size: 12px; margin-left: 1px; color: rgba(0,0,0,0.4);}
+.SMOffers div.offers ul li p.price span.price2:after{display: block; content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background-color: rgba(0,0,0,0.3);}
+.SMOffers div.offers ul li p.price span.discount{font-size: 14px;color: #e66045; margin-left: 5px;}
+.SMOffers div.offers ul li span.tag{display: block; font-size: 12px; line-height: 18px;}
+.SMOffers div.offers ul li span.date{display: block; font-size: 12px; line-height: 1; margin-top: 2px; }
+
+.SMOffers + .SMEvent { margin-top:80px;}
+.section02 + .SMEvent { margin-top:120px;}
+
+.SMEvent { position:relative; padding-bottom:80px; background:#f9f9f9;}
+.SMEvent.bgN { background:none;}
+.SMEvent ul.eventList { text-align:center;}
+.SMEvent ul.eventList li a { text-align:left;}
+.SMEvent ul.eventList li .img img { width:352px; height:232px;}
+
+.SMMembership { position:relative;}
+.SMMembership.bg { margin-top:80px; padding-bottom:80px; background:#f9f9f9;}
+.SMMembership ul { font-size:0; margin-left:-8px; text-align:center;}
+.SMMembership ul li { display:inline-block; width:274px; margin-left:8px;}
+.SMMembership .img { overflow:hidden; position:relative; width:100%; height:336px;}
+.SMMembership .img .cover { visibility:hidden; position:absolute; top:0; left:0; right:0; bottom:0; text-align:center; vertical-align:middle; opacity:0; background:rgba(0,0,0,0.8); transition:all .3s ease;}
+.SMMembership .img .cover div { position:absolute; top:50%; left:0; width:100%; font-size:14px; color:#fff; transform:translateY(-50%);}
+.SMMembership .img .cover div p { padding: 0 20px; line-height: 20px; transform:translateY(-10px); transition:all .3s ease;}
+.SMMembership .img .cover div  a { display:inline-block; margin-top:20px; transform:translateY(10px);}
+.SMMembership .text { margin-top:20px; font-size:14px; color:#333; text-align:center; font-weight:450;}
+
+.SMMembership li:hover .cover { opacity:1; visibility:visible;}
+.SMMembership li:hover .cover div p,
+.SMMembership li:hover .cover div a { transform:translateY(0px);}
+
+.SMCalendar .innerBox { position:relative;}
+.SMCalendar .eventCalendarWrap { padding-bottom:0;}
+.SMCalendar .eventCalendarWrap .date { text-align:center;}
+.SMCalendar .eventCalendarWrap .date .tit,
+.SMCalendar .eventCalendarWrap .date [class*=btn] { display:inline-block; float:none; vertical-align:middle;}
+.SMCalendar .calendarThumbnail .date { padding:0; text-align:left;} 
+.SMCalendar .seeList,
+.SMCalendar .seeCalendar { position:absolute; bottom:-60px;}
+
+.SMFacility {}
+.SMFacility .jsSwiperMotion .slick-slide { position:relative;}
+.SMFacility .jsSwiperMotion .textBox { position:absolute; bottom:0; left:0; right:0; width:1120px; margin:0 auto; padding:48px 0; text-align:center; background:rgba(0,0,0,0.8);}
+.SMFacility .jsSwiperMotion .textBox .title { margin-bottom:28px; font-size:18px; font-weight:450; color:#fff;}
+.SMFacility .jsSwiperMotion .textBox .text { color:#fff; line-height:24px;}
+
+.SMFloorMap { position:relative; padding-bottom:80px;	}
+.SMFloorMap .floorMapBox { overflow:hidden; position:relative; border:1px solid #f4f2ef; background:#fff;}
+.SMFloorMap .moveBar{position: absolute; right: 0; bottom: 0; height: 66px; background-color: #9c836a; z-index: 1;}
+.SMFloorMap .floorMapBox .viewMap { float:left; width:832px; height:510px; background:#f9f9f9;}
+.SMFloorMap .floorMapBox .textBox { position:absolute; bottom:0; right:0; width:286px; height:254px; border-top:1px solid #f4f2ef; padding:30px 30px 0 30px; background:#fff;}
+.SMFloorMap .floorMapBox .textBox > div { display:none;}
+.SMFloorMap .floorMapBox .textBox > div:first-child { display:block;}
+.SMFloorMap .floorMapBox .textBox .title { font-size:16px; color:#9c836a;}
+.SMFloorMap .floorMapBox .textBox .text { margin-top:5px; color:#999999; line-height:24px;}
+
+.SMFloorMap .floorMapBox ul { float:left; width:286px;}
+.SMFloorMap .floorMapBox ul li button { width:100%; height:64px; padding-left:40px; font-size:16px; color:#999; font-family:'roboto'; font-weight:500; text-align:left;}
+
+.SMFloorMap .floorButton{position: relative;}
+.SMFloorMap .floorButton > li{position: relative; z-index: 2; border-bottom: 0}
+.SMFloorMap .floorButton button{background-color: transparent; outline: none; line-height: 66px;}
+.SMFloorMap .floorButton button > span{margin-right: 15px; font-weight: 500; letter-spacing: 0.18em;}
+.SMFloorMap .floorMapBox ul li.on button{color: #fff;}
+.SMFloorMap .btnVR { display:block; position:absolute; bottom:24px; left:24px; width:72px; height:72px; font-size:0; background:url('../images/submain/chroma/btn_vr.png') no-repeat;}
+.SMFloorMap .bgbar { display:block; position:absolute; top:500px; left:0; width:100%; height:320px; background:url('../images/submain/chroma/img_floormap.jpg') no-repeat; background-size:cover;}
+.SMFloorMap.plaza .bgbar { display:block; position:absolute; top:500px; left:0; width:100%; height:320px; background:url('../images/submain/plaza/img_floormap.jpg') no-repeat; background-size:cover;}
+
+.SMFloorMap .btnMore { position:relative;}
+
+.SMImgVideo {}
+.SMImgVideo .jsSwiperMotion { height:356px; margin-left:0; margin-bottom:85px;}
+.SMImgVideo .jsSwiperMotion .slick-initialized { margin-left:0;}
+.SMImgVideo .jsSwiperMotion .slick-list { overflow:inherit;}
+.SMImgVideo .jsSwiperMotion .slick-slide { overflow:hidden; position:relative; width:560px; margin-left:0;}
+.SMImgVideo .jsSwiperMotion .slick-slide img { width:560px;}
+.SMImgVideo .jsSwiperMotion .slick-slide .video { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(26,25,23,0); transition:all .3s ease;}
+.SMImgVideo .jsSwiperMotion .slick-slide .video .textBox { position:absolute; top:50%; left:0; right:0; text-align:center; transform:translateY(-50%);}
+.SMImgVideo .jsSwiperMotion .slick-slide .video .text { visibility:hidden; color:#ffffff; font-weight:450; opacity:0; transition:all .3s ease;}
+.SMImgVideo .jsSwiperMotion .slick-slide .video .play { display:block; width:48px; height:48px; margin:0 auto 0; font-size:0; background:url('../images/submain/chroma/btn_play.png') no-repeat; transition:all .3s ease;}
+.SMImgVideo .jsSwiperMotion .slick-dots { display:table; bottom:-60px; left:0; width:1120px; transform:translateX(0);}
+.SMImgVideo .jsSwiperMotion .slick-dots li { display:table-cell; position:relative; height:2px; border-radius:0; background:#e6e3df;}
+.SMImgVideo .jsSwiperMotion .slick-dots li.slick-active:after { content:''; position:absolute; top:-2px; left:0; width:100%; height:2px; background:#9c836a;}
+.SMImgVideo .jsSwiperMotion .slick-dots { overflow:hidden; display:none; width:0; height:0;}
+.SMImgVideo .jsSwiperMotion .btnArrow { width:1120px; margin:24px auto 0;}
+
+.SMImgVideo .jsSwiperMotion .slick-slide a:hover {}
+.SMImgVideo .jsSwiperMotion .slick-slide a:hover .video { background:rgba(26,25,23,0.8);}
+.SMImgVideo .jsSwiperMotion .slick-slide a:hover .text { visibility:visible; opacity:1;}
+.SMImgVideo .jsSwiperMotion .slick-slide a:hover .play { margin-top:24px;}
+
+.SMArtist {}
+.SMArtist .jsSwiperMotion .swiperWrap .text { margin-top:15px; color:#333; font-weight:450;}
+.SMArtist .jsSwiperMotion .slick-list { padding-bottom:40px; border-bottom:1px solid #e6e3df;}
+.SMArtist .jsSwiperMotion .btnArrow { margin-top:40px;}
+.SMArtist .btnMore { margin-top:40px;}
+
+.chromaTV { height:480px; margin-top:80px; margin-bottom:200px; text-align:center; background:url('../images/submain/chroma/img_chromaTV.jpg') no-repeat center 0; background-size:cover;}
+.chromaTV h2 { padding-top:90px; font-size:30px; color:#fff; font-weight:100;}
+.chromaTV .text { margin:10px 0 20px; font-size:16px; color:#ffffff;}
+.chromaTV .link { font-size:16px; color:#fff; text-decoration:underline;}
+.chromaTV .iframe { width:736px; height:414px; margin:40px auto 0;}
+.chromaTV .iframe iframe { width:100%; height:100%;}
+
+.SMEvent2 {}
+.SMEvent2 .jsSwiperMotion .slick-initialized { margin-left:0;}
+.SMEvent2 .jsSwiperMotion .slick-list { overflow:inherit;}
+.SMEvent2 .jsSwiperMotion .slick-slide { margin-left:0;}
+.SMEvent2 .jsSwiperMotion .slick-slide .img { position:relative; height:360px;}
+.SMEvent2 .jsSwiperMotion .slick-slide .img:after { opacity:1; content:''; display:block; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.7); transition:all .3s ease;}
+.SMEvent2 .jsSwiperMotion .slick-slide .textBox { opacity:0; position:relative; padding-bottom:35px; border-bottom:1px solid #e6e3df;}
+.SMEvent2 .jsSwiperMotion .slick-slide .title { margin-top:40px; font-size:16px; color:#333; font-weight:450;}
+.SMEvent2 .jsSwiperMotion .slick-slide .text { margin-top:5px; color:#666; }
+.SMEvent2 .jsSwiperMotion .slick-slide .date { margin-top:25px; color:#666;}
+.SMEvent2 .jsSwiperMotion .slick-slide .btn { position:absolute; top:0; right:0;}
+.SMEvent2 .jsSwiperMotion .slick-slide.slick-active .textBox { opacity:1;}
+.SMEvent2 .jsSwiperMotion .slick-slide.slick-active .img:after { opacity:0;}
+.SMEvent2 .btnMore { margin-top:40px;}
+
+.SMStudio { margin-top:80px; padding-bottom:100px; background:#f9f9f9;}
+.SMStudio .jsSwiperMotion { padding-right:559px; padding-bottom:56px;}
+.SMStudio .jsSwiperMotion +.jsSwiperMotion { margin-top:56px;} 
+.SMStudio .swiperWrap { position:relative; z-index:1;}
+.SMStudio .jsSwiperMotion .img { width:561px; height:340px;}
+.SMStudio .jsSwiperMotion .slick-dots { left:609px; width:451px; transform:translateX(0);}
+.SMStudio .textBox { position:absolute; top:56px; right:0px; left:0; bottom:0px; padding-left:609px; background:#fff;}
+.SMStudio .textBox .title { padding-top:50px; font-size:18px; color:#333; font-weight:450;}
+.SMStudio .textBox .text { margin-top:12px; color:#666; line-height:24px;}
+.SMStudio .jsSwiperMotion .btnArrow { margin:0;}
+.SMStudio .btnArrow .btnLeft { position:absolute; bottom:56px; left:609px; z-index:1;}
+.SMStudio .btnArrow .btnRight { position:absolute; bottom:56px; right:60px; z-index:1;}
+
+.SMStudio .right.jsSwiperMotion { padding:0; padding-left:559px; padding-bottom:56px;}
+.SMStudio .right.jsSwiperMotion .slick-dots { left:-509px;}
+.SMStudio .right .textBox { padding-left:50px; padding-right:609px;}
+.SMStudio .right .btnArrow .btnLeft { left:50px;}
+.SMStudio .right .btnArrow .btnRight { right:619px;}
+
+.SMChromaField { padding-bottom:100px;}
+.SMChromaField .jsSwiperMotion { padding-right:450px; margin-bottom:112px;}
+.SMChromaField .swiperWrap { position:relative; z-index:1;}
+.SMChromaField .jsSwiperMotion .img { width:670px; height:448px;}
+.SMChromaField .jsSwiperMotion .slick-dots { left:670px; width:451px; transform:translateX(0);}
+.SMChromaField .textBox { position:absolute; bottom:56px; right:0px; left:0; padding-left:720px; background:#fff;}
+.SMChromaField .textBox .title { font-size:30px; color:#9c836a; font-weight:100;}
+.SMChromaField .textBox .text { margin-top:12px; color:#666; line-height:24px;}
+.SMChromaField .textBox dl { margin-top:30px;}
+.SMChromaField .textBox dt { display:inline-block; width:60px; color:#666; font-weight:450;}
+.SMChromaField .textBox dd { display:inline-block; color:#999;}
+.SMChromaField .jsSwiperMotion .btnArrow { margin:0;}
+.SMChromaField .btnArrow .btnLeft { position:absolute; bottom:0px; left:720px; z-index:1;}
+.SMChromaField .btnArrow .btnRight { position:absolute; bottom:0px; right:60px; z-index:1;}
+
+.SMChromaField .right.jsSwiperMotion { padding:0; padding-left:450px;}
+.SMChromaField .right.jsSwiperMotion .slick-dots { left:-450px;}
+.SMChromaField .right .textBox { padding-left:50px; padding-right:720px;}
+.SMChromaField .right .btnArrow .btnLeft { left:50px;}
+.SMChromaField .right .btnArrow .btnRight { right:720px;}
+
+.SMArtGardenText .innerBox { position:relative;}
+.SMArtGardenText h2 { position:absolute; top:0; left:80px; font-size:30px; color:#9c836a; font-weight:100; text-align:left;}
+.SMArtGardenText h2 span { display:block; margin-bottom:0px; font-size:14px; font-family:'roboto'; color:#666; font-weight:500;}
+.SMArtGardenText p { padding-left:288px; line-height:26px; color:#666;}
+
+.SMArtGardenText.type2 {}
+.SMArtGardenText.type2 .innerBox {}
+.SMArtGardenText.type2 .innerBox:before { content:''; display:block; position:absolute; top:-50px; left:80px; right:80px; height:1px; background:#e6e3df}
+.SMArtGardenText.type2 h2 { font-size:14px; color:#666; font-weight:450;}
+.SMArtGardenText.type2 p { padding-left:448px;}
+
+.SMArtGarden { padding-bottom:170px;}
+.SMArtGarden.pb0 { padding-bottom:0;}
+.SMArtGarden .jsSwiperMotion { padding-right:450px; padding-bottom:40px;}
+.SMArtGarden .swiperWrap { position:relative; z-index:1;}
+.SMArtGarden .jsSwiperMotion .img { width:672px; height:448px;}
+.SMArtGarden .jsSwiperMotion .slick-dots { left:0; right:576px; bottom:-35px; width:451px; transform:translateX(0);}
+.SMArtGarden .jsSwiperMotion .count { display:block; position:absolute; bottom:0; right:0; width:128px; height:128px; padding-top:111px; text-align:right; vertical-align:bottom; font-family:'roboto'; color:#909090; font-weight:500; background:#fff;}
+.SMArtGarden .textBox { position:absolute; bottom:135px; right:0px; padding-left:720px; background:#fff;}
+.SMArtGarden .textBox h2 { margin-bottom:35px; text-align:left;}
+.SMArtGarden .textBox h2 span { display:block; margin-bottom:0px; font-size:14px; font-family:'roboto'; color:#666; font-weight:500;}
+.SMArtGarden .textBox .text { margin-top:12px; color:#666; line-height:24px;}
+.SMArtGarden .textBox dl { margin-top:30px;}
+.SMArtGarden .textBox dt { display:inline-block; width:60px; color:#666; font-weight:450;}
+.SMArtGarden .textBox dd { display:inline-block; color:#999;}
+.SMArtGarden .jsSwiperMotion .btnArrow { margin:0;}
+.SMArtGarden .btnArrow .btnLeft { position:absolute; bottom:0px; left:0px; z-index:1;}
+.SMArtGarden .btnArrow .btnRight { position:absolute; bottom:0px; right:576px; z-index:1;}
+.SMArtGarden .gardenCopyright { position:absolute; bottom:10px; left:0px; font-size:11px; color:#999;}
+
+.SMArtGarden .artist { position:relative; padding-right:448px; margin-top:170px;}
+.SMArtGarden .artist h2 { margin-bottom:40px; text-align:left;}
+.SMArtGarden .artist h2 span { display:block; margin-bottom:0px; font-size:14px; font-family:'roboto'; color:#666; font-weight:500;}
+.SMArtGarden .artist p { line-height:22px; color:#666;}
+.SMArtGarden .artist .img { position:absolute; top:-229px; right:0;}
+
+.SMArtGarden.type2{ margin-bottom: 250px;}
+.SMArtGarden.type2 .jsSwiperMotion { padding-right:0; padding-left:448px;}
+.SMArtGarden.type2 .swiperWrap { width:752px;}
+.SMArtGarden.type2 .jsSwiperMotion .img { width:752px; height:416px;}
+.SMArtGarden.type2 .jsSwiperMotion .slick-dots { width:672px;}
+.SMArtGarden.type2 .jsSwiperMotion .count { right:inherit; top:0; bottom:inherit; left:0; padding:0; text-align:left;}
+.SMArtGarden.type2 .textBox { bottom:40px; padding-left:0; padding-right:736px;}
+.SMArtGarden.type2 .btnArrow .btnLeft { left:448px;}
+.SMArtGarden.type2 .btnArrow .btnRight { right:0;}
+.SMArtGarden.type2 .artist { padding-right:0; padding-left:448px}
+.SMArtGarden.type2 .artist .img {right:inherit; top:0; left:0;}
+.SMArtGarden.type2 .artist .img img { position:relative;}
+.SMArtGarden.type2 .artist .img:before { content:''; display:block; position:absolute; bottom:0; left:-80px; width:385px; height:464px; background:#9c836a;}
+
+.SMArtGarden.type3 { margin-top:352px;}
+.SMArtGarden.type3 .video { position:relative; padding-bottom:102px; background:#e1dcd8;}
+.SMArtGarden.type3 .video .innerBox { position:relative; top:-128px;}
+.SMArtGarden.type3 .video .count { position:absolute; top:-255px; left:50%; right:0; bottom:0; padding:15px; vertical-align:bottom; font-family:'roboto'; color:#909090; font-weight:500; background:#e1dcd8;}
+.SMArtGarden.type3 .video .videoImg { position:relative; margin-bottom:54px;}
+.SMArtGarden.type3 .video .videoImg img {}
+.SMArtGarden.type3 .video .videoImg .iconVideo { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6);}
+.SMArtGarden.type3 .video .videoImg .iconVideo span { display:block; position:absolute; top:50%; left:50%; width:80px; height:80px; margin:-40px 0 0 -40px; background:url('../images/submain/artGarden/btn_play.png') no-repeat center center;}
+.SMArtGarden.type3 .video .videoTextBox { position:relative;}
+.SMArtGarden.type3 .video h2 { position:absolute; top:0; left:80px; font-size:30px; color:#9c836a; font-weight:100; text-align:left;}
+.SMArtGarden.type3 .video h2 span { display:block; margin-bottom:0px; font-size:14px; font-family:'roboto'; color:#666; font-weight:500;}
+.SMArtGarden.type3 .video p { padding-left:448px; line-height:26px; color:#666;}
+.SMArtGarden.type3 .artist { margin-top:40px;}
+.SMArtGarden.type3 .artist .img { top:-188px;}
+
+.SMArtGarden.type4 { padding-bottom:0;}
+.SMArtGarden.type4 .jsSwiperMotion .count { bottom:inherit; top:0px; right:-80px; width:auto; height:auto; padding:0; text-align:left;}
+.SMArtGarden.type4 .jsSwiperMotion .img { width:672px; height:378px;}
+.SMArtGarden.type4 .textBox { width:388px; padding-left:0; }
+
+.SMArtGarden.type5 .jsSwiperMotion { padding-right:0; padding-left:448px;}
+.SMArtGarden.type5 .swiperWrap { width:752px;}
+.SMArtGarden.type5 .jsSwiperMotion .img { width:672px; height:378px;}
+.SMArtGarden.type5 .jsSwiperMotion .slick-dots { width:672px;}
+.SMArtGarden.type5 .jsSwiperMotion .count { right:inherit; left:0; width:97px; height:192px; padding:0; padding-top:175px; text-align:left;}
+.SMArtGarden.type5 .textBox { right:inherit; left:0; bottom:40px; padding-left:0;}
+.SMArtGarden.type5 .btnArrow .btnLeft { left:448px;}
+.SMArtGarden.type5 .btnArrow .btnRight { right:0;}
+
+.SMArtGardenArtist .innerBox { position:relative; padding-bottom:80px;}
+.SMArtGardenArtist .artist { min-height:384px; padding-right:0; padding-left:448px}
+.SMArtGardenArtist .artist .img { position:absolute; top:0; left:80px;}
+.SMArtGardenArtist .artist .img img { position:relative;}
+.SMArtGardenArtist .artist .img:before { content:''; display:block; position:absolute; top:0; left:-80px; width:385px; height:464px; background:#9c836a;}
+.SMArtGardenArtist .artist h2 { padding-top:100px; margin-bottom:40px; text-align:left;}
+.SMArtGardenArtist .artist h2 span { display:block; margin-bottom:0px; font-size:14px; font-family:'roboto'; color:#666; font-weight:500;}
+.SMArtGardenArtist .artist p { line-height:22px; color:#666;}
+
+.SMCasino1  {}
+.SMCasino1 .gamingList { margin-left:-16px;}
+.SMCasino1 .gamingList:after { content:''; display:block; clear:both;}
+.SMCasino1 .gamingList li { float:left; position:relative; width:268px; height:317px; margin-left:16px; border:1px solid #e6e3df; transform: translate(0px,0px);}
+.SMCasino1 .gamingList li .front { position: absolute; top: 0px; left: 0px; z-index: 1; width: 100%; height:100%; padding-top:173px; text-align:center; background: #fff; transform: perspective(700px) rotateY(0deg); transition: all 0.4s ease-in-out 0s; backface-visibility: hidden; -webkit-backface-visibility: hidden;}
+.SMCasino1 .gamingList li .front i { overflow:hidden; position:absolute; top:63px; left:50%; width:80px; height:80px; margin-left:-40px; background:url('../images/submain/casino/icon_casino.png') no-repeat;}
+.SMCasino1 .gamingList li .front i.icon1 {}
+.SMCasino1 .gamingList li .front i.icon2 {height:84px; background-position:0 -83px;}
+.SMCasino1 .gamingList li .front i.icon3 {height:85px; background-position:0 -172px;}
+.SMCasino1 .gamingList li .front i.icon4 {height:81px; background-position:0 -264px;}
+.SMCasino1 .gamingList li .front p { font-weight:500; font-family:'roboto'; color:#333; font-size:30px;}
+.SMCasino1 .gamingList li .front p span { display:block; margin-top:5px; font-size:14px; color:#666; font-family: 'Noto Sans'; font-weight:200;}
+.SMCasino1 .gamingList li .back {position: absolute; top: 0px; left: 0px; width: 100%; height:100%; padding-top:100px; text-align:center; background: #9c836a; transform: perspective(700px) rotateY(180deg); transition: all 0.4s ease-in-out 0s; backface-visibility: hidden; -webkit-backface-visibility: hidden;}
+.SMCasino1 .gamingList li .back .tit { margin-bottom:10px; font-weight:450; font-size:16px; color:#ffffff; }
+.SMCasino1 .gamingList li .back .text { color:rgba(255,255,255,0.65); line-height:22px;}
+/*
+.SMCasino1 .gamingList li:hover .front { transform: perspective(700px) rotateY(-180deg);}
+.SMCasino1 .gamingList li:hover .back { z-index:2; transform: perspective(700px) rotateY(0deg);}
+*/
+.SMCasino2 { position:relative;}
+.SMCasino2 .DDfindList { margin:-30px 0 0; border:0;; padding-top:0;}
+.SMCasino2 .DDfindList .findDiningItem { margin-top:80px;}
+.SMCasino2 .DDfindList .findDiningItem .textBox { text-align:center; padding-right:0;}
+.SMCasino2 .DDfindList .findDiningItem h3 { margin-top:25px; font-size:16px; color:#333; font-weight:450;}
+.SMCasino2 .bgbar.type1 { position:absolute; top:456px; right:0px; width:560px; height:354px; background:#f9f9f9; z-index: -1;}
+.SMCasino2 .bgbar.type2 { position:absolute; top:2000px; left:0px; width:640px; height:320px; background:#e9e4e1; z-index: -1;}
+
+[class*=SMConvention] { position:relative;}
+[class*=SMConvention]:after { content:''; display:block; clear:both;}
+[class*=SMConvention] .innerBox {position:relative;}
+[class*=SMConvention] .img {position:relative;}
+[class*=SMConvention] h1 { font-size:30px; color:#9c836a; font-weight:100;}
+[class*=SMConvention] p { margin-top:10px; font-size:16px; color:#666; line-height:26px;}
+[class*=SMConvention] p.smallText { font-size:14px; color:#666;}
+[class*=SMConvention] .link { display:inline-block; margin-top:40px; font-size:14px; color:#9c836a; text-decoration:underline;}
+
+.SMConvention1 .img { float:right;}
+.SMConvention1 .textBox { padding-top:60px;}
+.SMConvention1 .bgbar { position:absolute; top:150px; right:0; width:535px; height:465px; background:#eeeae7;}
+
+.SMConvention2 { margin-top:220px;}
+.SMConvention2 .img { float:left; margin-left:-280px; margin-right:193px;}
+.SMConvention2 .bgbar { position:absolute; top:-170px; left:80px; width:512px; height:241px; background:#9d9892;}
+
+.SMConvention3 { padding-bottom:160px;}
+.SMConvention3:before { content:''; display:block; position:absolute; left:0; right:0; bottom:160px; height:415px; background:#f9f9f9;}
+.SMConvention3 .innerBox { position:relative;}
+.SMConvention3 .img { position:relative; text-align:right;}
+.SMConvention3 .textBox { position:absolute; bottom:0;left:0; width:656px; padding:40px 80px; background:#fff;}
+
+
+.SMWalk {}
+.SMWalk > .innerBox { position:relative; z-index:1; width:1120px; padding:0; padding-bottom:90px; background:#fff;}
+.SMWalk .jsSwiperMotion { width:1280px; margin:-45px auto 0;}
+.SMWalk .jsSwiperMotion .slick-slide { position:relative;}
+
+.SMWalk2 { margin-bottom:50px;}
+.SMWalk2 .jsSwiperMotion { width:1280px; margin:0px auto 0;}
+.SMWalk2 .jsSwiperMotion .slick-slide { position:relative;}
+.SMWalk2 .jsSwiperMotion .slick-dots { bottom:0; width:736px; height:80px; margin-left:-272px; line-height:80px; background:#fff;}
+.SMWalk2 .jsSwiperMotion .videoImg { position:relative;}
+.SMWalk2 .jsSwiperMotion .videoImg img {}
+.SMWalk2 .jsSwiperMotion .videoImg .iconVideo { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6);}
+.SMWalk2 .jsSwiperMotion .videoImg .iconVideo span { display:block; position:absolute; top:50%; left:50%; width:80px; height:80px; margin:-40px 0 0 -40px; background:url('../images/submain/artGarden/btn_play.png') no-repeat center center;}
+.SMWalk2 .jsSwiperMotion .btnArrow { margin:0;}
+.SMWalk2 .jsSwiperMotion .btnArrow .btnLeft { position:absolute; bottom:28px; left:80px;}
+.SMWalk2 .jsSwiperMotion .btnArrow .btnRight { position:absolute; bottom:28px; left:630px;}
+
+.SMWalkArtist { position:relative; margin-bottom:240px;}
+.SMWalkArtist h2 { margin-bottom:40px;}
+.SMWalkArtist .bgBar { position:absolute; top:162px; bottom:-80px; left:50%; right:0; background:#4f4b48;}
+.SMWalkArtist .innerBox { position:relative;}
+.SMWalkArtist .textBox { position:absolute; top:68px; right:80px; bottom:0; width:384px; padding:0 30px; color:#fff; background:#9c836a;}
+.SMWalkArtist .textBox h3 { margin:40px 0; text-align:left; color:#fff; font-size:30px; font-weight:100;}
+.SMWalkArtist .textBox h3 span { display:block; font-size:14px; color:#ffffff; font-family:'roboto'; font-weight:500;}
+.SMWalkArtist .textBox .account { line-height:22px;}
+.SMWalkArtist .textBox .text { padding-top:15px; margin-top:30px; border-top:1px solid #b09c88; line-height:22px;}
+
+.SMWalkLogo { padding-top:128px;}
+.SMWalkLogo .brandLogo { text-align:center; background:#f9f9f9;}
+.SMWalkLogo .brandLogo img {}
+.SMWalkLogo .innerBox { position:relative; margin:50px auto 150px;}
+.SMWalkLogo h2 { position:absolute; top:0; left:80px; font-size:30px; color:#9c836a; font-weight:100;}
+.SMWalkLogo h2 span { display:block; font-size:14px; color:#666666; font-family:'roboto'; font-weight:500; text-align:left;}
+.SMWalkLogo .text { padding-left:288px;}
+.SMWalkLogo p { margin-bottom:20px;}
+.SMWalkLogo p span { display:inline-block; margin-right:10px; color:#999999;}
+
+.snsChroma { margin-top:28px; padding:30px 0; background:#1a1917;}
+.snsChroma .innerBox { position:relative; text-align:right;}
+.snsChroma strong { position:absolute; top:50%; left:80px; margin-top:-10px; font-size:14px; color:#fff; font-weight:300;}
+.snsChroma a { display:inline-block; width:24px; height:24px; font-size:0; vertical-align:middle; background:url('../images/main/img_sns.svg') no-repeat;}
+.snsChroma .sns1 { background-position:0 0;}
+.snsChroma .sns2 { margin-left:24px; background-position:-48px 0;}
+.snsChroma .sns3 { margin-left:24px; width:26px; background-position:-96px 0;}
+
+@media screen and (max-width:640px){
+}

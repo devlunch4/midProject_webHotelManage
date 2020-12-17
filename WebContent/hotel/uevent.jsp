@@ -19,7 +19,7 @@
 	background: #2c2b29;
 	clear: both;
 	text-align: left;
-	padding: 20px
+	padding: 20px;min-width: 1000px;
 }
 
 #logo {
@@ -38,7 +38,6 @@
 
 
 <!-- 공통부분 타이틀부분  시작 -->
-<link rel="stylesheet" href="../css/event.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -280,12 +279,12 @@
 		</article>
 	</section>
 	<!-- 바디 공통 공통부분 끝  -->
-
+<div id="alleventbody">
 	<h1 style="font-size: 30px; color: #9c836a; margin-left: 100px;">EVENT</h1>
 	<pre class="intro"
 		style="margin-left: 0px; background-color: white; border: none; font-size: 20px">
-	호텔 달고나에서 진행되는<br> 
-	이벤트를 소개합니다.
+		호텔 달고나에서 진행되는<br> 
+		이벤트를 소개합니다.
 	</pre>
 	<p style="color: blue; margin-left: 100px;">[클릭하시면 자세한 정보를 확인하실 수
 		있습니다.]</p>
@@ -363,6 +362,7 @@
 
 		</div>
 	</div>
+</div>
 	<br>
 	<br>
 	<br>

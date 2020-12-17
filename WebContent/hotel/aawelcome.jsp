@@ -51,7 +51,7 @@
 				<p>
 					달콤함과 향으로 <br>최고의 휴가를 제공하는 <br> 달고나입니다
 				</p>
-				<div class = "cont" OnClick="location.href = 'main.jsp'" style="cursor:pointer; ">
+				<div class = "cont" OnClick="location.href = 'mainb4.jsp'" style="cursor:pointer; ">
 				<input type = "image" class = "startmain" src="../images/화살표.png" alt = "시작하기" >
 				<p class ="stbt" style ="font-size: 25px;">
 					시작하기

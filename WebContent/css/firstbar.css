@@ -1,0 +1,49 @@
+
+
+/* ==============================
+ * header
+ * ============================== */
+#headerWrap01 { position:fixed; top:0; left:0; right:0; min-width:1280px; height:48px; z-index:10; background:#21201e; transition: top .3s ease;}
+         
+#headerWrap01 .topLink01 { float:right; margin-right:64px;}
+#headerWrap01 .topLink01 .more01 { float:left; margin-right:16px;}
+#headerWrap01 .topLink01 .more01 input[type="text"],
+#headerWrap01 .topLink01 .more01 input[type="password"] {
+	border : 1px solid #999;
+	background : transparent;
+	color : white;
+}
+
+/* #loginBtn { */
+/* 	background : transparent; */
+/* } */
+
+
+#headerWrap01 .topLink01 .more01 li { float:left; margin-left:25px; margin-top:15px; color:rgba(255,255,255,0.6);}
+#headerWrap01 .topLink01 .more01 li a { display:block; text-transform:uppercase; color:rgba(255,255,255,0.6); font-size:12px;}
+#headerWrap01 .topLink01 .more01 li a:hover { color:#9c836a;}
+
+
+
+/* .scrollActive #headerWrap01 {top:-48px; } */
+
+#headerWrap01 .topLink01 .more01 #loginBtn, #headerWrap01 .topLink01 .more01 #loginOutBtn {
+	background : transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

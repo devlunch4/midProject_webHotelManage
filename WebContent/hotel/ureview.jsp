@@ -17,7 +17,7 @@
 	background: #2c2b29;
 	clear: both;
 	text-align: left;
-    padding: 20px
+    padding: 20px;min-width: 1000px;
     
 }
 #logo {

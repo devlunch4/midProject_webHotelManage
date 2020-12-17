@@ -95,16 +95,24 @@ var createfindIdPassWordMode = function() {
 	
 }
 
-// 로그인하면 생기는 부분
+// 로그인 하면 생기는 부분
 var createLoginAfterPart = function() {
 	
+	
 	code='<form id="loginForm" action="#" method="post">';
-	code+='<div id="loginAfter">';
-	code+='<label id="userName"></label>';
-	code+='<label id="userEmail"></label>';
-	code+='<input id="loginOutBtn" type="button" value="로그아웃">';
-	code+='<input type="button" value="내정보">';
-	code+='</div>';
+	code+='<div id="headerWrap01">';
+		
+	code+=	'<div class="topLink01">';
+	code+=	'		<div class="more01"><div id="loginAfter">';
+	code+=	'			<ul>';
+	code+='<li id="userId"></li>&nbsp';
+	code+='<li id="userName"></li>&nbsp';
+	code+='<li id="userEmail"></li>&nbsp';
+	code+='<li><input class="btnb4" id="loginOutBtn" type="button" value="로그아웃"></li>';
+	code+=	'			</ul>';
+	code+=	'		</div>';
+	code+=	'	</div>';
+	code+=	'</div></div>';
 	code+='</form>';
 	
 	$('#login').append(code);
@@ -115,13 +123,21 @@ var createLoginAfterPart = function() {
 var createLoginPart = function() {
 	
 	code='<form id="loginForm" action="#" method="post">';
-	code='<div id="loginBefore">';
-	code+='<label>아이디 : </label><input id="id" type="text" name="id">';
-	code+='<label>비밀번호 : </label><input id="password" type="password" name="pass">';
-	code+='<input id="loginBtn" type="button" value="로그인">';
-	code+='<a href="memberjoin2.jsp">회원가입</a>';
-	code+='<a href="#" id="findIdPassWord">ID/비밀번호찾기</a>';
-	code+='</div>';
+	code+='<div id="headerWrap01">';
+	code+=	'<div class="topLink01">';
+	code+=	'		<div class="more01">';
+	code+=	'			<ul>';
+	code+=	'				<li>ID <input id="id" type="text" name="id" ></li>';
+	code+=	'				<li>PASSWORD <input id="password" type="password" name="pass"></li>';
+	code+=	'				<li><input class="btnb4" id="loginBtn" type="button" value="로그인"></li>';
+	code+=	'				<li><a href="umemberjoin.jsp">회원가입</a></li>';
+	code+=	'				<li><a href="#" id="findIdPassWord">아이디 / 비밀번호찾기</a></li>';
+	code+=	'			</ul>';
+	code+=	'		</div>';
+	code+=	'	</div>';
+		
+	code+=	'</div>';
+	
 	code+='</form>';
 	
 	$('#login').append(code);
@@ -152,7 +168,7 @@ var logout = function() {
 				
 		},
 		error : function(xhr) {
-			alert("상태 : " + xhr.stauts)
+			alert("로그아웃 실패 상태 : " + xhr.stauts)
 		},
 		dataType : 'json'
 			
@@ -162,39 +178,42 @@ var logout = function() {
 
 // 로그인 부분
 var login = function() {
-		
-		idval = $('#id').val().trim();
-		passval = $('#password').val().trim();
-		userId = idval;
-		userPassword = passval;
-		
-		// 로그인
-		$.ajax({
-	
-			url : '/hotel/LoginIn.do',
-			type : 'post',
-			data : {"MEM_ID" : userId, "MEM_PASS" : userPassword},	
-			success : function(res) {
-				
-				alert("로그인 성공!!\n" + res.mem_name + "님 환영합니다.");
-				
-				$('#userName').empty();
-				location.reload();
-				
-			},
-			error : function(xhr) {
-				alert("상태 : " + xhr.status);
-				$('#id').empty();
-				$('#password').empty();
-				return false;
-			},
-			dataType : 'json'
-		})
+
+	idval = $('#id').val().trim();
+	passval = $('#password').val().trim();
+	userId = idval;
+	userPassword = passval;
+
+	// 로그인
+	$.ajax({
+
+		url : '/hotel/LoginIn.do',
+		type : 'post',
+		data : {
+			"MEM_ID" : userId,
+			"MEM_PASS" : userPassword
+		},
+		success : function(res) {
+			if(res.power==0){
+			alert("로그인 성공!!\n" + res.mem_name + " 님 환영합니다.");
+			$('#userName').empty();
+			location.reload();
+			}else{
+				alert("로그인이 불가합니다. 관리자에게 문의하세요.");
+			}
+		},
+		error : function(xhr) {
+			alert("로그인 실패 상태 : " + xhr.status);
+			$('#id').empty();
+			$('#password').empty();
+			return false;
+		},
+		dataType : 'json'
+	})
 }
 
 // 예약 부분
 var insertResVLog = function() {
-	
 	 
 	// 예약 처리
 	// 방번호
@@ -233,9 +252,9 @@ var insertResVLog = function() {
 				alert("상태 : " + xhr.status);
 		},
 		dataType : 'json'
-					
-		});
-	
+
+	});
+
 }
 
 // 방번호 처리 부분
@@ -292,76 +311,74 @@ var getRoomNumList = function() {
 
 // 방종류 가져오는 부분
 var getRoomTypeList = function() {
-	
 
 	// 방 종류 선택
-	$('#roomPlList').on('click', function() {
-		
-		vroomPl = $(this).val();
-		
-		// 방 타입 가져오기
-		$.ajax({
-	
-			url : '/hotel/RoomList.do',
-			type : 'post',
-			data : {"room_pl" : vroomPl},	
-			success : function(res) {
-				
-				$('#roomTypeList').empty();
-				$('#roomPeople').empty();
-				
-				code = "";
-				$.each(res, function(i, v) {
-					code += '<option value="'+v.room_type+'">'+ v.room_type +'</option>';
+	$('#roomPlList').on(
+			'click',
+			function() {
+
+				vroomPl = $(this).val();
+
+				// 방 타입 가져오기
+				$.ajax({
+
+					url : '/hotel/RoomList.do',
+					type : 'post',
+					data : {
+						"room_pl" : vroomPl
+					},
+					success : function(res) {
+
+						$('#roomTypeList').empty();
+						$('#roomPeople').empty();
+
+						code = "";
+						$.each(res, function(i, v) {
+							code += '<option value="' + v.room_type + '">'
+									+ v.room_type + '</option>';
+						})
+
+						$('#roomTypeList').append(code);
+
+					},
+					error : function(xhr) {
+						alert("상태 : " + xhr.status);
+					},
+					dataType : 'json'
 				})
-				
-				$('#roomTypeList').append(code);
-				
-				
-			},
-			error : function(xhr) {
-				alert("상태 : " + xhr.status);
-			},
-			dataType : 'json'
-		})
-		
-		
-	}) 
-	
-	
+
+			})
+
 }
 
 // 지점 가져오는 부분
 var getRoomPlList = function() {
-	
-		// 지점 가져오기
-		$.ajax({
-			
-			url : '/hotel/RoomList.do',
-			type : 'get',
-			dataType : 'json',
-			success : function(res) {
-				
-				$('#roomPlList').empty();
-				$('#roomPeople').empty();
-				
-				code = "";
-				
-				$.each(res, function(i, v) {
-					code += '<option value="'+v.room_pl+'">'+ v.room_pl +'</option>';
-				})
-				
-				$('#roomPlList').append(code);
-			},
-			error : function(xhr) {
-				
-				alert("상태 : " + xhr.stauts)
-			}
-			
-		})
-	
+
+	// 지점 가져오기
+	$.ajax({
+
+		url : '/hotel/RoomList.do',
+		type : 'get',
+		dataType : 'json',
+		success : function(res) {
+
+			$('#roomPlList').empty();
+			$('#roomPeople').empty();
+
+			code = "";
+
+			$.each(res, function(i, v) {
+				code += '<option value="' + v.room_pl + '">' + v.room_pl
+						+ '</option>';
+			})
+
+			$('#roomPlList').append(code);
+		},
+		error : function(xhr) {
+
+			alert("상태 : " + xhr.stauts)
+		}
+
+	})
+
 }
-
-
-
-

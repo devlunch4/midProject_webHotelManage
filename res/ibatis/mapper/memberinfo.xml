@@ -29,7 +29,7 @@
 	<select id="getMemberInfoList" resultClass="memberinfoVO">
 		select *
 		from memberinfo
-		order by mem_bir desc
+		order by mem_id
 	</select>
 	
 	<update id="MemberInfoUpdate" parameterClass="memberinfoVO">

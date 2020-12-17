@@ -17,7 +17,7 @@
 	background: #2c2b29;
 	clear: both;
 	text-align: left;
-    padding: 20px
+    padding: 20px;min-width: 1000px;
     
 }
 #logo {
@@ -718,7 +718,7 @@ infox = {};
 						<!-- 클래스내 설정 
 					btn btn-primary 버튼의 디자인 
 					btn-lg  버튼의 크기 -->
-						<button id="joinbtn" type="button" class="btnsendx">전송버튼</button>
+						<button id="joinbtn" type="button" class="btnsendx">전송</button>
 						<button id="resetbtn" type="reset" class="btnresetx">초기화
 						</button>
 						<span id="joinspan"></span>

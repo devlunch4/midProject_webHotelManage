@@ -69,6 +69,26 @@
 		set room_status = #room_status#
 		where room_no = #room_no#
 	</update>
+	
+	<!-- <update id="updateRoomInfo" parameterClass="map">
+		UPDATE $roomPlName$
+		set room_no = #room_no#,
+		room_pl = #room_pl#,
+		room_type = #room_type#, 
+		room_status = #room_status#
+		where room_no = #room_no#
+		
+	</update> -->
+	
+	<insert id="insertRoom" parameterClass="map">
+		insert into $roomPlName$ 
+			values (#room_no#, #room_pl#, 
+			#room_type#, #room_status#)
+	</insert>
+	
+	<delete id="deleteRoom" parameterClass="map">
+		delete $room_pl$ where room_no = #room_no#
+	</delete>
 
 
 

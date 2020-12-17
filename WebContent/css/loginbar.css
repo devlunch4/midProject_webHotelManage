@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+#loginBefore {
+	height : 50px;
+	background-color : #ff9900;
+	min-width : 100%;
+	float : right;
+	}
+
+#loginBefore a{
+	color: gray;
+}

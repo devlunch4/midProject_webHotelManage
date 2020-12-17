@@ -17,7 +17,8 @@
 	background: #2c2b29;
 	clear: both;
 	text-align: left;
-	padding: 20px
+	padding: 20px;
+	min-width: 1000px;
 }
 
 #logo {
@@ -204,6 +205,17 @@
 		<% } %>
 		
 		
+		// 회원 탈퇴시
+		<%
+		if(userId != null) {
+		%>
+			//회원탈퇴 하기 버튼 클릭시 
+				$(document).on('click', '#memberWithdrawBtn', function() {
+					MemberWithdraw();
+					logout();
+				})
+		<% } %>
+		
 		// 해당 페이지 특별 추가 코드 내정보 보기 
 		$('#div_result *').remove();
 		//console.log(pageCount);
@@ -277,8 +289,8 @@
 		</div>
 	</div>
 
-	<h1>내 정보 수정</h1>
-
+	<h2 id="maintitle">내 정보 수정</h2>
+	<h4 id="subtitle">호텔 달고나 회원님의 개인 정보를 수정 하실 수 있습니다.</h4>
 	<section id="section_result">
 		<article id="article_result">
 			<div id="div_result"></div>

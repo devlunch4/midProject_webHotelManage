@@ -17,7 +17,7 @@
 	background: #2c2b29;
 	clear: both;
 	text-align: left;
-    padding: 20px
+    padding: 20px;min-width: 1000px;
     
 }
 #logo {
@@ -290,7 +290,7 @@ h3 {
 
 	<div class="conttitle">
 		<h1 class="title">
-			<span>오시는 길</span><br>달고나호텔 방문을<br>환영합니다.
+			<span style="font-size: 25px; color:#9c836a; ">오시는 길</span><br>달고나호텔 방문을<br>환영합니다.
 		</h1>
 
 		<div Align=center class="location">

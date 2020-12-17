@@ -17,7 +17,7 @@
 	background: #2c2b29;
 	clear: both;
 	text-align: left;
-	padding: 20px
+	padding: 20px;;min-width: 1000px;
 }
 #logo {
 	position : absolute;
@@ -367,16 +367,17 @@
 			<li class="active"><a href="main.jsp">Home</a></li>
 			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
 			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
-			<li><a data-toggle="tab" href="#menu3">안내</a></li>
+			<li><a data-toggle="tab" href="#menu3">호텔 안내</a></li>
+			<li><a data-toggle="tab" href="#menu4">이벤트</a></li>
 		</ul>
 
 		<div class="tab-content">
 			<div id="home" class="tab-pane fade in active"></div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>마이페이지</h3>
-				<a href="myinfomodify2.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="myresv2.jsp" style="text-decoration: none">예약
-					확인</a>
+				<a href="umyinfomodify.jsp" style="text-decoration: none">내 정보
+					확인/수정</a><br> <a href="umyresv.jsp" style="text-decoration: none">내
+					예약 확인</a>
 
 				<!--	<p>테스트로 집어넣음</p>
 				<ul class="nav nav-tabs">
@@ -390,9 +391,9 @@
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>게시판</h3>
-				<a href="unotice.jsp" style="text-decoration: none">공지게시판</a><br>
-				<a href="ureview.jsp" style="text-decoration: none">후기게시판</a><br>
-				<a href="uqboard.jsp" style="text-decoration: none">문의게시판</a>
+				<a href="unotice.jsp" style="text-decoration: none">공지 게시판</a><br>
+				<a href="ureview.jsp" style="text-decoration: none">후기 게시판</a><br>
+				<a href="uqboard.jsp" style="text-decoration: none">문의 게시판</a>
 				<hr>
 			</div>
 
@@ -405,7 +406,7 @@
 				<a href="ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
 				<hr>
 			</div>
-			
+
 			<div id="menu4" class="tab-pane fade">
 				<h3>이벤트</h3>
 				<a href="uevent.jsp" style="text-decoration: none">이벤트 안내</a><br>

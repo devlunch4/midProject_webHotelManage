@@ -34,3 +34,7 @@ strong {
 .intro {
 	font-family: inherit;
 }
+
+#alleventbody{
+	min-width: 1000px;
+}

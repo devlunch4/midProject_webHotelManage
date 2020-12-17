@@ -243,8 +243,8 @@ var MemberInfoList = function() {
 		success : function(res) {
 			
 			$('#div_result *').remove();
-			
-			code = '<input id="getMemberInfoAddBtn" type="button" value="회원추가">';
+			code ='<div id="powerinfox">[ 회원권한: 0  / 회원제한 : 1  / 회원탈퇴 : 2 ]</div>';
+			code += '<input id="getMemberInfoAddBtn" type="button" value="회원추가">';
 			code += '<input id="getMemberInfoUpdateBtn" type="button" value="회원수정"><br>';
 			code += '<table id="getMemberInfoListTable" border="1">';
 			code += '<tr><th>Id</th><th>pass</th><th>이름</th><th>생년월일</th>';
@@ -724,14 +724,14 @@ var adminLoginAfter = function() {
 	code+='</div>';
 	code+='</form>';
 	
-	main = '<input id="room_statusCheckBtn" type="button" value="방상태확인"><br>';
-	main += '<input type="button" id="resvloglist" value="resvloglist"><br>';
-	main += '<input type="button" id="getResvlogDateMoneyBtn" value="매출확인"><br>';
-	main += '<input type="button" id="getMemberInfoListBtn" value="회원확인"><br><br>';
+	main = '<input id="room_statusCheckBtn" type="button" value="객실 상태 확인">&nbsp;&nbsp;';
+	main += '<input type="button" id="resvloglist" value="예약 상태 확인">&nbsp;&nbsp;';
+	main += '<input type="button" id="getResvlogDateMoneyBtn" value="선택 월 매출 확인">&nbsp;&nbsp;';
+	main += '<input type="button" id="getMemberInfoListBtn" value="회원 정보 확인"><br><hr>';
 	// 게시판 권한 신~
-	main += '<a href = "unoticead.jsp">공지 게시판 관리</a><br>';
-	main += '<a href = "uqboardad.jsp">문의 게시판 관리</a><br>';
-	main += '<a href = "ureviewad.jsp">후기 게시판 관리</a><br>';
+	main += '<a href = "unoticead.jsp">공지 게시판 관리(페이지이동)</a><br>';
+	main += '<a href = "uqboardad.jsp">문의 게시판 관리(페이지이동)</a><br>';
+	main += '<a href = "ureviewad.jsp">후기 게시판 관리(페이지이동)</a><br><hr>';
 	
 	$('#login').append(code);
 	$('#main_result').append(main);

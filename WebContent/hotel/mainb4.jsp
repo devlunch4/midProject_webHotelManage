@@ -12,11 +12,13 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="../js/main.js"></script>
+<script src="../js/mainb4.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
-<script src="../js/xlogon.js"></script>
 
 
+
+
+<!-- for B4 -->
 <style>
 body {
 	overflow: auto;
@@ -308,11 +310,58 @@ table {
 				findPassWord();
 			})
 		<% } %>
-	});
+		
+	var target = '#headerWrap';
+		
+
+		$('.more > a',target).click(function(){
+			$(this).parent().toggleClass('on');
+			return false;
+		});
+		
+		$('#headerWrap .gnb > ul > li > a').hover(function(){
+			$(this).parent().addClass('on').siblings().removeClass('on');
+			$('#headerWrap').addClass('on');
+			if($(this).next('.gnbDepth2').length){
+				$('#headerWrap .gnbDepth2').not($(this).next('.gnbDepth2')).stop().hide();
+				$(this).next('.gnbDepth2').stop().slideDown('fast');
+				$('#headerWrap .bgDepth').stop().slideDown('fast');
+			}
+		});
+		
+		$('#headerWrap .gnb').mouseleave(function(){
+			gnbNone();
+		});
+		
+
+		function gnbNone(){
+			$('#headerWrap .gnb > ul > li').removeClass('on');
+			$('#headerWrap .gnbDepth2').stop().slideUp('fast');
+			$('#headerWrap .bgDepth').stop().slideUp('fast');
+			$('#headerWrap').removeClass('on');
+		}
+		
+		function gnbScroll(e){
+			var scrollT = $(window).scrollTop();
+			
+			if(e > 0){
+				//휠을 아래로
+				$('body').addClass('scrollActive');
+				gnbNone();
+			}else{
+				//휠을 위로
+				$('body').removeClass('scrollActive');
+			}
+		};
+	})
 </script>
 
-<script>
+<link rel="stylesheet" href="../css/loginbar.css">
+<link rel="stylesheet" href="../css/firstbar.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/reset.css">
 
+<script>
 //애니메이션 추가
 	$(function(){
 		  $('.bxslider').bxSlider({
@@ -330,6 +379,8 @@ table {
 <link rel="stylesheet" href="../css/mainbasic.css">
 
 <script src="../js/jquery.bxslider.js"></script>
+
+
 
 <script type="text/javascript">
 	//<![CDATA[
@@ -349,61 +400,79 @@ table {
 <link href="../css/jquery.bxslider.css" rel="stylesheet">
 
 <body>
-	<!-- 바디 공통 부분 시작 -->
+<!-- 로그인 부분 --> 
 	<div id="login" style="margin-top: 15px; margin-right : 15px; float: right;"></div>
-	<br>
-	<div class="container">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="main.jsp">Home</a></li>
-			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
-			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
-			<li><a data-toggle="tab" href="#menu3">호텔 안내</a></li>
-			<li><a data-toggle="tab" href="#menu4">이벤트</a></li>
+	
+	<!-- 영헌의 공통부분 시작 -->
+<header id="headerWrap">
+	
+	<nav class="gnb">
+		<ul>
+		
+			<li><a href="main.jsp">&nbsp;&nbsp;&nbsp;HOME</a></li>
+			
+			<li><a href="#">마이페이지</a><div class="gnbDepth2">
+					<div>
+						<h2><span>마이페이지</span></h2>
+						<ul>
+							<li><a href="umyinfomodify.jsp">내 정보 확인/수정</a></li>
+							<li><a href="umyresv.jsp">내 예약 확인</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			
+			
+			<li>
+				<a href="#">게시판</a>
+				<div class="gnbDepth2">
+					<div>
+						<h2><span>게시판</span></h2>
+						<ul>
+							<li><a href="unotice.jsp">공지 게시판</a></li>
+							<li><a href="ureview.jsp">후기 게시판</a></li>	
+							<li><a href="uqboard.jsp">문의 게시판</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			
+			<li>
+				<a href="#">호텔 안내</a>
+				<div class="gnbDepth2">
+					<div>
+						<h2><span>호텔 안내</span></h2>
+						<ul>
+							<li><a href="uroombxslide.jsp">객실 안내</a></li>
+							<li><a href="<%=request.getContextPath()%>/amenity.me">시설 안내</a></li>	
+							<li><a href="uvotemember.jsp">직원 안내</a></li>
+						    <li><a href="ulocation.jsp">오시는 길</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			
+			
+			<li>
+				<a href="#">이벤트</a>
+				<div class="gnbDepth2">
+					<div>
+						<h2><span>이벤트</span></h2>
+						<ul>
+						<li><a href="uevent.jsp">진행중인 이벤트</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
 		</ul>
-
-		<div class="tab-content">
-			<div id="home" class="tab-pane fade in active" ></div>
-			<div id="menu1" class="tab-pane fade">
-				<h3>마이페이지</h3>
-				<a href="umyinfomodify.jsp" style="text-decoration: none">내 정보
-					확인/수정</a><br> <a href="umyresv.jsp" style="text-decoration: none">내
-					예약 확인</a>
-
-				<!--	<p>테스트로 집어넣음</p>
-				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="">Home</a></li>
-					<li><a data-toggle="tab" href="">메뉴 1</a></li>
-					<li><a data-toggle="tab" href="">메뉴 2</a></li>
-					<li><a data-toggle="tab" href="">메뉴 3</a></li>
-				</ul>-->
-				<hr>
-			</div>
-
-			<div id="menu2" class="tab-pane fade">
-				<h3>게시판</h3>
-				<a href="unotice.jsp" style="text-decoration: none">공지 게시판</a><br>
-				<a href="ureview.jsp" style="text-decoration: none">후기 게시판</a><br>
-				<a href="uqboard.jsp" style="text-decoration: none">문의 게시판</a>
-				<hr>
-			</div>
-
-			<div id="menu3" class="tab-pane fade">
-				<h3>호텔 안내</h3>
-				<a href="uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
-				<a href="<%=request.getContextPath()%>/amenity.me"
-					style="text-decoration: none">시설 안내</a><br> <a
-					href="uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
-				<a href="ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
-				<hr>
-			</div>
-
-			<div id="menu4" class="tab-pane fade">
-				<h3>이벤트</h3>
-				<a href="uevent.jsp" style="text-decoration: none">이벤트 안내</a><br>
-			</div>
-
-		</div>
-	</div>
+	</nav>
+	
+	
+	<div class="bgDepth" ></div>
+</header>
+<!-- 영헌의 메뉴부분 끝-->
+	<br>	<br>	
+	<!-- 바디 공통 부분 시작 -->
 
 	<section id="section_result">
 		<article id="article_result">
@@ -413,7 +482,7 @@ table {
 	<!-- 바디 공통 공통부분 끝  -->
 
 	<br>
-
+	
 	<div>
 
 		<ul class="bxslider">
@@ -445,25 +514,24 @@ table {
 			</li>
 		</ul>
 	</div>
-
+	
 
 	<div id="reservation">
-		<table id="tb" border="0" align="center">
-			<tr id="tr1">
-				<td>지점선택</td>
+		<table border="1" align="center">
+			<tr>
+				<td>지점 선택</td>
 				<td>시작일</td>
 				<td>마지막일</td>
 				<td>객실타입</td>
-				<td>객실인원</td>
+				<td>객실 인원</td>
 				<td>방번호</td>
 				<td rowspan="2"><input id="reservationBtn" type="button"
 					value="예약"></td>
 			</tr>
 			<tr>
-				<td id="room_pl" idx="room_pl" name="room_pl">
-				<select id="roomPlList">
-				</select>
-				</td>
+				<td id="room_pl" idx="room_pl" name="room_pl"><select
+					id="roomPlList">
+				</select></td>
 				<td><input type="date" id="dateStart" name="dateStart"></td>
 				<td><input type="date" id="dateEnd" name="dateEnd"></td>
 				<td id="room_type" idx="room_type" name="room_type"><select
@@ -492,7 +560,7 @@ table {
 
 	<br>
 
-<footer id="footer">
+	<footer id="footer">
 		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="../images/log.png"> </p>
 		<p id="WebShop" style="color: rgba(255,255,255,0.8);">
 						㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br>
