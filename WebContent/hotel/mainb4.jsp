@@ -482,6 +482,39 @@ table {
 	<!-- 바디 공통 공통부분 끝  -->
 
 	<br>
+	<div id="reservation">
+		<table border="1" align="center">
+			<tr>
+				<td>지점 선택</td>
+				<td>시작일</td>
+				<td>마지막일</td>
+				<td>객실타입</td>
+				<td>객실 인원</td>
+				<td>방번호</td>
+				<td rowspan="2"><input id="reservationBtn" type="button"
+					value="예약"></td>
+			</tr>
+			<tr>
+				<td id="room_pl" idx="room_pl" name="room_pl"><select
+					id="roomPlList">
+				</select></td>
+				<td><input type="date" id="dateStart" name="dateStart"></td>
+				<td><input type="date" id="dateEnd" name="dateEnd"></td>
+				<td id="room_type" idx="room_type" name="room_type"><select
+					id="roomTypeList">
+				</select></td>
+				<td id="roomPeople" idx="roomPeople" name="roomPeople">
+					<!-- <p id="roomPeopleList"></p> -->
+				</td>
+				<td id="room_no" idx="room_no" name="room_no"><select
+					id="roomNoList">
+				</select></td>
+			</tr>
+
+		</table>
+	</div>
+	
+	
 	
 	<div>
 
@@ -516,37 +549,7 @@ table {
 	</div>
 	
 
-	<div id="reservation">
-		<table border="1" align="center">
-			<tr>
-				<td>지점 선택</td>
-				<td>시작일</td>
-				<td>마지막일</td>
-				<td>객실타입</td>
-				<td>객실 인원</td>
-				<td>방번호</td>
-				<td rowspan="2"><input id="reservationBtn" type="button"
-					value="예약"></td>
-			</tr>
-			<tr>
-				<td id="room_pl" idx="room_pl" name="room_pl"><select
-					id="roomPlList">
-				</select></td>
-				<td><input type="date" id="dateStart" name="dateStart"></td>
-				<td><input type="date" id="dateEnd" name="dateEnd"></td>
-				<td id="room_type" idx="room_type" name="room_type"><select
-					id="roomTypeList">
-				</select></td>
-				<td id="roomPeople" idx="roomPeople" name="roomPeople">
-					<!-- <p id="roomPeopleList"></p> -->
-				</td>
-				<td id="room_no" idx="room_no" name="room_no"><select
-					id="roomNoList">
-				</select></td>
-			</tr>
-
-		</table>
-	</div>
+	
 
 	<br>
 

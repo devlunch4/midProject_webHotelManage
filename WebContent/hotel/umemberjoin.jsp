@@ -494,7 +494,7 @@ infox = {};
 									//alert("가입버튼 후 INSERT 성공");
 									$("#joinspan").html(idvaluex + " 님 "+ res.sw).css("color", "red");
 									alert("가입을 축하합니다. ");
-									location.href="main.jsp";
+									location.href="mainb4.jsp";
 								},
 								error : function(xhr) {
 									alert("상태 : " + xhr.status);
@@ -513,7 +513,7 @@ infox = {};
 	<br>
 	<div class="container">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="main.jsp">Home</a></li>
+			<li class="active"><a href="mainb4.jsp">Home</a></li>
 			<li><a data-toggle="tab" href="#menu1">마이페이지</a></li>
 			<li><a data-toggle="tab" href="#menu2">게시판</a></li>
 			<li><a data-toggle="tab" href="#menu3">호텔 안내</a></li>
