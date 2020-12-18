@@ -61,11 +61,14 @@ var findId = function() {
 var createfindPassWordMode = function() {
 	
 	$('#div_result *').remove();
-	
-	code ='<input type="text" id="findIdVal" value="" placeholder="Id입력">';
-	code +='<input type="text" id="findNameVal" value="" placeholder="이름입력">';
-	code +='<input type="text" id="findEmailVal" value="" placeholder="이메일입력">';
-	code +='<input type="button" id="findPassWordBtn" value="비밀번호 찾기">';
+
+	code = '<br><br><br>';
+	code = '<div class="findpasswordx" style="text-align : center;"><br><input type="text" id="findIdVal" value="" placeholder="아이디 입력"><br><br>';
+	code += '<input type="text" id="findNameVal" value="" placeholder="이름 입력"><br><br>'; 
+	code += '<input type="text" id="findEmailVal" value="" placeholder="이메일 입력"><br><br>';
+	code += '<input type="button" id="findPassWordBtn"';
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code +=	' value="비밀번호 찾기"></div>';
 	
 	$('#div_result').append(code);
 	
@@ -74,10 +77,13 @@ var createfindPassWordMode = function() {
 var createfindIdMode = function() {
 	
 	$('#div_result *').remove();
-	
-	code ='<input type="text" id="findNameVal" value="" placeholder="이름입력">';
-	code +='<input type="text" id="findEmailVal" value="" placeholder="이메일입력">';
-	code +='<input type="button" id="findIdBtn" value="아이디 찾기">';
+
+	code = '<br><br><br>';
+	code += '<div class="findidwordx" style="text-align : center;"><br><input type="text" id="findNameVal" value="" placeholder="이름 입력"><br><br>';
+	code += '<input type="text" id="findEmailVal" value="" placeholder="이메일 입력"><br><br>';
+	code += '<input type="button" id="findIdBtn"';
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code += ' value="아이디 찾기"></div>';
 	
 	$('#div_result').append(code);
 	
@@ -87,9 +93,14 @@ var createfindIdMode = function() {
 var createfindIdPassWordMode = function() {
 	
 	$('#div_result *').remove();
-	
-	code ='<input type="button" id="createfindIdBtn" value="Id찾기">';
-	code +='<input type="button" id="createfindPassWordBtn" value="비밀번호찾기">';
+	//20201218 추가
+	code ='<br><br><br>';
+	code += '<div class="findidpassx" style="text-align : center;"><br><input type="button" id="createfindIdBtn" ';
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code +=	'value="아이디 찾기"><br><br>';
+	code += '<input type="button" id="createfindPassWordBtn" '; 
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code += ' value="비밀번호 찾기"></div>';
 	
 	$('#div_result').append(code);
 	

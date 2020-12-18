@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>호텔달고나 홈페이지- 객실 안내</title>
+<title>호텔 달고나 | 객실 안내</title>
 <link href="../css/jquery.bxslider.css" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">

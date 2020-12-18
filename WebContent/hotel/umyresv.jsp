@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>호텔달고나 | 예약확인</title>
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">

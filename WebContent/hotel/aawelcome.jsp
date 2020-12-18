@@ -13,8 +13,8 @@
 }
 
 .stbt {
-	position : fixed;
-	top : 385px;
+	position : absolute;
+	top : 25px;
 	padding-left : 230px;
 		
 }
@@ -28,7 +28,9 @@
 .stbt:hover {
 	text-decoration: underline;
 }
-
+body {
+	background : black;
+}
 </style>
 </head>
 <link rel="stylesheet" type="text/css"
@@ -37,12 +39,13 @@
 		href="../css/main-pc-scale.css">
 	<link rel="stylesheet" type="text/css"
 		href="../css/main-pc-max.css">
+		
 <body>
 	
 	
 	<div class="main_visual r202007" style ="min-width : 800px;">
 		
-		<div class="kv">
+		<div class="kv" style="color: white;">
 			<div class="video">
 				<video autoplay muted loop
 					src="../css/호텔영상.mp4"></video>
@@ -53,7 +56,7 @@
 				</p>
 				<div class = "cont" OnClick="location.href = 'mainb4.jsp'" style="cursor:pointer; ">
 				<input type = "image" class = "startmain" src="../images/화살표.png" alt = "시작하기" >
-				<p class ="stbt" style ="font-size: 25px;">
+				<p class ="stbt" style ="font-size: 25px; min-width : 400px;">
 					시작하기
 				</p>
 				</div>	

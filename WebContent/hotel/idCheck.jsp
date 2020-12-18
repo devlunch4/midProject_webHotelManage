@@ -3,7 +3,7 @@
 
 
 <%
-    //컨트롤러에서 ㅓㅈ장한 이름.
+    //컨트롤러에서 저장한 이름.
     String resId = (String) request.getAttribute("resId");
     if(resId != null){
     %>

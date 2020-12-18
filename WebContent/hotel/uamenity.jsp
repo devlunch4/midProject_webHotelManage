@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>호텔 달고나 홈페이지 - 시설 안내</title>
+<title>호텔 달고나 | 시설 안내</title>
 
 
 <!-- 공통 스타일 시작 -->
@@ -288,8 +288,8 @@
 
 			<div id="menu3" class="tab-pane fade">
 				<h3>호텔 안내</h3>
-				<a href="uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
-				<a href="<%=request.getContextPath()%>/hotel/amenity.me"
+				<a href="<%=request.getContextPath()%>/hotel/uroombxslide.jsp" style="text-decoration: none">객실 안내</a><br>
+				<a href="<%=request.getContextPath()%>/amenity.me"
 					style="text-decoration: none">시설 안내</a><br> <a
 					href="<%=request.getContextPath()%>/hotel/uvotemember.jsp" style="text-decoration: none">직원 안내</a><br>
 				<a href="<%=request.getContextPath()%>/hotel/ulocation.jsp" style="text-decoration: none">오시는 길</a><br>
@@ -371,7 +371,7 @@
 	<br>
 
 <footer id="footer">
-		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="../images/log.png"> </p>
+		<p id ="footer title" style="color : #9c836a;">HOTEL DALGONA <img id="logo" src="<%=request.getContextPath()%>/images/log.png"> </p>
 		<p id="WebShop" style="color: rgba(255,255,255,0.8);">
 						㈜호텔달고나 주소 대전광역시 중구 대흥동 500-5<br>
 						대표이사 전영헌 사업자등록번호 123-45-67890<br>

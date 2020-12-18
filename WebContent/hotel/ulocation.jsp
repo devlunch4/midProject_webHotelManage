@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>호텔 달고나 | 오시는길</title>
 
 <!-- 공통 스타일 시작 + 위치 전용 추가완료 -->
 <style type="text/css">
@@ -29,22 +29,6 @@
 	right : 10px;
 }
 
-h1.title {
-	padding: 59px 0 58px;
-	font-weight: 100;
-	font-size: 30px;
-	line-height: 40px;
-	text-align: center;
-	/* padding-right:400px; */
-}
-
-h3 {
-	font-weight: 100;
-	text-align: center;
-	padding: 30px;
-	font-size: 30px;
-	line-height: 40px;
-}
 </style>
 <!-- 공통 스타일 끝 -->
 
@@ -58,7 +42,8 @@ h3 {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/xlogon.js"></script>
-
+<link rel="stylesheet"
+	href="../css/location.css">
 
 <!-- 공통부분 타이틀부분 이어서 스크립트 시작 -->
 <script>
@@ -319,7 +304,7 @@ h3 {
 	</script>
 		</div>
 	</div>
-	<h3>대전광역시 중구 대흥동 500-5</h3>
+	<h3 id="addr">대전광역시 중구 대흥동 500-5</h3>
 	<br>
 
 <footer id="footer">

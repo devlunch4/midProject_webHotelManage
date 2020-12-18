@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>호텔 달고나 메인</title>
+<title>호텔 달고나 | 메인</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -20,6 +20,9 @@
 
 <!-- for B4 -->
 <style>
+#dateStart, #dateEnd, #dateStartx, #dateEndx {
+width: 130px;}
+
 body {
 	overflow: auto;
 	min-width: 800px;
@@ -409,7 +412,7 @@ table {
 	<nav class="gnb">
 		<ul>
 		
-			<li><a href="main.jsp">&nbsp;&nbsp;&nbsp;HOME</a></li>
+			<li><a href="mainb4.jsp">&nbsp;&nbsp;&nbsp;HOME</a></li>
 			
 			<li><a href="#">마이페이지</a><div class="gnbDepth2">
 					<div>
@@ -486,8 +489,8 @@ table {
 		<table border="1" align="center">
 			<tr>
 				<td>지점 선택</td>
-				<td>시작일</td>
-				<td>마지막일</td>
+				<td id="dateStartx">시작일</td>
+				<td id="dateEndx">마지막일</td>
 				<td>객실타입</td>
 				<td>객실 인원</td>
 				<td>방번호</td>
@@ -526,7 +529,7 @@ table {
 					<h4 id="detaildes">[성인 2인, 소인 1인] 크리스마스 북 콘서트, DIY키트, 에코백&키링 | 250,000원 부터
 						</h4>
 				</div> <img src="../images/호텔메인1.jpg"
-				style="width: 2000px; height: 750px;">
+				style="width: 100%; height: 750px;">
 			</li>
 			<li>
 				<div id="maindes">

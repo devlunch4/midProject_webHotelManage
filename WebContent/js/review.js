@@ -243,7 +243,7 @@ var listPageServer = function(cpage){
 			}
 		},
 		error : function(xhr){
-			alert("상태 : " + xhr.status);
+			alert(" listPageServer 상태 : " + xhr.status);
 		}
 	})
 }

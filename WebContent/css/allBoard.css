@@ -5,7 +5,7 @@
 	color: #666;
 }
 
-button, #write, #loginOutBtn {
+button, #write {
 	min-width: auto;
 	padding: 0 12px;
 	font-size: 12.5px;
@@ -16,12 +16,13 @@ button, #write, #loginOutBtn {
 	color: #9c836a;
 }
 
-button:hover, #write:hover, #loginOutBtn:hover {
+button:hover, #write:hover{
 	text-decoration: none;
 	cursor: pointer;
 	color: #fff;
 	background: #9c836a;
 }
+
 
 #boardintro {
 	margin: 20px;
@@ -151,4 +152,22 @@ hr {
 
 .rep p.p1, span.cont {
 	color: #fff;
+}
+
+#loginOutBtn, #loginBtn {
+	min-width: auto;
+	padding: 0 12px;
+	font-size: 12.5px;
+	height: 32px;
+	line-height: 32px;
+	background: #fff;
+	border: 1px solid #9c836a;
+	color: #9c836a;
+}
+
+#loginOutBtn:hover, #loginBtn:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	background: #9c836a;
 }

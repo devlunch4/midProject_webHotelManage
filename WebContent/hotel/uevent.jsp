@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>호텔 달고나 홈페이지 - 이벤트</title>
+<title>호텔 달고나 | 이벤트</title>
 
 
 

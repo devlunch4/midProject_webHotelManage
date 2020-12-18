@@ -56,10 +56,10 @@ public class SendMailTest  {
 			msg.setRecipient(Message.RecipientType.TO, to);
 
 			// 이메일 제목
-			msg.setSubject("메일 전송 테스트", "UTF-8");
+			msg.setSubject("[호텔 달고나] 회원 가입을 축하합니다.", "UTF-8");
 
 			// 이메일 내용
-			msg.setText("회원가입이 완료 되었습니다.", "UTF-8");
+			msg.setText("[호텔 달고나] 회원가입이 완료 되었습니다.", "UTF-8");
 
 			// 이메일 헤더
 			msg.setHeader("content-Type", "text/html");

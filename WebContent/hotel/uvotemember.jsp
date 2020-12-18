@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>호텔 달고나 홈페이지 직원 안내</title>
+<title>호텔 달고나 | 직원 안내</title>
 <link rel="stylesheet" href="../css/votemember2.css">
 <!-- 공통 스타일 시작 -->
 <style type="text/css">

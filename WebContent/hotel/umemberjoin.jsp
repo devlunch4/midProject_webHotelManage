@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>호텔 달고나 | 회원가입</title>
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -468,6 +468,58 @@ infox = {};
 							//만약 하나라도 올바르지 않은 데이터가 있다면 리턴한다
 							//if(regcheck() ==false)
 							if (!regcheck()) {
+								alert("아이디를 입력해주세요");
+								return false;
+								
+							}
+							
+							if (!regpwdck()) {
+								alert("비밀번호를 입력해주세요");
+								return false;
+							}
+							
+							if (!regpwdck2()) {
+								alert("비밀번호 확인을 입력해주세요");
+								return false;
+							}
+							
+							if (!regnameck()) {
+								alert("이름을 입력해주세요");
+								return false;
+							}
+							
+							if (!regbirck()) {
+								alert("생일을 입력해주세요");
+								return false;
+							}
+							
+							if (!reggendck()) {
+								alert("성별을 입력해주세요");
+								return false;
+							}
+							
+							if (!regemailck()) {
+								alert("이메일을 입력해주세요");
+								return false;
+							}
+							
+							if (!regtelck()) {
+								alert("전화번호를 입력해주세요");
+								return false;
+							}
+							
+							if (!regzipck()) {
+								alert("우편번호를 입력해주세요");
+								return false;
+							}
+							
+							if (!regaddr1ck()) {
+								alert("일반 주소를 입력해주세요");
+								return false;
+							}
+							
+							if (!regaddr2ck()) {
+								alert("상세 주소를 입력해주세요");
 								return false;
 							}
 							

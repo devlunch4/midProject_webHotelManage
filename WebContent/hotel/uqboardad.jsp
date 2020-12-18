@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>호텔 달고나 | 문의게시판 </title>
 
 <!-- 공통 스타일 시작 -->
 <style type="text/css">
@@ -504,7 +504,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">문의사항</h4>
 				</div>
 				<div class="modal-body">
 					<form id="wform">
@@ -531,7 +531,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">문의사항</h4>
 				</div>
 				<div class="modal-body">
 					<form id="uform">

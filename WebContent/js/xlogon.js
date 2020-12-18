@@ -66,9 +66,11 @@ var createfindPassWordMode = function() {
 	$('#div_result *').remove();
 
 	code = '<div class="findpasswordx" style="text-align : center;"><br><input type="text" id="findIdVal" value="" placeholder="아이디 입력"><br><br>';
-	code += '<input type="text" id="findNameVal" value="" placeholder="이름 입력"><br><br>';
+	code += '<input type="text" id="findNameVal" value="" placeholder="이름 입력"><br><br>'; 
 	code += '<input type="text" id="findEmailVal" value="" placeholder="이메일 입력"><br><br>';
-	code += '<input type="button" id="findPassWordBtn" value="비밀번호 찾기"></div>';
+	code += '<input type="button" id="findPassWordBtn"';
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code +=	' value="비밀번호 찾기"></div>';
 
 	$('#div_result').append(code);
 
@@ -80,7 +82,10 @@ var createfindIdMode = function() {
 
 	code = '<div class="findidwordx" style="text-align : center;"><br><input type="text" id="findNameVal" value="" placeholder="이름 입력"><br><br>';
 	code += '<input type="text" id="findEmailVal" value="" placeholder="이메일 입력"><br><br>';
-	code += '<input type="button" id="findIdBtn" value="아이디 찾기"></div>';
+	code += '<input type="button" id="findIdBtn"';
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code += ' value="아이디 찾기"></div>';
+		
 
 	$('#div_result').append(code);
 
@@ -91,9 +96,12 @@ var createfindIdPassWordMode = function() {
 
 	$('#div_result *').remove();
 
-	code = '<div class="findidpassx" style="text-align : center;"><br><input type="button" id="createfindIdBtn" value="아이디 찾기"><br><br>';
-	code += '<input type="button" id="createfindPassWordBtn" value="비밀번호 찾기"></div>';
-
+	code = '<div class="findidpassx" style="text-align : center;"><br><input type="button" id="createfindIdBtn" ';
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code +=	'value="아이디 찾기"><br><br>';
+	code += '<input type="button" id="createfindPassWordBtn" '; 
+	code +=	' style="min-width: auto; padding: 0 12px; font-size: 13.5px; height: 45px; background: #dfbd94; border: 1px solid #9c836a; color: #fff;"';
+	code += ' value="비밀번호 찾기"></div>';
 	$('#div_result').append(code);
 
 }
@@ -310,7 +318,7 @@ var getMemberInfoVal = function() {
 					
 					code += '<div class="memberLeave">';
 					code += '<h4>회원탈퇴</h4>';
-					code += '<p id="leavetext">파라다이스시티 회원탈퇴는 하단 ‘회원 탈퇴신청’ 버튼을 클릭하시면 즉시 탈퇴가 이루어집니다. <br />탈퇴 후 해당 아이디와 회원 정보는 삭제처리 됩니다.</p>';
+					code += '<p id="leavetext">호텔달고나 회원탈퇴는 하단 ‘회원 탈퇴신청’ 버튼을 클릭하시면 즉시 탈퇴가 이루어집니다. <br />탈퇴 후 해당 아이디와 회원 정보는 비활성처리 됩니다.</p>';
 					code +=	'<input id="memberWithdrawBtn" type="button" value="회원탈퇴하기">';
 					code += '</div>';
 
@@ -336,7 +344,7 @@ var MemberWithdraw = function() {
 			"mem_id" : userId
 		},
 		success : function(res) {
-			alert("회원탈퇴가 " + res.sw + "했습니다.<br> 이용해주셔서 감사합니다.");
+			alert("회원탈퇴가" + res.sw + "했습니다.\n이용해주셔서 감사합니다.");
 			$('#div_result *').remove();
 			location.href="main.jsp";
 		},
