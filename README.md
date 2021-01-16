@@ -1,5 +1,5 @@
 # midProject_webHotelManage
-## mid Project webHotel site and Manage (Dec 10, 2020 Dec 18, 2020, 20201210~1218). end
+## mid Project webHotel site and Manage(member, reservation....) (Dec 10, 2020 Dec 18, 2020, 20201210~1218). end
 
 
 ### Main function guide
@@ -38,10 +38,9 @@ JDBC/OJDBC >>> DATABASE
 iBATIS >>> DATABASE 
 log4j >>> log, debug.
 
-#### develop used.
+#### develop Environment
 SVN, github,
 eclipse,
 starUML, exerd,
-oracle, SQL developer(17.x)
-
-
+Oracle Database XE 11.2, SQL developer(17.x),
+redmine.
