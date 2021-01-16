@@ -31,5 +31,17 @@
 
 ### Additional function guide
 
-#### text
+#### USED API
+JAVA MAIL lib >>> send join info / find account and password
+KAKAO map API >>> hotel location info
+JDBC/OJDBC >>> DATABASE 
+iBATIS >>> DATABASE 
+log4j >>> log, debug.
+
+#### develop used.
+SVN, github,
+eclipse,
+starUML, exerd,
+oracle, SQL developer(17.x)
+
 
