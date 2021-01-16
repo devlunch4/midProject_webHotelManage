@@ -2,7 +2,7 @@
 ## mid Project webHotel site and Manage(member, reservation....) (Dec 10, 2020 Dec 18, 2020, 20201210~1218). end
 
 
-### Main function guide
+### 1.Main function guide
 #### intro
 <img src = "/readmefolder/intro.png" width="40%">
 
@@ -29,7 +29,7 @@
 <img src = "/readmefolder/adminroominfo2.png" width="40%"> <img src = "/readmefolder/adminroominfo3.png" width="40%">
 
 
-### Additional function guide
+### 2.Additional function guide and etc Info
 
 #### USED API
 JAVA MAIL lib >>> send join info / find account and password
